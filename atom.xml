@@ -6,36 +6,39 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-01-23T08:57:30.285Z</updated>
+  <updated>2020-01-23T13:24:26.005Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
-    <name>John Doe and Asitheclever</name>
+    <name>Asitheclever</name>
     
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>第一篇博客</title>
-    <link href="http://yoursite.com/2020/01/23/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/"/>
-    <id>http://yoursite.com/2020/01/23/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</id>
+    <title>我来了</title>
+    <link href="http://yoursite.com/2020/01/23/%E5%BF%83%E6%83%85/"/>
+    <id>http://yoursite.com/2020/01/23/%E5%BF%83%E6%83%85/</id>
     <published>2020-01-23T08:20:25.578Z</published>
-    <updated>2020-01-23T08:57:30.285Z</updated>
+    <updated>2020-01-23T13:24:26.005Z</updated>
     
-    <content type="html"><![CDATA[<hr><h2 id="我来了哈哈哈"><a href="#我来了哈哈哈" class="headerlink" title="我来了哈哈哈"></a>我来了哈哈哈</h2><h3 id="致大家"><a href="#致大家" class="headerlink" title="致大家"></a>致大家</h3><p>首先说说我为什么要写博客。<br><br>本科就要结束了，遗憾这四年没留下太多回忆。<br><br>亡羊补牢，为时不晚嘛，我决定写点博客记录生活。<br><br>为什么不在QQ或者微信上发呢？<br><br>就是不喜欢，至于为什么我不想解释（偷笑）。<br><br>第一篇文章我不想扯太多，就这样吧！</p>]]></content>
+    <content type="html"><![CDATA[<h3 id="致大家"><a href="#致大家" class="headerlink" title="致大家"></a>致大家</h3><p>首先说说我为什么要写博客。<br><br>本科就要结束了，遗憾这四年没留下太多回忆。<br><br>亡羊补牢，为时不晚嘛，我决定写点博客记录生活。<br><br>为什么不在QQ或者微信上发呢？<br><br>就是不喜欢，至于为什么我不想解释（偷笑）。<br><br>第一篇文章我不想扯太多，就这样吧！</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;hr&gt;
-&lt;h2 id=&quot;我来了哈哈哈&quot;&gt;&lt;a href=&quot;#我来了哈哈哈&quot; class=&quot;headerlink&quot; title=&quot;我来了哈哈哈&quot;&gt;&lt;/a&gt;我来了哈哈哈&lt;/h2&gt;&lt;h3 id=&quot;致大家&quot;&gt;&lt;a href=&quot;#致大家&quot; class=&quot;headerlink&quot; title
+        &lt;h3 id=&quot;致大家&quot;&gt;&lt;a href=&quot;#致大家&quot; class=&quot;headerlink&quot; title=&quot;致大家&quot;&gt;&lt;/a&gt;致大家&lt;/h3&gt;&lt;p&gt;首先说说我为什么要写博客。&lt;br&gt;&lt;br&gt;本科就要结束了，遗憾这四年没留下太多回忆。&lt;br&gt;&lt;br&gt;亡羊补牢，为时不晚嘛，我决定写点
       
     
     </summary>
     
     
+      <category term="心情记录" scheme="http://yoursite.com/categories/%E5%BF%83%E6%83%85%E8%AE%B0%E5%BD%95/"/>
+    
+    
+      <category term="-Testing -Another Tag" scheme="http://yoursite.com/tags/Testing-Another-Tag/"/>
     
   </entry>
   
