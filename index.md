@@ -1,6 +1,6 @@
-## Welcom to my world!
-
-I am not creat this blog because I feel bored.
-I'd like to share something good in life to my friends.
-Fine! Let's begin!
-hehe
+# 欢迎来到我的博客
+## 新的一年一起嗨！
+对我来说今年将会是很有意义的一年，我的大学本科要结束啦！<br>
+很期待今后的生活。<br>
+写写博客记录逗逼时光。<br>
+那么开始吧！
