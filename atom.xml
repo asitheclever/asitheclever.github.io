@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-01-23T13:24:26.005Z</updated>
+  <updated>2020-01-23T14:37:53.628Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>得到吧</title>
+    <link href="http://yoursite.com/2020/01/23/%E5%BE%97%E5%88%B0%E4%B8%AA%E4%BA%BA%E8%AE%B2%E5%BA%A7/"/>
+    <id>http://yoursite.com/2020/01/23/%E5%BE%97%E5%88%B0%E4%B8%AA%E4%BA%BA%E8%AE%B2%E5%BA%A7/</id>
+    <published>2020-01-23T14:26:50.898Z</published>
+    <updated>2020-01-23T14:37:53.628Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="得到app"><a href="#得到app" class="headerlink" title="得到app"></a>得到app</h3><p>最喜欢的app，特地做一个分类来讲讲体会！</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;得到app&quot;&gt;&lt;a href=&quot;#得到app&quot; class=&quot;headerlink&quot; title=&quot;得到app&quot;&gt;&lt;/a&gt;得到app&lt;/h3&gt;&lt;p&gt;最喜欢的app，特地做一个分类来讲讲体会！&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+      <category term="-得到" scheme="http://yoursite.com/categories/%E5%BE%97%E5%88%B0/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>我来了</title>
     <link href="http://yoursite.com/2020/01/23/%E5%BF%83%E6%83%85/"/>
     <id>http://yoursite.com/2020/01/23/%E5%BF%83%E6%83%85/</id>
     <published>2020-01-23T08:20:25.578Z</published>
-    <updated>2020-01-23T13:24:26.005Z</updated>
+    <updated>2020-01-23T14:23:20.331Z</updated>
     
     <content type="html"><![CDATA[<h3 id="致大家"><a href="#致大家" class="headerlink" title="致大家"></a>致大家</h3><p>首先说说我为什么要写博客。<br><br>本科就要结束了，遗憾这四年没留下太多回忆。<br><br>亡羊补牢，为时不晚嘛，我决定写点博客记录生活。<br><br>为什么不在QQ或者微信上发呢？<br><br>就是不喜欢，至于为什么我不想解释（偷笑）。<br><br>第一篇文章我不想扯太多，就这样吧！</p>]]></content>
     
@@ -35,7 +60,7 @@
     </summary>
     
     
-      <category term="心情记录" scheme="http://yoursite.com/categories/%E5%BF%83%E6%83%85%E8%AE%B0%E5%BD%95/"/>
+      <category term="-心情记录" scheme="http://yoursite.com/categories/%E5%BF%83%E6%83%85%E8%AE%B0%E5%BD%95/"/>
     
     
       <category term="-Testing -Another Tag" scheme="http://yoursite.com/tags/Testing-Another-Tag/"/>
