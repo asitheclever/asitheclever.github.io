@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="python,语法," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Asitheclever的城堡" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="简介&amp;emsp;&amp;emsp;今天是我学习Python的第57天了，目前的话应该对Python基本语法概念比较熟悉，开发了一个可以用数据库储存数据的计时器，可以不看别人的代码用Pygame写出连连看小游戏，这些项目写博客是一件比较耗体力的事情，以后有空再来整。今天的博客内容是我从油管上学到的一些Python的便捷语法技巧，以后还会整理更多的内容，会了很多奇奇怪怪的语法，可能是走出萌新时期的标志，23">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python 奇特语法">
+<meta property="og:url" content="http://asitheclever.github.io/2020/04/12/python/python%20%E9%AC%BC%E7%95%9C%E5%86%99%E6%B3%95/index.html">
+<meta property="og:site_name" content="Asitheclever的城堡">
+<meta property="og:description" content="简介&amp;emsp;&amp;emsp;今天是我学习Python的第57天了，目前的话应该对Python基本语法概念比较熟悉，开发了一个可以用数据库储存数据的计时器，可以不看别人的代码用Pygame写出连连看小游戏，这些项目写博客是一件比较耗体力的事情，以后有空再来整。今天的博客内容是我从油管上学到的一些Python的便捷语法技巧，以后还会整理更多的内容，会了很多奇奇怪怪的语法，可能是走出萌新时期的标志，23">
+<meta property="og:image" content="http://asitheclever.github.io/images/python/yufa/1.jpg">
+<meta property="og:image" content="http://asitheclever.github.io/images/python/yufa/2.jpg">
+<meta property="og:image" content="http://asitheclever.github.io/images/python/yufa/3.jpg">
+<meta property="og:image" content="http://asitheclever.github.io/images/python/yufa/4.jpg">
+<meta property="og:image" content="http://asitheclever.github.io/images/python/yufa/5.jpg">
+<meta property="og:image" content="http://asitheclever.github.io/images/python/yufa/6.jpg">
+<meta property="og:image" content="http://asitheclever.github.io/images/python/yufa/7.jpg">
+<meta property="og:image" content="http://asitheclever.github.io/images/python/yufa/8.jpg">
+<meta property="og:image" content="http://asitheclever.github.io/images/python/yufa/9.jpg">
+<meta property="og:image" content="http://asitheclever.github.io/images/python/yufa/10.jpg">
+<meta property="og:image" content="http://asitheclever.github.io/images/python/yufa/11.jpg">
+<meta property="og:image" content="http://asitheclever.github.io/images/python/yufa/12.jpg">
+<meta property="article:published_time" content="2020-04-12T12:43:43.033Z">
+<meta property="article:modified_time" content="2020-04-12T13:04:18.989Z">
+<meta property="article:author" content="Asitheclever">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="语法">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://asitheclever.github.io/images/python/yufa/1.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://asitheclever.github.io/2020/04/12/python/python 鬼畜写法/"/>
+
+
+
+
+
+  <title>Python 奇特语法 | Asitheclever的城堡</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Asitheclever的城堡</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://asitheclever.github.io/2020/04/12/python/python%20%E9%AC%BC%E7%95%9C%E5%86%99%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Asitheclever">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Asitheclever的城堡">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Python 奇特语法</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-12T20:43:43+08:00">
+                2020-04-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
+                    <span itemprop="name">-python学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  722 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>&emsp;&emsp;今天是我学习Python的第57天了，目前的话应该对Python基本语法概念比较熟悉，开发了一个可以用数据库储存数据的计时器，可以不看别人的代码用Pygame写出连连看小游戏，这些项目写博客是一件比较耗体力的事情，以后有空再来整。今天的博客内容是我从油管上学到的一些Python的便捷语法技巧，以后还会整理更多的内容，会了很多奇奇怪怪的语法，可能是走出萌新时期的标志，23333。当然我还是个快乐的萌新hhh！</p>
+<a id="more"></a>
+<h1 id="奇特语法"><a href="#奇特语法" class="headerlink" title="奇特语法"></a>奇特语法</h1><h2 id="1-Enum"><a href="#1-Enum" class="headerlink" title="1.Enum"></a>1.Enum</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">class Enum:</span><br><span class="line">    Tim, bill, kite &#x3D; range(3)</span><br><span class="line">print(Enum.Tim)</span><br><span class="line">print(Enum.kite)</span><br></pre></td></tr></table></figure>
+<p><br>结果为:<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="/images/python/yufa/1.jpg" alt="avatar"><br></p>
+<h2 id="2-快速赋值"><a href="#2-快速赋值" class="headerlink" title="2.快速赋值"></a>2.快速赋值</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x, y, z &#x3D; (0, 9, 8)</span><br><span class="line">print(x)</span><br><span class="line">print(y)</span><br><span class="line">print(z)</span><br></pre></td></tr></table></figure>
+<p><br>结果为:<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="/images/python/yufa/2.jpg" alt="avatar"><br></p>
+<h2 id="3-print函数打印用法"><a href="#3-print函数打印用法" class="headerlink" title="3.print函数打印用法"></a>3.print函数打印用法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">name &#x3D; &#39;Tim&#39;</span><br><span class="line">age &#x3D; 15</span><br><span class="line">print(&quot;Hello my name is&quot;, name, &quot;and I am&quot;, age, &quot;years old&quot;)</span><br><span class="line">print(&quot;Hello my name is &quot; + name + &quot; and I am &quot; + str(age) + &quot; years old&quot;)</span><br><span class="line">st &#x3D; f&quot;Hello my name is &#123;name&#125; and I am &#123;age&#125; years old&quot;</span><br><span class="line">print(st)</span><br></pre></td></tr></table></figure>
+<p><br>结果为:<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="/images/python/yufa/3.jpg" alt="avatar"><br></p>
+<h2 id="4-enumerate"><a href="#4-enumerate" class="headerlink" title="4.enumerate"></a>4.enumerate</h2><p>下面两端代码执行结果一样的。<br></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x &#x3D; [2, 3, 4, 5]</span><br><span class="line">for i in range(len(x)):</span><br><span class="line">    print(i, x[i])</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> x &#x3D; [2, 3, 4, 5]</span><br><span class="line">for i, e in enumerate(x):</span><br><span class="line">    print(i, x[i])</span><br></pre></td></tr></table></figure>
+<p> <br>结果为:<br></p>
+<p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="/images/python/yufa/4.jpg" alt="avatar"><br></p>
+<h2 id="5-zip混合打印技巧"><a href="#5-zip混合打印技巧" class="headerlink" title="5.zip混合打印技巧"></a>5.zip混合打印技巧</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">names &#x3D; [&#39;Tim&#39;, &#39;Bill&#39;, &#39;Boe&#39;]</span><br><span class="line">ages &#x3D; [19, 64, 34, 76]</span><br><span class="line">fav_color &#x3D; [&#39;blue&#39;, &#39;red&#39;, &#39;green&#39;]</span><br><span class="line">for i in range(len(names)):</span><br><span class="line">    print(names[i], ages[i], fav_color[i])</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="/images/python/yufa/5.jpg" alt="avatar"><br><br><br>可以把for替换如下：<br></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(list(zip(names, ages, fav_color)))</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="/images/python/yufa/6.jpg" alt="avatar"><br><br><br>或者：<br></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">for tup in zip(names, ages, fav_color):</span><br><span class="line">    print(tup)</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="/images/python/yufa/7.jpg" alt="avatar"><br><br><br>再或者：<br></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">for name, age, color in zip(names, ages, fav_color):</span><br><span class="line">    print(name, age, color)</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="/images/python/yufa/8.jpg" alt="avatar"><br></p>
+<h2 id="6-help查看函数帮助"><a href="#6-help查看函数帮助" class="headerlink" title="6.help查看函数帮助"></a>6.help查看函数帮助</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">help(input)</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="/images/python/yufa/9.jpg" alt="avatar"><br></p>
+<h2 id="7-把for放入数组内"><a href="#7-把for放入数组内" class="headerlink" title="7.把for放入数组内"></a>7.把for放入数组内</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">a &#x3D; [i for i in range(5)]</span><br><span class="line">b &#x3D; [i for i in range(5) if i%2 &#x3D;&#x3D; 0]</span><br><span class="line">c &#x3D; [[1] for i in range(5)]</span><br><span class="line">d &#x3D; [[j for j in range(i)] for i in range(5)]</span><br><span class="line">e &#x3D; [[x, y] for x, y in zip(range(5), range(5, 10))]</span><br><span class="line">print(f&#39;a &#x3D; &#123;a&#125;&#39;)</span><br><span class="line">print(f&#39;b &#x3D; &#123;b&#125;&#39;)</span><br><span class="line">print(f&#39;c &#x3D; &#123;c&#125;&#39;)</span><br><span class="line">print(f&#39;d &#x3D; &#123;d&#125;&#39;)</span><br><span class="line">print(f&#39;e &#x3D; &#123;e&#125;&#39;)</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="/images/python/yufa/10.jpg" alt="avatar"><br></p>
+<h2 id="8-将数组内原始连起来打印"><a href="#8-将数组内原始连起来打印" class="headerlink" title="8.将数组内原始连起来打印"></a>8.将数组内原始连起来打印</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">words &#x3D; [&#39;hello&#39;, &#39;my&#39;, &#39;name&#39;, &#39;is&#39;]</span><br><span class="line">print(&#39;,&#39;.join(words))</span><br><span class="line">print(&#39;--&#39;.join(words))</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="/images/python/yufa/11.jpg" alt="avatar"><br></p>
+<h2 id="9-将字符串反转打印"><a href="#9-将字符串反转打印" class="headerlink" title="9.将字符串反转打印"></a>9.将字符串反转打印</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">st &#x3D; &#39;hello&#39;</span><br><span class="line">print(st[::-1])</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="/images/python/yufa/12.jpg" alt="avatar"><br></p>
+<h2 id="10-快速得到数组中出现最频繁的数"><a href="#10-快速得到数组中出现最频繁的数" class="headerlink" title="10.快速得到数组中出现最频繁的数"></a>10.快速得到数组中出现最频繁的数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x &#x3D; [1,1,2,3,4,5,1,2]</span><br><span class="line">print(max(set(x), key &#x3D; x.count))</span><br></pre></td></tr></table></figure>
+<p><br>结果是1。<br></p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://www.youtube.com/watch?v=sbtbIqEG4nI&amp;t=923s" target="_blank" rel="noopener">https://www.youtube.com/watch?v=sbtbIqEG4nI&amp;t=923s</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+            <a href="/tags/%E8%AF%AD%E6%B3%95/" rel="tag"># 语法</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/03/03/python/python%E5%AE%9E%E6%88%98%E4%B9%8B%E8%AE%A1%E6%97%B6%E5%99%A82.0/" rel="next" title="Python实战之计时器2.0">
+                <i class="fa fa-chevron-left"></i> Python实战之计时器2.0
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/touxiang.jpg"
+                alt="Asitheclever" />
+            
+              <p class="site-author-name" itemprop="name">Asitheclever</p>
+              <p class="site-description motion-element" itemprop="description">Try again,and win!</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:tyuhgfjytujhgj55674211@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#奇特语法"><span class="nav-number">2.</span> <span class="nav-text">奇特语法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Enum"><span class="nav-number">2.1.</span> <span class="nav-text">1.Enum</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-快速赋值"><span class="nav-number">2.2.</span> <span class="nav-text">2.快速赋值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-print函数打印用法"><span class="nav-number">2.3.</span> <span class="nav-text">3.print函数打印用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-enumerate"><span class="nav-number">2.4.</span> <span class="nav-text">4.enumerate</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-zip混合打印技巧"><span class="nav-number">2.5.</span> <span class="nav-text">5.zip混合打印技巧</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-help查看函数帮助"><span class="nav-number">2.6.</span> <span class="nav-text">6.help查看函数帮助</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-把for放入数组内"><span class="nav-number">2.7.</span> <span class="nav-text">7.把for放入数组内</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-将数组内原始连起来打印"><span class="nav-number">2.8.</span> <span class="nav-text">8.将数组内原始连起来打印</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-将字符串反转打印"><span class="nav-number">2.9.</span> <span class="nav-text">9.将字符串反转打印</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-快速得到数组中出现最频繁的数"><span class="nav-number">2.10.</span> <span class="nav-text">10.快速得到数组中出现最频繁的数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考资料"><span class="nav-number">3.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Asitheclever</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">6k</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
