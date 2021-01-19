@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="python,tkinter,GUI," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Asitheclever的城堡" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="1 引言&amp;emsp;&amp;emsp;最近我在学Python的tkinter模块，这个模块的功能是实现Python的GUI，我觉得比较有意思。前一阵子刚学Python，我想统计自己学Python的时间，于是写了个计时器，那时候我不会GUI，那个计时器的结果只能在PyCharm的下面那个框里面显示，比较不方便。最近我用tkinter编写了一个计时器的GUI程序，特来记录一下，也希望能帮到大家学习Pytho">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python实战之计时器2.0">
+<meta property="og:url" content="http://asitheclever.github.io/2020/03/03/python/python%E5%AE%9E%E6%88%98%E4%B9%8B%E8%AE%A1%E6%97%B6%E5%99%A82.0/index.html">
+<meta property="og:site_name" content="Asitheclever的城堡">
+<meta property="og:description" content="1 引言&amp;emsp;&amp;emsp;最近我在学Python的tkinter模块，这个模块的功能是实现Python的GUI，我觉得比较有意思。前一阵子刚学Python，我想统计自己学Python的时间，于是写了个计时器，那时候我不会GUI，那个计时器的结果只能在PyCharm的下面那个框里面显示，比较不方便。最近我用tkinter编写了一个计时器的GUI程序，特来记录一下，也希望能帮到大家学习Pytho">
+<meta property="og:image" content="http://asitheclever.github.io/images/python/tkinter/1.jpg">
+<meta property="og:image" content="http://asitheclever.github.io/images/python/tkinter/2.jpg">
+<meta property="og:image" content="http://asitheclever.github.io/images/python/tkinter/3.jpg">
+<meta property="og:image" content="http://asitheclever.github.io/images/python/tkinter/4.jpg">
+<meta property="og:image" content="http://asitheclever.github.io/images/python/tkinter/5.jpg">
+<meta property="og:image" content="http://asitheclever.github.io/images/python/tkinter/6.jpg">
+<meta property="og:image" content="http://asitheclever.github.io/images/python/tkinter/7.jpg">
+<meta property="og:image" content="http://asitheclever.github.io/images/python/tkinter/8.jpg">
+<meta property="og:image" content="http://asitheclever.github.io/images/python/tkinter/9.jpg">
+<meta property="article:published_time" content="2020-03-03T11:30:11.290Z">
+<meta property="article:modified_time" content="2020-03-06T14:29:11.062Z">
+<meta property="article:author" content="Asitheclever">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="tkinter">
+<meta property="article:tag" content="GUI">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://asitheclever.github.io/images/python/tkinter/1.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://asitheclever.github.io/2020/03/03/python/python实战之计时器2.0/"/>
+
+
+
+
+
+  <title>Python实战之计时器2.0 | Asitheclever的城堡</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Asitheclever的城堡</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://asitheclever.github.io/2020/03/03/python/python%E5%AE%9E%E6%88%98%E4%B9%8B%E8%AE%A1%E6%97%B6%E5%99%A82.0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Asitheclever">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Asitheclever的城堡">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Python实战之计时器2.0</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-03T19:30:11+08:00">
+                2020-03-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
+                    <span itemprop="name">-python学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2.2k 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  8 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="1-引言"><a href="#1-引言" class="headerlink" title="1 引言"></a>1 引言</h1><p>&emsp;&emsp;最近我在学Python的tkinter模块，这个模块的功能是实现Python的GUI，我觉得比较有意思。前一阵子刚学Python，我想统计自己学Python的时间，于是写了个计时器，那时候我不会GUI，那个计时器的结果只能在PyCharm的下面那个框里面显示，比较不方便。最近我用tkinter编写了一个计时器的GUI程序，特来记录一下，也希望能帮到大家学习Python的GUI。我接下来也会不断升级这个程序，完善GUI设计、加入数据库、通过移植等手段开发成手机app和电脑的exe程序、最后想办法实现多端同步。emmm，暂时就这些想法。</p>
+<a id="more"></a>
+<h1 id="2-计时器1-0版本"><a href="#2-计时器1-0版本" class="headerlink" title="2 计时器1.0版本"></a>2 计时器1.0版本</h1><p>&emsp;&emsp;下面是我的计时器1.0版本的代码，是刚学Python时做的粗略版本，也是后面的基础。这个计时器的第一步是根据开始学习的时间和结束学习的时间化成分钟，然后求它们的差再除以60便可以得出一次学几个小时。第二步是要用户输入今天学习几次，然后就让用户分别输入几次开始和结束学习的时间，加起来就是一天的总学习时间。第三步是输入历史学习时间，与一天学习时间相加，得出总学习时间。<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="/images/python/tkinter/1.jpg" alt="avatar"><br><br>&emsp;&emsp;具体效果如下:<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="/images/python/tkinter/2.jpg" alt="avatar"><br></p>
+<h1 id="3-走进tkinter模块"><a href="#3-走进tkinter模块" class="headerlink" title="3 走进tkinter模块"></a>3 走进tkinter模块</h1><p>&emsp;&emsp;tkinter模块是Python里面非常重要的一个GUI模块，我这次的改进全靠它。我下面介绍一些tkinter里面常用部分的功能说明（就是我把计时器GUI用到的模块），详细的参数用法可以去谷歌。<br></p>
+<h2 id="3-1-安装和载入"><a href="#3-1-安装和载入" class="headerlink" title="3.1 安装和载入"></a>3.1 安装和载入</h2><p>&emsp;&emsp;可以用pip来安装tkinter模块或者直接在Pycharm中下载，emmm，Pycharm很强大的一个功能就是缺少什么模块它会报错，然后直接在软件里下载缺失模块，非常方便。<br><br>&emsp;&emsp;下载完以后输入from tkinter import *就可以导入tkinter模块了。<br></p>
+<h2 id="3-2-用tkinter模块添加标签"><a href="#3-2-用tkinter模块添加标签" class="headerlink" title="3.2 用tkinter模块添加标签"></a>3.2 用tkinter模块添加标签</h2><h3 id="3-2-1-定义标签并简单展示"><a href="#3-2-1-定义标签并简单展示" class="headerlink" title="3.2.1 定义标签并简单展示"></a>3.2.1 定义标签并简单展示</h3><p>&emsp;&emsp;像下面这一句就是定义了一个内容为hello的标签，这个标签放在一个名字叫root的窗口上。<br><br>&emsp;&emsp;myLabel = Label(root, text=”hello”)<br><br>&emsp;&emsp;上面那句只是简单地定义标签，如果你想在屏幕上显示标签的话还要下面这句。<br><br>&emsp;&emsp;myLabel.pack()  # 展示结果，pack的话展示位置比较固定<br><br>&emsp;&emsp;pack有一个问题就是它是随便放在屏幕的，不受人控制，如果你想把标签具体放在哪里的话，需要用到grid。<br></p>
+<h3 id="3-2-2-grid"><a href="#3-2-2-grid" class="headerlink" title="3.2.2 grid"></a>3.2.2 grid</h3><p>&emsp;&emsp;在tkinter模块中，grid是把各种东西比如标签按钮放在屏幕指定位置的工具。<br><br>&emsp;&emsp;myLabel1.grid(row=0, column=0, padx=10, pady=10, ipadx=1, ipady=2)<br><br>&emsp;&emsp;row:第几行，从第0行开始。<br><br>&emsp;&emsp;column:第几列，从第0列开i始。<br><br>&emsp;&emsp;ipadx和ipady:设置本身的大小，ipadx和ipady分别是横向和纵向的大小。<br><br>&emsp;&emsp;padx和pady:设置填充域的大小，padx和pady越大，填充的阴影部分越大。<br><br>&emsp;&emsp;记住一句话，tkinter模块的所有组件都是先定义一下，然后再用pack或者grid展示，不然屏幕上什么都没有哈哈哈！<br></p>
+<h2 id="3-3-用tkinter模块添加按钮"><a href="#3-3-用tkinter模块添加按钮" class="headerlink" title="3.3 用tkinter模块添加按钮"></a>3.3 用tkinter模块添加按钮</h2><p>&emsp;&emsp;按钮的话功能显而易见，就是你按一下程序就会执行相应的功能。下面我用一个程序解释一下它的用法。<br><br>&emsp;&emsp;def myClick():<br><br>&emsp;&emsp;    myLabel1 = Label(root, text=”hello”)<br><br>&emsp;&emsp;    myLabel1.pack() <br><br>&emsp;&emsp;myButton = Button(root, text=”click me”, command=myClick)<br><br>&emsp;&emsp;# 这句话意思是按钮放在root上面，按钮上写着click me，当按下时，触发事件myClick()，输出hello字样，效果如下<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="/images/python/tkinter/3.jpg" alt="avatar"><br><br>&emsp;&emsp;最重要的是这句：myButton = Button(root, text=”click me”, command=myClick)<br><br>&emsp;&emsp;第一个root和标签一样，是指把这个按钮放在原先定义好的一个叫root的窗口上。<br><br>&emsp;&emsp;text的内容click me是按钮的名字。<br><br>&emsp;&emsp;command意思是点击这个按钮执行myclick这个函数。<br></p>
+<h2 id="3-4-用tkinter模块添加输入框"><a href="#3-4-用tkinter模块添加输入框" class="headerlink" title="3.4 用tkinter模块添加输入框"></a>3.4 用tkinter模块添加输入框</h2><p>&emsp;&emsp;完全类似上面讲的按钮和标签的使用，只要用下面两行代码即可在root窗口上建立一个名字叫e的输入框。<br><br>&emsp;&emsp;e = Entry(root)<br><br>&emsp;&emsp;e.pack()<br><br>&emsp;&emsp;要得到输入框的值只需要用e.get()即可。</p>
+<h2 id="3-5-用tkinter打开新窗口"><a href="#3-5-用tkinter打开新窗口" class="headerlink" title="3.5 用tkinter打开新窗口"></a>3.5 用tkinter打开新窗口</h2><p>&emsp;&emsp;有时候吧，我们点击一个按钮希望能弹出一个新的窗口，比如说这个计时器2.0版本，在输入每天学习几次后能弹出一个新的窗口，这个窗口的开始时间和结束时间取决于学习的次数。<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="/images/python/tkinter/4.jpg" alt="avatar"><br><br>&emsp;&emsp;要创建一个新窗口很简单，直接用Toplevel函数，一句话top = Toplevel()就马上可以创建一个名字是top的窗口！如果要用按键关掉新建的窗口的话，只需要在Button里面加top.destroy就好了。<br></p>
+<h2 id="3-6-tkinter其它比较常用的模块"><a href="#3-6-tkinter其它比较常用的模块" class="headerlink" title="3.6 tkinter其它比较常用的模块"></a>3.6 tkinter其它比较常用的模块</h2><p>&emsp;&emsp;我上面提到的只是我做计时器2.0时用到的模块，tinkter还有相当多给力模块，我把它们的名字放在下面，大家根据名字上网查就好了，很方便使用的。<br><br>&emsp;&emsp;给窗口加图标：iconbitmap<br><br>&emsp;&emsp;加载图片：pillow<br><br>&emsp;&emsp;给窗口加图标：iconbitmap<br><br>&emsp;&emsp;设置框架：LabelFrame<br><br>&emsp;&emsp;单选按钮：Radiobutton<br><br>&emsp;&emsp;留言框：messagebox<br><br>&emsp;&emsp;打开文件：filedialog<br><br>&emsp;&emsp;滚动条：Scale<br><br>&emsp;&emsp;选择菜单：OptionMenu<br></p>
+<h1 id="4-计时器2-0-版本具体制作"><a href="#4-计时器2-0-版本具体制作" class="headerlink" title="4 计时器2.0 版本具体制作"></a>4 计时器2.0 版本具体制作</h1><h2 id="4-1-第一级GUI，输入学习次数"><a href="#4-1-第一级GUI，输入学习次数" class="headerlink" title="4.1 第一级GUI，输入学习次数"></a>4.1 第一级GUI，输入学习次数</h2><p>&emsp;&emsp;运用上面介绍的标签、按钮、输入框的功能我先定义了这个GUI程序的样子。<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="/images/python/tkinter/5.jpg" alt="avatar"><br><br>&emsp;&emsp;总共就三个部件比较简单，代码如下：<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="/images/python/tkinter/6.jpg" alt="avatar"><br></p>
+<h2 id="4-2-第二级GUI，新窗口"><a href="#4-2-第二级GUI，新窗口" class="headerlink" title="4.2 第二级GUI，新窗口"></a>4.2 第二级GUI，新窗口</h2><p>&emsp;&emsp;点击第一级GUI的确定窗口以后我们要弹出一个新的窗口方便输入学习时间，这就要定义一个函数来实现这个功能了。<br><br>&emsp;&emsp;这个函数怎么说呢，首先要实现根据学习次数改变输入框的个数，比如学习了三次就要输入三个输入框。以开始时间为例子，要实现这个功能，我们可以先定义一个数组begintime = []，然后用一个for循环，循环次数等于学习次数，每循环一次就把输入框当成一个元素保存在数组里面。最后计算时直接用数组里的元素算。<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="/images/python/tkinter/7.jpg" alt="avatar"><br></p>
+<h2 id="4-3-计算"><a href="#4-3-计算" class="headerlink" title="4.3 计算"></a>4.3 计算</h2><p>&emsp;&emsp;这部分思路和上面讲的1.0版本一样，代码如下，在此不赘述。<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="/images/python/tkinter/8.jpg" alt="avatar"><br></p>
+<h1 id="5-笔者有感"><a href="#5-笔者有感" class="headerlink" title="5 笔者有感"></a>5 笔者有感</h1><p>&emsp;&emsp;我在考研初试成绩出来以后很久没来更新博客了，主要是成绩实在太边缘，像星星那样一闪一灭，属实可恨，心实在太累。再加上最近在学校就业网站上看心仪企业招聘要求，感觉这四年像是被大学耍了一番，学的东西和企业要求完全不是一回事，加上以前傻乎乎没去实习，春招又是补录，现在想进一所好企业真是难上加难。研途未仆，前路茫茫。<br><br>&emsp;&emsp;大学四年有个遗憾，没有安下心来好好学一项技术，导致现在比较白板。现在每天学习编程，亡羊补牢，希望为时未晚。今天是我连续学Python的第20天，平均每天两个多小时还算是比较充实，哦对，这个计时我是用自己编写的程序，也挺开心的其实。<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="/images/python/tkinter/9.jpg" alt="avatar"><br><br>&emsp;&emsp;接下来的一段时间博客更新会放缓，一是因为笔者要准备考研复试以及毕业设计找工作等杂事，二是因为笔者现在在学使用Python的数据库，内容挺多，为了博客的质量嘛。（当然也有偷懒的成分啦！）<br><br>&emsp;&emsp;2020已经过去四分之一啦，希望大家一起加油，都能实现今年的小目标！<br></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+            <a href="/tags/tkinter/" rel="tag"># tkinter</a>
+          
+            <a href="/tags/GUI/" rel="tag"># GUI</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/02/17/python/pygame%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E5%B0%8F%E6%B8%B8%E6%88%8F%E5%88%B6%E4%BD%9C/" rel="next" title="pygame第一期">
+                <i class="fa fa-chevron-left"></i> pygame第一期
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/04/12/python/python%20%E9%AC%BC%E7%95%9C%E5%86%99%E6%B3%95/" rel="prev" title="Python 奇特语法">
+                Python 奇特语法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/touxiang.jpg"
+                alt="Asitheclever" />
+            
+              <p class="site-author-name" itemprop="name">Asitheclever</p>
+              <p class="site-description motion-element" itemprop="description">Try again,and win!</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/games.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:tyuhgfjytujhgj55674211@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-引言"><span class="nav-number">1.</span> <span class="nav-text">1 引言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-计时器1-0版本"><span class="nav-number">2.</span> <span class="nav-text">2 计时器1.0版本</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-走进tkinter模块"><span class="nav-number">3.</span> <span class="nav-text">3 走进tkinter模块</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-安装和载入"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 安装和载入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-用tkinter模块添加标签"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 用tkinter模块添加标签</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-1-定义标签并简单展示"><span class="nav-number">3.2.1.</span> <span class="nav-text">3.2.1 定义标签并简单展示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-2-grid"><span class="nav-number">3.2.2.</span> <span class="nav-text">3.2.2 grid</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-用tkinter模块添加按钮"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 用tkinter模块添加按钮</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4-用tkinter模块添加输入框"><span class="nav-number">3.4.</span> <span class="nav-text">3.4 用tkinter模块添加输入框</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-5-用tkinter打开新窗口"><span class="nav-number">3.5.</span> <span class="nav-text">3.5 用tkinter打开新窗口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-6-tkinter其它比较常用的模块"><span class="nav-number">3.6.</span> <span class="nav-text">3.6 tkinter其它比较常用的模块</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-计时器2-0-版本具体制作"><span class="nav-number">4.</span> <span class="nav-text">4 计时器2.0 版本具体制作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-第一级GUI，输入学习次数"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 第一级GUI，输入学习次数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-第二级GUI，新窗口"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 第二级GUI，新窗口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-3-计算"><span class="nav-number">4.3.</span> <span class="nav-text">4.3 计算</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-笔者有感"><span class="nav-number">5.</span> <span class="nav-text">5 笔者有感</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Asitheclever</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">6.2k</span>
+  
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
