@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://asitheclever.github.io/"/>
-  <updated>2021-01-27T23:31:56.796Z</updated>
+  <updated>2021-01-27T23:39:39.013Z</updated>
   <id>http://asitheclever.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>测试</title>
+    <link href="http://asitheclever.github.io/2021/01/28/%E6%B5%8B%E8%AF%95/"/>
+    <id>http://asitheclever.github.io/2021/01/28/%E6%B5%8B%E8%AF%95/</id>
+    <published>2021-01-27T23:39:13.012Z</published>
+    <updated>2021-01-27T23:39:39.013Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>从我准备考研复试开始，我拖了半年没更新博客，期间也在不断学习，也算是有了不少收获，接下来，故事继续。2020年的2月，我开始每天坚持编程的开卡活动，中间开学的时候我断了一周，其它时间从未间断，今天已经是第329天了。从最开始的上youtube闲学，到现在和小伙伴专心刷算法。一年前，我是个编程小白，生活在本科时编程学得一塌糊涂的阴影之下，到现在编程已经是我生活的习惯。搞科研也好，学算法也好，都是很有意思的事情，但是这一切要分享才有趣味，不是吗？哈哈哈！<br></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;测试&quot;&gt;&lt;a href=&quot;#测试&quot; class=&quot;headerlink&quot; title=&quot;测试&quot;&gt;&lt;/a&gt;测试&lt;/h3&gt;&lt;p&gt;从我准备考研复试开始，我拖了半年没更新博客，期间也在不断学习，也算是有了不少收获，接下来，故事继续。2020年的2月，我开始每天坚持编程的开
+      
+    
+    </summary>
+    
+    
+      <category term="-心情记录" scheme="http://asitheclever.github.io/categories/%E5%BF%83%E6%83%85%E8%AE%B0%E5%BD%95/"/>
+    
+    
+      <category term="Mood" scheme="http://asitheclever.github.io/tags/Mood/"/>
+    
+  </entry>
   
   <entry>
     <title>神经网络第1期：原理通俗解释</title>
