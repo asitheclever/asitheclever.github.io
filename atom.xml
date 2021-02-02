@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://asitheclever.github.io/"/>
-  <updated>2021-01-31T07:55:30.445Z</updated>
+  <updated>2021-02-02T00:56:39.671Z</updated>
   <id>http://asitheclever.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>C++语法第3期：数组</title>
+    <link href="http://asitheclever.github.io/2021/02/02/C++/C++%E8%AF%AD%E6%B3%95%E7%AC%AC3%E6%9C%9F%EF%BC%9A%E6%95%B0%E7%BB%84/"/>
+    <id>http://asitheclever.github.io/2021/02/02/C++/C++%E8%AF%AD%E6%B3%95%E7%AC%AC3%E6%9C%9F%EF%BC%9A%E6%95%B0%E7%BB%84/</id>
+    <published>2021-02-02T00:07:58.463Z</published>
+    <updated>2021-02-02T00:56:39.671Z</updated>
+    
+    <content type="html"><![CDATA[<p>&emsp;&emsp;这一期介绍C++的数组。</p><a id="more"></a><h2 id="未赋值的数组定义"><a href="#未赋值的数组定义" class="headerlink" title="未赋值的数组定义"></a>未赋值的数组定义</h2><p>&emsp;&emsp;这个和变量定义差不多，类似下面这样，中括号里面的是数组的元素个数。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int a[5];</span><br><span class="line">double b[6];</span><br><span class="line">char c[9];</span><br></pre></td></tr></table></figure><h2 id="赋值的数组定义"><a href="#赋值的数组定义" class="headerlink" title="赋值的数组定义"></a>赋值的数组定义</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 定义了含三个元素的数组，元素是1， 4， 9</span><br><span class="line">int a[3] &#x3D; &#123;1, 4, 9&#125;;</span><br><span class="line">int a[] &#x3D; &#123;1, 4, 9&#125;;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 这个比较奇葩，定义了长度是5的数组</span><br><span class="line">int b[5] &#x3D; &#123;1, 4, 9&#125;; &#x2F;&#x2F; &#123;1, 4, 9, 0, 0&#125;</span><br></pre></td></tr></table></figure><h2 id="数组的访问"><a href="#数组的访问" class="headerlink" title="数组的访问"></a>数组的访问</h2><p>&emsp;&emsp;数组可以通过下标来访问修改。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int a[3] &#x3D; &#123;1, 4, 9&#125;;</span><br><span class="line">&#x2F;&#x2F; a[0] &#x3D; 1;</span><br><span class="line">&#x2F;&#x2F; a[1] &#x3D; 4;</span><br><span class="line">&#x2F;&#x2F; a[2] &#x3D; 9;</span><br></pre></td></tr></table></figure><h2 id="二维数组"><a href="#二维数组" class="headerlink" title="二维数组"></a>二维数组</h2><p>&emsp;&emsp;和一维数组类似，需要用两重循环来读取，也可以通过下标来访问。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;emsp;&amp;emsp;这一期介绍C++的数组。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="-C++学习" scheme="http://asitheclever.github.io/categories/C-%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="语法" scheme="http://asitheclever.github.io/tags/%E8%AF%AD%E6%B3%95/"/>
+    
+      <category term="C++" scheme="http://asitheclever.github.io/tags/C/"/>
+    
+  </entry>
   
   <entry>
     <title>C++语法第2期：判断与循环</title>
