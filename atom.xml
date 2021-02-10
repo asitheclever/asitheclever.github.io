@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Asitheclever的城堡</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://asitheclever.github.io/"/>
+  <updated>2021-02-10T08:04:49.387Z</updated>
+  <id>http://asitheclever.github.io/</id>
+  
+  <author>
+    <name>Asitheclever</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>C++语法第4期：字符串</title>
+    <link href="http://asitheclever.github.io/2021/02/05/C++/C++%E8%AF%AD%E6%B3%95%E7%AC%AC4%E6%9C%9F%EF%BC%9A%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
+    <id>http://asitheclever.github.io/2021/02/05/C++/C++%E8%AF%AD%E6%B3%95%E7%AC%AC4%E6%9C%9F%EF%BC%9A%E5%AD%97%E7%AC%A6%E4%B8%B2/</id>
+    <published>2021-02-05T12:43:25.970Z</published>
+    <updated>2021-02-10T08:04:49.387Z</updated>
+    
+    <content type="html"><![CDATA[<p>&emsp;&emsp;这一期介绍C++的字符串，学到这个玩意才感觉Python确实比C++方便了不知道多少倍。</p><a id="more"></a><h2 id="整行读入char类型字符串"><a href="#整行读入char类型字符串" class="headerlink" title="整行读入char类型字符串"></a>整行读入char类型字符串</h2><h3 id="fgets"><a href="#fgets" class="headerlink" title="fgets"></a>fgets</h3><p>&emsp;&emsp;fgets用于整行读入，回车也会读进去。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">char str[101];</span><br><span class="line">fgets(str, 101, stdin);</span><br></pre></td></tr></table></figure><h3 id="读入字符串char"><a href="#读入字符串char" class="headerlink" title="读入字符串char"></a>读入字符串char</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">char str[31];</span><br><span class="line">scanf(&quot;%s&quot;, str);</span><br></pre></td></tr></table></figure><h2 id="整行读入string类型字符串"><a href="#整行读入string类型字符串" class="headerlink" title="整行读入string类型字符串"></a>整行读入string类型字符串</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">string s;</span><br><span class="line">getline(cin, s);</span><br></pre></td></tr></table></figure><h2 id="字符串string的长度"><a href="#字符串string的长度" class="headerlink" title="字符串string的长度"></a>字符串string的长度</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">string a;</span><br><span class="line">cout &lt;&lt; a.size();</span><br></pre></td></tr></table></figure><h2 id="stringstream"><a href="#stringstream" class="headerlink" title="stringstream"></a>stringstream</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;sstream&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    string s, a, b;</span><br><span class="line"></span><br><span class="line">    getline(cin, s);</span><br><span class="line">    cin &gt;&gt; a &gt;&gt; b;</span><br><span class="line"></span><br><span class="line">    stringstream ssin(s);</span><br><span class="line">    string str;</span><br><span class="line">    while (ssin &gt;&gt; str)</span><br><span class="line">        if (str &#x3D;&#x3D; a) cout &lt;&lt; b &lt;&lt; &#39; &#39;;</span><br><span class="line">        else cout &lt;&lt; str &lt;&lt; &#39; &#39;;</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="获取字符串长度strlen"><a href="#获取字符串长度strlen" class="headerlink" title="获取字符串长度strlen"></a>获取字符串长度strlen</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;cstring&gt;</span><br><span class="line">char a[100];</span><br><span class="line">cin &gt;&gt; a;</span><br><span class="line">cout &lt;&lt; strlen(a);</span><br></pre></td></tr></table></figure><h2 id="string-删除操作"><a href="#string-删除操作" class="headerlink" title="string 删除操作"></a>string 删除操作</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">if (str.back() &#x3D;&#x3D; &#39;.&#39;) str.pop_back();</span><br></pre></td></tr></table></figure><h2 id="string的子串"><a href="#string的子串" class="headerlink" title="string的子串"></a>string的子串</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">string a;</span><br><span class="line">cin &gt;&gt; a;</span><br><span class="line">cout &lt;&lt; a.substr(1);</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;emsp;&amp;emsp;这一期介绍C++的字符串，学到这个玩意才感觉Python确实比C++方便了不知道多少倍。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="-C++学习" scheme="http://asitheclever.github.io/categories/C-%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="C++" scheme="http://asitheclever.github.io/tags/C/"/>
+    
+      <category term="语法" scheme="http://asitheclever.github.io/tags/%E8%AF%AD%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C++语法第3期：数组</title>
+    <link href="http://asitheclever.github.io/2021/02/02/C++/C++%E8%AF%AD%E6%B3%95%E7%AC%AC3%E6%9C%9F%EF%BC%9A%E6%95%B0%E7%BB%84/"/>
+    <id>http://asitheclever.github.io/2021/02/02/C++/C++%E8%AF%AD%E6%B3%95%E7%AC%AC3%E6%9C%9F%EF%BC%9A%E6%95%B0%E7%BB%84/</id>
+    <published>2021-02-02T00:07:58.463Z</published>
+    <updated>2021-02-02T00:56:39.671Z</updated>
+    
+    <content type="html"><![CDATA[<p>&emsp;&emsp;这一期介绍C++的数组。</p><a id="more"></a><h2 id="未赋值的数组定义"><a href="#未赋值的数组定义" class="headerlink" title="未赋值的数组定义"></a>未赋值的数组定义</h2><p>&emsp;&emsp;这个和变量定义差不多，类似下面这样，中括号里面的是数组的元素个数。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int a[5];</span><br><span class="line">double b[6];</span><br><span class="line">char c[9];</span><br></pre></td></tr></table></figure><h2 id="赋值的数组定义"><a href="#赋值的数组定义" class="headerlink" title="赋值的数组定义"></a>赋值的数组定义</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 定义了含三个元素的数组，元素是1， 4， 9</span><br><span class="line">int a[3] &#x3D; &#123;1, 4, 9&#125;;</span><br><span class="line">int a[] &#x3D; &#123;1, 4, 9&#125;;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 这个比较奇葩，定义了长度是5的数组</span><br><span class="line">int b[5] &#x3D; &#123;1, 4, 9&#125;; &#x2F;&#x2F; &#123;1, 4, 9, 0, 0&#125;</span><br></pre></td></tr></table></figure><h2 id="数组的访问"><a href="#数组的访问" class="headerlink" title="数组的访问"></a>数组的访问</h2><p>&emsp;&emsp;数组可以通过下标来访问修改。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int a[3] &#x3D; &#123;1, 4, 9&#125;;</span><br><span class="line">&#x2F;&#x2F; a[0] &#x3D; 1;</span><br><span class="line">&#x2F;&#x2F; a[1] &#x3D; 4;</span><br><span class="line">&#x2F;&#x2F; a[2] &#x3D; 9;</span><br></pre></td></tr></table></figure><h2 id="二维数组"><a href="#二维数组" class="headerlink" title="二维数组"></a>二维数组</h2><p>&emsp;&emsp;和一维数组类似，需要用两重循环来读取，也可以通过下标来访问。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;emsp;&amp;emsp;这一期介绍C++的数组。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="-C++学习" scheme="http://asitheclever.github.io/categories/C-%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="C++" scheme="http://asitheclever.github.io/tags/C/"/>
+    
+      <category term="语法" scheme="http://asitheclever.github.io/tags/%E8%AF%AD%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C++语法第2期：判断与循环</title>
+    <link href="http://asitheclever.github.io/2021/01/31/C++/C++%E8%AF%AD%E6%B3%95%E7%AC%AC2%E6%9C%9F%EF%BC%9A%E5%88%A4%E6%96%AD%E4%B8%8E%E5%BE%AA%E7%8E%AF/"/>
+    <id>http://asitheclever.github.io/2021/01/31/C++/C++%E8%AF%AD%E6%B3%95%E7%AC%AC2%E6%9C%9F%EF%BC%9A%E5%88%A4%E6%96%AD%E4%B8%8E%E5%BE%AA%E7%8E%AF/</id>
+    <published>2021-01-31T07:13:07.548Z</published>
+    <updated>2021-01-31T07:55:30.445Z</updated>
+    
+    <content type="html"><![CDATA[<p>&emsp;&emsp;这一期介绍C++的判断和循环两种语句。</p><a id="more"></a><h1 id="判断语句"><a href="#判断语句" class="headerlink" title="判断语句"></a>判断语句</h1><h2 id="if-else语句"><a href="#if-else语句" class="headerlink" title="if else语句"></a>if else语句</h2><p>&emsp;&emsp;判断语句可以概括如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">if(条件1)&#123;</span><br><span class="line">语句1;</span><br><span class="line">&#125;</span><br><span class="line">else if(条件2)&#123;</span><br><span class="line">语句2;</span><br><span class="line">&#125;</span><br><span class="line">......</span><br><span class="line">else&#123; &#x2F;&#x2F; 不满足上诉所有条件的其它情况。</span><br><span class="line">语句n;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 变形1：只有if</span><br><span class="line">if(条件)&#123;</span><br><span class="line">语句;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 变形2：if-else</span><br><span class="line">if(条件)&#123;</span><br><span class="line">语句1;</span><br><span class="line">&#125;</span><br><span class="line">else&#123;</span><br><span class="line">语句2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>&emsp;&emsp;比如说判断区间，给定一个浮点数，请你判断该数字属于以下哪个区间：[0,25], (25,50], (50,75], (75,100]。如果给定的数值小于0或大于100，则程序输出“Out of Range”，表示超出范围，否则输出具体区间，代码如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">    double a;</span><br><span class="line">    cin &gt;&gt; a;</span><br><span class="line">    if(a &gt;&#x3D; 0 &amp;&amp; a &lt;&#x3D; 25) printf(&quot;[0,25]&quot;);</span><br><span class="line">    else if(a &gt; 25 &amp;&amp; a &lt;&#x3D; 50) printf(&quot;(25,50]&quot;);</span><br><span class="line">    else if(a &gt; 50 &amp;&amp; a &lt;&#x3D; 75) printf(&quot;(50,75]&quot;);</span><br><span class="line">    else if(a &gt; 75 &amp;&amp; a &lt;&#x3D; 100) printf(&quot;(75,100]&quot;);</span><br><span class="line">    else puts(&quot;Out of Range&quot;);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h1 id="循环语句"><a href="#循环语句" class="headerlink" title="循环语句"></a>循环语句</h1><p>循环语句有for、while、do while三种。一般而言，它们之间可以相互转化。</p><h2 id="for语句"><a href="#for语句" class="headerlink" title="for语句"></a>for语句</h2><p>&emsp;&emsp;for语句的格式如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for(初始条件; 终止条件; 步长)&#123;</span><br><span class="line">相关语句;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="while和do-while语句"><a href="#while和do-while语句" class="headerlink" title="while和do while语句"></a>while和do while语句</h2><p>&emsp;&emsp;这两个是一家，所以放到一起写。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; while是先看满足条件然后执行</span><br><span class="line"></span><br><span class="line">while(条件)&#123;</span><br><span class="line">语句;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; do while是先执行一遍，然后再看是否满足条件，再决定是否继续执行</span><br><span class="line">do&#123;</span><br><span class="line">语句;</span><br><span class="line">&#125;while(条件);</span><br></pre></td></tr></table></figure><h2 id="break和continue"><a href="#break和continue" class="headerlink" title="break和continue"></a>break和continue</h2><p>&emsp;&emsp;break表示推出循环，continue表示继续执行循环的下一轮。</p><h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><p>&emsp;&emsp;输入1到100中的所有偶数：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; for 循环版本</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">    for(int i &#x3D; 1; i &lt;&#x3D; 100; i ++)&#123;</span><br><span class="line">        if(i % 2 &#x3D;&#x3D; 0) cout &lt;&lt; i &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; while版本</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">    int i &#x3D; 1;</span><br><span class="line">    while(i &lt;&#x3D; 100)&#123;</span><br><span class="line">        if(i % 2 &#x3D;&#x3D; 0)&#123;</span><br><span class="line">            cout &lt;&lt; i &lt;&lt; endl;</span><br><span class="line">        &#125;</span><br><span class="line">        i ++;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; do while版本</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">    int i &#x3D; 1;</span><br><span class="line">    do&#123;</span><br><span class="line">        if(i % 2 &#x3D;&#x3D; 0)&#123;</span><br><span class="line">            cout &lt;&lt; i &lt;&lt; endl;</span><br><span class="line">        &#125;</span><br><span class="line">        i ++;</span><br><span class="line">    &#125;while(i &lt;&#x3D; 100);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;emsp;&amp;emsp;这一期介绍C++的判断和循环两种语句。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="-C++学习" scheme="http://asitheclever.github.io/categories/C-%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="C++" scheme="http://asitheclever.github.io/tags/C/"/>
+    
+      <category term="语法" scheme="http://asitheclever.github.io/tags/%E8%AF%AD%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C++语法第1期：C++输入输出</title>
+    <link href="http://asitheclever.github.io/2021/01/28/C++/C++%E8%AF%AD%E6%B3%95%E7%AC%AC1%E6%9C%9F%EF%BC%9A%E8%BE%93%E5%85%A5%E5%92%8C%E8%BE%93%E5%87%BA/"/>
+    <id>http://asitheclever.github.io/2021/01/28/C++/C++%E8%AF%AD%E6%B3%95%E7%AC%AC1%E6%9C%9F%EF%BC%9A%E8%BE%93%E5%85%A5%E5%92%8C%E8%BE%93%E5%87%BA/</id>
+    <published>2021-01-28T09:02:11.083Z</published>
+    <updated>2021-01-30T09:18:43.295Z</updated>
+    
+    <content type="html"><![CDATA[<p>&emsp;&emsp;现在找工作考算法是常态，而且在leetcode等刷算法的平台上C++是主流语言，Python刷算法不占优势（主要是用它刷算法的人相对较少），学了C++以后在算法论坛上会方便不少，提升效率。我将通过几期来复习C++在算法题中的语法，持续更新。</p><a id="more"></a><p>&emsp;&emsp;C++的输入有两种方式，cin和scanf，前者慢，后者快。相对应的输出也有两种，cout和printf。cin和cout是偷懒式输入输出，scanf和printf是规格式输入输出。用cin和cout的时候不用管要输入的数据的类型，张口就来，但是用scanf和prinf必须要提到相关的数据类型，下面以输入a、b两个数并求它们的乘积为例说明。<br>&emsp;&emsp;先看用cin和cout。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int a, b;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">    cin &gt;&gt; a &gt;&gt; b;</span><br><span class="line">    cout &lt;&lt; a * b &lt;&lt; endl; &#x2F;&#x2F; endl表示换行</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>&emsp;&emsp;前两句是必须加的，第1句是说明头文件，输入和输出都包含在头文件iostream里面，第2句是说明命名空间，写下就好了。int main那一段是C++的主要函数，就是一定会先执行这一段，这和Python没有固定的主要函数不一样，C++不写int main的话编译器就会报错。最后一句那个return 0；不加不会报错，但是最好加一下，因为main函数的返回值用于说明程序的退出状态。如果返回0，则代表程序正常退出，否则代表程序异常退出。<br>&emsp;&emsp;再看用scanf和prinf。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int a, b;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">    scanf(&quot;%d%d&quot;, &amp;a, &amp;b); &#x2F;&#x2F; 变量前面的&amp;要记得加</span><br><span class="line">    printf(&quot;%d\n&quot;, a * b); &#x2F;&#x2F; \n表示换行</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>&emsp;&emsp;scanf和printf的前面都是类型说明，%d表示的是整数，有多少个%就说明有多少个输入输出。printf还很灵活，可以自由定义输出格式，在前面的类似”%d\n”的说明中，只有%x代表的是变量，\n代表换行，其它都原封不动地输出。下表总结了C++里面的数据类型。</p><table><thead><tr><th>数据类型</th><th>大小氛围</th><th>输入以及输出中的表示</th><th>变量内存</th></tr></thead><tbody><tr><td>int</td><td>整数：正负20亿之间</td><td>%d</td><td>4byte</td></tr><tr><td>long long</td><td>整数：-2^63~2^63-1</td><td>%lld</td><td>8byte</td></tr><tr><td>float</td><td>浮点数：有效数字6~7位</td><td>%f、%.2f：保留两位小数</td><td>4byte</td></tr><tr><td>double</td><td>浮点数：15~16位有效数字</td><td>%lf</td><td>8byte</td></tr><tr><td>long double</td><td>浮点数：18~19位有效数字</td><td>%Lf</td><td>16byte</td></tr><tr><td>char</td><td>字符</td><td>%c</td><td>1byte</td></tr><tr><td>string</td><td>字符串</td><td>%s</td><td>×</td></tr><tr><td>bool</td><td>true/false</td><td>×</td><td>1byte</td></tr></tbody></table><p>&emsp;&emsp;补充，如果要简单地输出字符串，可以直接用puts(“字符串”)。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;emsp;&amp;emsp;现在找工作考算法是常态，而且在leetcode等刷算法的平台上C++是主流语言，Python刷算法不占优势（主要是用它刷算法的人相对较少），学了C++以后在算法论坛上会方便不少，提升效率。我将通过几期来复习C++在算法题中的语法，持续更新。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="-C++学习" scheme="http://asitheclever.github.io/categories/C-%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="C++" scheme="http://asitheclever.github.io/tags/C/"/>
+    
+      <category term="语法" scheme="http://asitheclever.github.io/tags/%E8%AF%AD%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>神经网络第1期：原理通俗解释</title>
+    <link href="http://asitheclever.github.io/2021/01/25/machinelearning/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%AC%AC1%E6%9C%9F/"/>
+    <id>http://asitheclever.github.io/2021/01/25/machinelearning/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%AC%AC1%E6%9C%9F/</id>
+    <published>2021-01-25T05:54:21.938Z</published>
+    <updated>2021-01-27T23:31:56.796Z</updated>
+    
+    <content type="html"><![CDATA[<p>&emsp;&emsp;小明在教室玩电脑前在走廊上偷偷安装了一个摄像头，为了防止老师突然从背后袭来，他提心吊胆地边玩着手机边看着电脑旁边的监控，生怕老师进来，可是走廊上人太多了，小明眼睛只是稍微眯了一下，老师从屏幕中消失了，可怜的小明被老师从背后揪着耳朵拎了出来。事后小明懊恼不已，要是摄像头能自动识别出老师就好了，那样他就不用那么累地边玩电脑边看监控，而且不容易翻车。</p><a id="more"></a><p>&emsp;&emsp;上面那个例子是神经网络应用比较多的一块，计算机视觉。当然，神经网络的能耐可远远不只是这一些。它变态到各行各业的人，只要有数据集，能把问题描述清楚，就能用神经网络去白嫖一份好的结果。或许，能限制住它的只要想象力和计算机的计算能力吧。这是我的神经网络系列的第一篇文章，在这篇文章里面，我会用尽量通俗的语言介绍它，不会涉及数学上的详细证明。希望大家一起进步！<br>&emsp;&emsp;先讲一个土掉渣的故事。一个坏小孩刚刚得到一条小狗，他希望自己举手的时候小狗就会坐下，拍手的时候小狗就会乱逛，打响指的时候小狗就会吠叫。第一天，坏小孩对着小狗举手，小狗到处乱逛，不明白坏小孩举手啥意思，坏小孩很生气，踢了小狗一脚，小狗开始吠叫，坏小孩更生气了，又踢了小狗一脚，小狗被踢得很疼，安静地坐下了，坏小孩开心坏了，马上给小狗肉吃，小狗逐渐开始明白那个坏小孩举手是要自己坐下了。第二天，坏小孩先是对着小狗举了几次手，小狗很都乖乖地坐下了，坏小孩很开心，可以进行下一步了。坏小孩拍了拍手，小狗迫不及待地坐下了，坏小孩朝它扔了几块石头，小狗吓得赶紧跑，坏小孩又举手，小狗气喘吁吁地坐下了，坏小孩一拍手，小狗就又吓得跑了起来，几番折腾，小狗明白了拍手是让自己闲逛。第三天，坏小孩对着小狗打响指，小狗发现自己无论坐着还是闲逛都会挨打，彻底怒了，朝坏小孩狂吠起来，坏小孩赶紧摸了它的头，给好吃的，小狗也终于知道打响指是要自己吠。。。<br>&emsp;&emsp;故事讲完了，顺便说一下，小狗就是神经网络，坏小孩是谁？这还用问，当然是我，也是你呀！我们也很单纯啦，只是希望小狗能在我们做出某个手势的时候做出相应的动作，但是小狗又听不懂人话，坏小孩也是被迫无奈才踹了它几脚，他也不想的嘛。小狗听不懂人话，电脑也听不懂人话，但是因为电脑不听话就踹它一脚那必须是家里有矿，正常人会那样？不能踹，还是有惩罚手段的嘛，那玩意就是数学。数学作为一种王牌惩罚手段，可不仅可以惩罚小学生、初中生、高中生、大学生甚至研究生，让大家在中考、高考以及大学挂科的压力下苦苦挣扎，还能讲我们今天的主角，神经网络小狗，惩罚得服服帖帖！<br>&emsp;&emsp;希望上面这个坏小孩和小狗的故事能帮助大家感性地明白什么是神经网络。当然只有感性地明白是不够的，下面我要开始稍微严肃一点了。请看下面这张图：</p><center>图1</center><div align=center><img width = '300' src ="/images/python/ml/nn/1.png"/></div>&emsp;&emsp;图1是一个训练好的手写数字识别神经网络。手写数字识别是神经网络的入门案例，它的目的是你随便写下0到9中某个数字，然后让电脑来判断你写下的是哪一个数字。上面那张图片就是某人写了一个“2”，电脑也识别出来了这就是“2”，当然如果这个神经网络训练得很好的话，他随便写个数字，电脑都能做出正确的判断。这个是不是就能很好地解决开头小明的烦恼，当老师来了，就会被正确地检测出来。。。额，回归正题，为什么神经网络能够正确判断出某人写了哪个数字勒？首先回忆一下初中学过的函数，比如说y=kx，当k=1时，输入一个x，输出的值就和输入的值一模一样，当k=2时，输出的值就是输入的值的两倍，当我们改变参数k的值的时候，就可以调整输入和输出之间的关系。神经网络就像是一个函数，虽然它比y=kx要复杂的多得多（复杂到没人能写得出这一个函数），但是它们本质上是一个东西（给输入，里面一顿处理以后，给输出）。图1里面的那个图像2就是输入，它是有一张图片，转化成数字也就是28×28的数组，这样总共就有784个输入，输出是0到9这十个数字中的某一个。在图2中，我把数字“2”的输入具体化了。<center>图2</center><div align=center><img width = '400' src ="/images/python/ml/nn/2.png"/></div>&emsp;&emsp;图2就是“2”这张图像的输入，里面的数字越大表示该地方颜色越深，我们大概能从那张图中看到“2”的形状，如果要更明显一点，就要用绘图工具来看，如图3所示。<center>图3</center><div align=center><img width = '400' src ="/images/python/ml/nn/3.png"/></div>&emsp;&emsp;把图2中的数组展平，就得到784个输入，这也就是神经网络这个炒鸡复杂的函数的输入，这些输入在神经网络内部经历了“非人的折磨”以后终于输出了一个“2”。训练神经网络的过程，本质上就是让神经网络这个函数里面的参数尽可能接近我们想要的，更具体点说就是，我们希望输入“2”这张图片的784个参数时，输出也是2，输如“0”这张图片时，输出也是0，以此类推。聪明的小朋友可能会问，俺数学好，直接求出来这个函数不久ok了吗？列几个方程呀，我解方程不行嘛？嗯，还真的不行，不是所有方程都能解出来吧，或者让我们解个十年八年的那也不是个事啊！&emsp;&emsp;&emsp;有人证明过三层及以上的神经网络可以收敛于任何函数（意思就是调整里面的参数以后，输入和输出的关系可以和媲美任意函数），在这个前提之下，更聪明的人才想出了更聪明的办法。就以上面的手写数字识别为例子，既然这个函数解不出来，那就让很多很多的人去写“0”到“9”这9个数字，然后先让神经网络里面的参数为随机数，最后拿这些海量数据去喂神经网络再调整参数，比如输入“0”，输出是1的话，就调整参数，让输出是1或者接近1，这样重复个几万次，神经网络就有很好的识别功能了。神经网络的通俗版本原理就讲完了，应用向需要理解的知识也差不多就这些，至于里面的参数怎么调整，这是一个很大的学问，什么梯度下降，激活函数等等，感兴趣的读者可以自行阅读《Make Your Own Nerual Network》,这本书关于数学原理的解释真的是堪称奶妈般的苦口婆心，就怕你看不懂，强烈推荐！]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;emsp;&amp;emsp;小明在教室玩电脑前在走廊上偷偷安装了一个摄像头，为了防止老师突然从背后袭来，他提心吊胆地边玩着手机边看着电脑旁边的监控，生怕老师进来，可是走廊上人太多了，小明眼睛只是稍微眯了一下，老师从屏幕中消失了，可怜的小明被老师从背后揪着耳朵拎了出来。事后小明懊恼不已，要是摄像头能自动识别出老师就好了，那样他就不用那么累地边玩电脑边看监控，而且不容易翻车。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="-机器学习" scheme="http://asitheclever.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="python" scheme="http://asitheclever.github.io/tags/python/"/>
+    
+      <category term="neural network" scheme="http://asitheclever.github.io/tags/neural-network/"/>
+    
+      <category term="machine learning" scheme="http://asitheclever.github.io/tags/machine-learning/"/>
+    
+      <category term="deep learning" scheme="http://asitheclever.github.io/tags/deep-learning/"/>
+    
+      <category term="tensorflow" scheme="http://asitheclever.github.io/tags/tensorflow/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>TensorFlow-gpu 的安装和使用</title>
+    <link href="http://asitheclever.github.io/2021/01/25/python/python%20tensorflow-gpu%E5%AE%89%E8%A3%85/"/>
+    <id>http://asitheclever.github.io/2021/01/25/python/python%20tensorflow-gpu%E5%AE%89%E8%A3%85/</id>
+    <published>2021-01-25T03:11:30.029Z</published>
+    <updated>2021-01-25T03:40:15.669Z</updated>
+    
+    <content type="html"><![CDATA[<p>&emsp;&emsp;安装TensorFlow-gpu是一个非常麻烦的过程，我尝试过好多次都以失败告终，甚至中间重装了系统，历经千辛万苦才安装成功。<br>&emsp;&emsp;网上关于安装TensorFlow-gpu的博客和视频教程一抓一大把，我的建议是找一个靠谱的视频，一步一步来，因为这玩意真的很复杂，博客里面很多都会少步骤或者步骤顺序错了，我也吃了不少亏，说多了都是泪。看视频虽然耗时更多，但是比起反复卸载软件甚至重装系统要好得多。下面这个视频是帮助我最终安装成功的视频，需要翻墙才能看，大家可以参考一下。<a href="https://youtu.be/qLjw_EtqmCs" target="_blank" rel="noopener">大神视频教程</a><br>&emsp;&emsp;里面安装Pycharm Anaconda版本的网址以及不能用了，可以直接下载Pycharm免费版即可<a href="https://www.jetbrains.com/pycharm/download/download-thanks.html?platform=windows&code=PCC" target="_blank" rel="noopener">Pycharm免费版下载链接</a>。其它的只要做好听话即可，祝成功！</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&amp;emsp;&amp;emsp;安装TensorFlow-gpu是一个非常麻烦的过程，我尝试过好多次都以失败告终，甚至中间重装了系统，历经千辛万苦才安装成功。&lt;br&gt;&amp;emsp;&amp;emsp;网上关于安装TensorFlow-gpu的博客和视频教程一抓一大把，我的建议是找一个靠谱的视
+      
+    
+    </summary>
+    
+    
+      <category term="-python学习" scheme="http://asitheclever.github.io/categories/python%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="python" scheme="http://asitheclever.github.io/tags/python/"/>
+    
+      <category term="TensorFlow" scheme="http://asitheclever.github.io/tags/TensorFlow/"/>
+    
+      <category term="软件安装" scheme="http://asitheclever.github.io/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>半年后，继续旅途！</title>
+    <link href="http://asitheclever.github.io/2021/01/18/mo-%E4%B8%80%E5%B9%B4%E5%90%8E/"/>
+    <id>http://asitheclever.github.io/2021/01/18/mo-%E4%B8%80%E5%B9%B4%E5%90%8E/</id>
+    <published>2021-01-18T05:28:15.588Z</published>
+    <updated>2021-01-18T06:07:49.265Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="新的一年，新的开始"><a href="#新的一年，新的开始" class="headerlink" title="新的一年，新的开始"></a>新的一年，新的开始</h3><p>从我准备考研复试开始，我拖了半年没更新博客，期间也在不断学习，也算是有了不少收获，接下来，故事继续。2020年的2月，我开始每天坚持编程的开卡活动，中间开学的时候我断了一周，其它时间从未间断，今天已经是第329天了。从最开始的上youtube闲学，到现在和小伙伴专心刷算法。一年前，我是个编程小白，生活在本科时编程学得一塌糊涂的阴影之下，到现在编程已经是我生活的习惯。搞科研也好，学算法也好，都是很有意思的事情，但是这一切要分享才有趣味，不是吗？哈哈哈！<br></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;新的一年，新的开始&quot;&gt;&lt;a href=&quot;#新的一年，新的开始&quot; class=&quot;headerlink&quot; title=&quot;新的一年，新的开始&quot;&gt;&lt;/a&gt;新的一年，新的开始&lt;/h3&gt;&lt;p&gt;从我准备考研复试开始，我拖了半年没更新博客，期间也在不断学习，也算是有了不少收获，接
+      
+    
+    </summary>
+    
+    
+      <category term="-心情记录" scheme="http://asitheclever.github.io/categories/%E5%BF%83%E6%83%85%E8%AE%B0%E5%BD%95/"/>
+    
+    
+      <category term="Mood" scheme="http://asitheclever.github.io/tags/Mood/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python 奇特语法</title>
+    <link href="http://asitheclever.github.io/2020/04/12/python/python%20%E9%AC%BC%E7%95%9C%E5%86%99%E6%B3%95/"/>
+    <id>http://asitheclever.github.io/2020/04/12/python/python%20%E9%AC%BC%E7%95%9C%E5%86%99%E6%B3%95/</id>
+    <published>2020-04-12T12:43:43.033Z</published>
+    <updated>2020-04-12T13:04:18.989Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>&emsp;&emsp;今天是我学习Python的第57天了，目前的话应该对Python基本语法概念比较熟悉，开发了一个可以用数据库储存数据的计时器，可以不看别人的代码用Pygame写出连连看小游戏，这些项目写博客是一件比较耗体力的事情，以后有空再来整。今天的博客内容是我从油管上学到的一些Python的便捷语法技巧，以后还会整理更多的内容，会了很多奇奇怪怪的语法，可能是走出萌新时期的标志，23333。当然我还是个快乐的萌新hhh！</p><a id="more"></a><h1 id="奇特语法"><a href="#奇特语法" class="headerlink" title="奇特语法"></a>奇特语法</h1><h2 id="1-Enum"><a href="#1-Enum" class="headerlink" title="1.Enum"></a>1.Enum</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">class Enum:</span><br><span class="line">    Tim, bill, kite &#x3D; range(3)</span><br><span class="line">print(Enum.Tim)</span><br><span class="line">print(Enum.kite)</span><br></pre></td></tr></table></figure><p><br>结果为:<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="/images/python/yufa/1.jpg" alt="avatar"><br></p><h2 id="2-快速赋值"><a href="#2-快速赋值" class="headerlink" title="2.快速赋值"></a>2.快速赋值</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x, y, z &#x3D; (0, 9, 8)</span><br><span class="line">print(x)</span><br><span class="line">print(y)</span><br><span class="line">print(z)</span><br></pre></td></tr></table></figure><p><br>结果为:<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="/images/python/yufa/2.jpg" alt="avatar"><br></p><h2 id="3-print函数打印用法"><a href="#3-print函数打印用法" class="headerlink" title="3.print函数打印用法"></a>3.print函数打印用法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">name &#x3D; &#39;Tim&#39;</span><br><span class="line">age &#x3D; 15</span><br><span class="line">print(&quot;Hello my name is&quot;, name, &quot;and I am&quot;, age, &quot;years old&quot;)</span><br><span class="line">print(&quot;Hello my name is &quot; + name + &quot; and I am &quot; + str(age) + &quot; years old&quot;)</span><br><span class="line">st &#x3D; f&quot;Hello my name is &#123;name&#125; and I am &#123;age&#125; years old&quot;</span><br><span class="line">print(st)</span><br></pre></td></tr></table></figure><p><br>结果为:<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="/images/python/yufa/3.jpg" alt="avatar"><br></p><h2 id="4-enumerate"><a href="#4-enumerate" class="headerlink" title="4.enumerate"></a>4.enumerate</h2><p>下面两端代码执行结果一样的。<br></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x &#x3D; [2, 3, 4, 5]</span><br><span class="line">for i in range(len(x)):</span><br><span class="line">    print(i, x[i])</span><br></pre></td></tr></table></figure> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> x &#x3D; [2, 3, 4, 5]</span><br><span class="line">for i, e in enumerate(x):</span><br><span class="line">    print(i, x[i])</span><br></pre></td></tr></table></figure><p> <br>结果为:<br></p><p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="/images/python/yufa/4.jpg" alt="avatar"><br></p><h2 id="5-zip混合打印技巧"><a href="#5-zip混合打印技巧" class="headerlink" title="5.zip混合打印技巧"></a>5.zip混合打印技巧</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">names &#x3D; [&#39;Tim&#39;, &#39;Bill&#39;, &#39;Boe&#39;]</span><br><span class="line">ages &#x3D; [19, 64, 34, 76]</span><br><span class="line">fav_color &#x3D; [&#39;blue&#39;, &#39;red&#39;, &#39;green&#39;]</span><br><span class="line">for i in range(len(names)):</span><br><span class="line">    print(names[i], ages[i], fav_color[i])</span><br></pre></td></tr></table></figure><p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="/images/python/yufa/5.jpg" alt="avatar"><br><br><br>可以把for替换如下：<br></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(list(zip(names, ages, fav_color)))</span><br></pre></td></tr></table></figure><p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="/images/python/yufa/6.jpg" alt="avatar"><br><br><br>或者：<br></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">for tup in zip(names, ages, fav_color):</span><br><span class="line">    print(tup)</span><br></pre></td></tr></table></figure><p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="/images/python/yufa/7.jpg" alt="avatar"><br><br><br>再或者：<br></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">for name, age, color in zip(names, ages, fav_color):</span><br><span class="line">    print(name, age, color)</span><br></pre></td></tr></table></figure><p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="/images/python/yufa/8.jpg" alt="avatar"><br></p><h2 id="6-help查看函数帮助"><a href="#6-help查看函数帮助" class="headerlink" title="6.help查看函数帮助"></a>6.help查看函数帮助</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">help(input)</span><br></pre></td></tr></table></figure><p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="/images/python/yufa/9.jpg" alt="avatar"><br></p><h2 id="7-把for放入数组内"><a href="#7-把for放入数组内" class="headerlink" title="7.把for放入数组内"></a>7.把for放入数组内</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">a &#x3D; [i for i in range(5)]</span><br><span class="line">b &#x3D; [i for i in range(5) if i%2 &#x3D;&#x3D; 0]</span><br><span class="line">c &#x3D; [[1] for i in range(5)]</span><br><span class="line">d &#x3D; [[j for j in range(i)] for i in range(5)]</span><br><span class="line">e &#x3D; [[x, y] for x, y in zip(range(5), range(5, 10))]</span><br><span class="line">print(f&#39;a &#x3D; &#123;a&#125;&#39;)</span><br><span class="line">print(f&#39;b &#x3D; &#123;b&#125;&#39;)</span><br><span class="line">print(f&#39;c &#x3D; &#123;c&#125;&#39;)</span><br><span class="line">print(f&#39;d &#x3D; &#123;d&#125;&#39;)</span><br><span class="line">print(f&#39;e &#x3D; &#123;e&#125;&#39;)</span><br></pre></td></tr></table></figure><p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="/images/python/yufa/10.jpg" alt="avatar"><br></p><h2 id="8-将数组内原始连起来打印"><a href="#8-将数组内原始连起来打印" class="headerlink" title="8.将数组内原始连起来打印"></a>8.将数组内原始连起来打印</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">words &#x3D; [&#39;hello&#39;, &#39;my&#39;, &#39;name&#39;, &#39;is&#39;]</span><br><span class="line">print(&#39;,&#39;.join(words))</span><br><span class="line">print(&#39;--&#39;.join(words))</span><br></pre></td></tr></table></figure><p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="/images/python/yufa/11.jpg" alt="avatar"><br></p><h2 id="9-将字符串反转打印"><a href="#9-将字符串反转打印" class="headerlink" title="9.将字符串反转打印"></a>9.将字符串反转打印</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">st &#x3D; &#39;hello&#39;</span><br><span class="line">print(st[::-1])</span><br></pre></td></tr></table></figure><p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="/images/python/yufa/12.jpg" alt="avatar"><br></p><h2 id="10-快速得到数组中出现最频繁的数"><a href="#10-快速得到数组中出现最频繁的数" class="headerlink" title="10.快速得到数组中出现最频繁的数"></a>10.快速得到数组中出现最频繁的数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x &#x3D; [1,1,2,3,4,5,1,2]</span><br><span class="line">print(max(set(x), key &#x3D; x.count))</span><br></pre></td></tr></table></figure><p><br>结果是1。<br></p><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://www.youtube.com/watch?v=sbtbIqEG4nI&amp;t=923s" target="_blank" rel="noopener">https://www.youtube.com/watch?v=sbtbIqEG4nI&amp;t=923s</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h1&gt;&lt;p&gt;&amp;emsp;&amp;emsp;今天是我学习Python的第57天了，目前的话应该对Python基本语法概念比较熟悉，开发了一个可以用数据库储存数据的计时器，可以不看别人的代码用Pygame写出连连看小游戏，这些项目写博客是一件比较耗体力的事情，以后有空再来整。今天的博客内容是我从油管上学到的一些Python的便捷语法技巧，以后还会整理更多的内容，会了很多奇奇怪怪的语法，可能是走出萌新时期的标志，23333。当然我还是个快乐的萌新hhh！&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="-python学习" scheme="http://asitheclever.github.io/categories/python%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="语法" scheme="http://asitheclever.github.io/tags/%E8%AF%AD%E6%B3%95/"/>
+    
+      <category term="python" scheme="http://asitheclever.github.io/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python实战之计时器2.0</title>
+    <link href="http://asitheclever.github.io/2020/03/03/python/python%E5%AE%9E%E6%88%98%E4%B9%8B%E8%AE%A1%E6%97%B6%E5%99%A82.0/"/>
+    <id>http://asitheclever.github.io/2020/03/03/python/python%E5%AE%9E%E6%88%98%E4%B9%8B%E8%AE%A1%E6%97%B6%E5%99%A82.0/</id>
+    <published>2020-03-03T11:30:11.290Z</published>
+    <updated>2020-03-06T14:29:11.062Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="1-引言"><a href="#1-引言" class="headerlink" title="1 引言"></a>1 引言</h1><p>&emsp;&emsp;最近我在学Python的tkinter模块，这个模块的功能是实现Python的GUI，我觉得比较有意思。前一阵子刚学Python，我想统计自己学Python的时间，于是写了个计时器，那时候我不会GUI，那个计时器的结果只能在PyCharm的下面那个框里面显示，比较不方便。最近我用tkinter编写了一个计时器的GUI程序，特来记录一下，也希望能帮到大家学习Python的GUI。我接下来也会不断升级这个程序，完善GUI设计、加入数据库、通过移植等手段开发成手机app和电脑的exe程序、最后想办法实现多端同步。emmm，暂时就这些想法。</p><a id="more"></a><h1 id="2-计时器1-0版本"><a href="#2-计时器1-0版本" class="headerlink" title="2 计时器1.0版本"></a>2 计时器1.0版本</h1><p>&emsp;&emsp;下面是我的计时器1.0版本的代码，是刚学Python时做的粗略版本，也是后面的基础。这个计时器的第一步是根据开始学习的时间和结束学习的时间化成分钟，然后求它们的差再除以60便可以得出一次学几个小时。第二步是要用户输入今天学习几次，然后就让用户分别输入几次开始和结束学习的时间，加起来就是一天的总学习时间。第三步是输入历史学习时间，与一天学习时间相加，得出总学习时间。<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="/images/python/tkinter/1.jpg" alt="avatar"><br><br>&emsp;&emsp;具体效果如下:<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="/images/python/tkinter/2.jpg" alt="avatar"><br></p><h1 id="3-走进tkinter模块"><a href="#3-走进tkinter模块" class="headerlink" title="3 走进tkinter模块"></a>3 走进tkinter模块</h1><p>&emsp;&emsp;tkinter模块是Python里面非常重要的一个GUI模块，我这次的改进全靠它。我下面介绍一些tkinter里面常用部分的功能说明（就是我把计时器GUI用到的模块），详细的参数用法可以去谷歌。<br></p><h2 id="3-1-安装和载入"><a href="#3-1-安装和载入" class="headerlink" title="3.1 安装和载入"></a>3.1 安装和载入</h2><p>&emsp;&emsp;可以用pip来安装tkinter模块或者直接在Pycharm中下载，emmm，Pycharm很强大的一个功能就是缺少什么模块它会报错，然后直接在软件里下载缺失模块，非常方便。<br><br>&emsp;&emsp;下载完以后输入from tkinter import *就可以导入tkinter模块了。<br></p><h2 id="3-2-用tkinter模块添加标签"><a href="#3-2-用tkinter模块添加标签" class="headerlink" title="3.2 用tkinter模块添加标签"></a>3.2 用tkinter模块添加标签</h2><h3 id="3-2-1-定义标签并简单展示"><a href="#3-2-1-定义标签并简单展示" class="headerlink" title="3.2.1 定义标签并简单展示"></a>3.2.1 定义标签并简单展示</h3><p>&emsp;&emsp;像下面这一句就是定义了一个内容为hello的标签，这个标签放在一个名字叫root的窗口上。<br><br>&emsp;&emsp;myLabel = Label(root, text=”hello”)<br><br>&emsp;&emsp;上面那句只是简单地定义标签，如果你想在屏幕上显示标签的话还要下面这句。<br><br>&emsp;&emsp;myLabel.pack()  # 展示结果，pack的话展示位置比较固定<br><br>&emsp;&emsp;pack有一个问题就是它是随便放在屏幕的，不受人控制，如果你想把标签具体放在哪里的话，需要用到grid。<br></p><h3 id="3-2-2-grid"><a href="#3-2-2-grid" class="headerlink" title="3.2.2 grid"></a>3.2.2 grid</h3><p>&emsp;&emsp;在tkinter模块中，grid是把各种东西比如标签按钮放在屏幕指定位置的工具。<br><br>&emsp;&emsp;myLabel1.grid(row=0, column=0, padx=10, pady=10, ipadx=1, ipady=2)<br><br>&emsp;&emsp;row:第几行，从第0行开始。<br><br>&emsp;&emsp;column:第几列，从第0列开i始。<br><br>&emsp;&emsp;ipadx和ipady:设置本身的大小，ipadx和ipady分别是横向和纵向的大小。<br><br>&emsp;&emsp;padx和pady:设置填充域的大小，padx和pady越大，填充的阴影部分越大。<br><br>&emsp;&emsp;记住一句话，tkinter模块的所有组件都是先定义一下，然后再用pack或者grid展示，不然屏幕上什么都没有哈哈哈！<br></p><h2 id="3-3-用tkinter模块添加按钮"><a href="#3-3-用tkinter模块添加按钮" class="headerlink" title="3.3 用tkinter模块添加按钮"></a>3.3 用tkinter模块添加按钮</h2><p>&emsp;&emsp;按钮的话功能显而易见，就是你按一下程序就会执行相应的功能。下面我用一个程序解释一下它的用法。<br><br>&emsp;&emsp;def myClick():<br><br>&emsp;&emsp;    myLabel1 = Label(root, text=”hello”)<br><br>&emsp;&emsp;    myLabel1.pack() <br><br>&emsp;&emsp;myButton = Button(root, text=”click me”, command=myClick)<br><br>&emsp;&emsp;# 这句话意思是按钮放在root上面，按钮上写着click me，当按下时，触发事件myClick()，输出hello字样，效果如下<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="/images/python/tkinter/3.jpg" alt="avatar"><br><br>&emsp;&emsp;最重要的是这句：myButton = Button(root, text=”click me”, command=myClick)<br><br>&emsp;&emsp;第一个root和标签一样，是指把这个按钮放在原先定义好的一个叫root的窗口上。<br><br>&emsp;&emsp;text的内容click me是按钮的名字。<br><br>&emsp;&emsp;command意思是点击这个按钮执行myclick这个函数。<br></p><h2 id="3-4-用tkinter模块添加输入框"><a href="#3-4-用tkinter模块添加输入框" class="headerlink" title="3.4 用tkinter模块添加输入框"></a>3.4 用tkinter模块添加输入框</h2><p>&emsp;&emsp;完全类似上面讲的按钮和标签的使用，只要用下面两行代码即可在root窗口上建立一个名字叫e的输入框。<br><br>&emsp;&emsp;e = Entry(root)<br><br>&emsp;&emsp;e.pack()<br><br>&emsp;&emsp;要得到输入框的值只需要用e.get()即可。</p><h2 id="3-5-用tkinter打开新窗口"><a href="#3-5-用tkinter打开新窗口" class="headerlink" title="3.5 用tkinter打开新窗口"></a>3.5 用tkinter打开新窗口</h2><p>&emsp;&emsp;有时候吧，我们点击一个按钮希望能弹出一个新的窗口，比如说这个计时器2.0版本，在输入每天学习几次后能弹出一个新的窗口，这个窗口的开始时间和结束时间取决于学习的次数。<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="/images/python/tkinter/4.jpg" alt="avatar"><br><br>&emsp;&emsp;要创建一个新窗口很简单，直接用Toplevel函数，一句话top = Toplevel()就马上可以创建一个名字是top的窗口！如果要用按键关掉新建的窗口的话，只需要在Button里面加top.destroy就好了。<br></p><h2 id="3-6-tkinter其它比较常用的模块"><a href="#3-6-tkinter其它比较常用的模块" class="headerlink" title="3.6 tkinter其它比较常用的模块"></a>3.6 tkinter其它比较常用的模块</h2><p>&emsp;&emsp;我上面提到的只是我做计时器2.0时用到的模块，tinkter还有相当多给力模块，我把它们的名字放在下面，大家根据名字上网查就好了，很方便使用的。<br><br>&emsp;&emsp;给窗口加图标：iconbitmap<br><br>&emsp;&emsp;加载图片：pillow<br><br>&emsp;&emsp;给窗口加图标：iconbitmap<br><br>&emsp;&emsp;设置框架：LabelFrame<br><br>&emsp;&emsp;单选按钮：Radiobutton<br><br>&emsp;&emsp;留言框：messagebox<br><br>&emsp;&emsp;打开文件：filedialog<br><br>&emsp;&emsp;滚动条：Scale<br><br>&emsp;&emsp;选择菜单：OptionMenu<br></p><h1 id="4-计时器2-0-版本具体制作"><a href="#4-计时器2-0-版本具体制作" class="headerlink" title="4 计时器2.0 版本具体制作"></a>4 计时器2.0 版本具体制作</h1><h2 id="4-1-第一级GUI，输入学习次数"><a href="#4-1-第一级GUI，输入学习次数" class="headerlink" title="4.1 第一级GUI，输入学习次数"></a>4.1 第一级GUI，输入学习次数</h2><p>&emsp;&emsp;运用上面介绍的标签、按钮、输入框的功能我先定义了这个GUI程序的样子。<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="/images/python/tkinter/5.jpg" alt="avatar"><br><br>&emsp;&emsp;总共就三个部件比较简单，代码如下：<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="/images/python/tkinter/6.jpg" alt="avatar"><br></p><h2 id="4-2-第二级GUI，新窗口"><a href="#4-2-第二级GUI，新窗口" class="headerlink" title="4.2 第二级GUI，新窗口"></a>4.2 第二级GUI，新窗口</h2><p>&emsp;&emsp;点击第一级GUI的确定窗口以后我们要弹出一个新的窗口方便输入学习时间，这就要定义一个函数来实现这个功能了。<br><br>&emsp;&emsp;这个函数怎么说呢，首先要实现根据学习次数改变输入框的个数，比如学习了三次就要输入三个输入框。以开始时间为例子，要实现这个功能，我们可以先定义一个数组begintime = []，然后用一个for循环，循环次数等于学习次数，每循环一次就把输入框当成一个元素保存在数组里面。最后计算时直接用数组里的元素算。<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="/images/python/tkinter/7.jpg" alt="avatar"><br></p><h2 id="4-3-计算"><a href="#4-3-计算" class="headerlink" title="4.3 计算"></a>4.3 计算</h2><p>&emsp;&emsp;这部分思路和上面讲的1.0版本一样，代码如下，在此不赘述。<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="/images/python/tkinter/8.jpg" alt="avatar"><br></p><h1 id="5-笔者有感"><a href="#5-笔者有感" class="headerlink" title="5 笔者有感"></a>5 笔者有感</h1><p>&emsp;&emsp;我在考研初试成绩出来以后很久没来更新博客了，主要是成绩实在太边缘，像星星那样一闪一灭，属实可恨，心实在太累。再加上最近在学校就业网站上看心仪企业招聘要求，感觉这四年像是被大学耍了一番，学的东西和企业要求完全不是一回事，加上以前傻乎乎没去实习，春招又是补录，现在想进一所好企业真是难上加难。研途未仆，前路茫茫。<br><br>&emsp;&emsp;大学四年有个遗憾，没有安下心来好好学一项技术，导致现在比较白板。现在每天学习编程，亡羊补牢，希望为时未晚。今天是我连续学Python的第20天，平均每天两个多小时还算是比较充实，哦对，这个计时我是用自己编写的程序，也挺开心的其实。<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="/images/python/tkinter/9.jpg" alt="avatar"><br><br>&emsp;&emsp;接下来的一段时间博客更新会放缓，一是因为笔者要准备考研复试以及毕业设计找工作等杂事，二是因为笔者现在在学使用Python的数据库，内容挺多，为了博客的质量嘛。（当然也有偷懒的成分啦！）<br><br>&emsp;&emsp;2020已经过去四分之一啦，希望大家一起加油，都能实现今年的小目标！<br></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;1-引言&quot;&gt;&lt;a href=&quot;#1-引言&quot; class=&quot;headerlink&quot; title=&quot;1 引言&quot;&gt;&lt;/a&gt;1 引言&lt;/h1&gt;&lt;p&gt;&amp;emsp;&amp;emsp;最近我在学Python的tkinter模块，这个模块的功能是实现Python的GUI，我觉得比较有意思。前一阵子刚学Python，我想统计自己学Python的时间，于是写了个计时器，那时候我不会GUI，那个计时器的结果只能在PyCharm的下面那个框里面显示，比较不方便。最近我用tkinter编写了一个计时器的GUI程序，特来记录一下，也希望能帮到大家学习Python的GUI。我接下来也会不断升级这个程序，完善GUI设计、加入数据库、通过移植等手段开发成手机app和电脑的exe程序、最后想办法实现多端同步。emmm，暂时就这些想法。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="-python学习" scheme="http://asitheclever.github.io/categories/python%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="python" scheme="http://asitheclever.github.io/tags/python/"/>
+    
+      <category term="tkinter" scheme="http://asitheclever.github.io/tags/tkinter/"/>
+    
+      <category term="GUI" scheme="http://asitheclever.github.io/tags/GUI/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>pygame第一期</title>
+    <link href="http://asitheclever.github.io/2020/02/17/python/pygame%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E5%B0%8F%E6%B8%B8%E6%88%8F%E5%88%B6%E4%BD%9C/"/>
+    <id>http://asitheclever.github.io/2020/02/17/python/pygame%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E5%B0%8F%E6%B8%B8%E6%88%8F%E5%88%B6%E4%BD%9C/</id>
+    <published>2020-02-17T09:28:13.112Z</published>
+    <updated>2020-03-03T14:29:03.731Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="序"><a href="#序" class="headerlink" title="序"></a>序</h1><p>pygame是python制作小游戏的库，我觉得挺好玩的，下面介绍安装的方法以及制作一个简单的靠键盘的上下左右键移动的小游戏。</p><a id="more"></a><h1 id="非编程类操作"><a href="#非编程类操作" class="headerlink" title="非编程类操作"></a>非编程类操作</h1><h2 id="安装pycharm"><a href="#安装pycharm" class="headerlink" title="安装pycharm"></a>安装pycharm</h2><p>pycharm的界面很友好，主要是能像C语言、Java那样debug，比一般的python编译器功能强大很多。<br><br><img src="/images/python/pygame/1-1.jpg" alt=""><br><br>下载地址为：<br><br><a href="https://www.jetbrains.com/pycharm/" target="_blank" rel="noopener">https://www.jetbrains.com/pycharm/</a><br></p><h2 id="安装pygame"><a href="#安装pygame" class="headerlink" title="安装pygame"></a>安装pygame</h2><h3 id="先安装pip"><a href="#先安装pip" class="headerlink" title="先安装pip"></a>先安装pip</h3><p>下面这篇博客讲得很清楚<br><br><a href="https://blog.csdn.net/Lemostic/article/details/73446649" target="_blank" rel="noopener">https://blog.csdn.net/Lemostic/article/details/73446649</a> <br><br>在安装pygame，参考下面知乎文章<br><br><a href="https://www.zhihu.com/question/50697115" target="_blank" rel="noopener">https://www.zhihu.com/question/50697115</a><br><br>这样运行pycharm的时候还是可能会报错<br></p><h3 id="解决报错问题"><a href="#解决报错问题" class="headerlink" title="解决报错问题"></a>解决报错问题</h3><p>解决步骤如下：<br><br>1.首先要会找C盘中的pygame安装的地方，这一步是后面解决bug的基础，系统会提示安装文件在：<br><br>c:\users\asus\appdata\local\programs\python\python38-32\lib\site-packages (1.9.6)<br><br>我的这玩意完全找不到！参考下面这篇博客有介绍找到的方法：<br><br><a href="https://blog.csdn.net/m0_38056893/article/details/89437676" target="_blank" rel="noopener">https://blog.csdn.net/m0_38056893/article/details/89437676</a> <br><br>2.参考下面这篇博客，完成复制两个文件到pycharm工程目录<br><br><a href="https://blog.csdn.net/zzwz010301/article/details/89874362" target="_blank" rel="noopener">https://blog.csdn.net/zzwz010301/article/details/89874362</a><br><br>完美解决pygame安装问题。<br></p><h1 id="知识储备"><a href="#知识储备" class="headerlink" title="知识储备"></a>知识储备</h1><h2 id="加载pygame及建立简单窗口"><a href="#加载pygame及建立简单窗口" class="headerlink" title="加载pygame及建立简单窗口"></a>加载pygame及建立简单窗口</h2><p>通过编写下面这段程序，可以生成一个不会自动关闭的窗口，看这一段程序的注释即可理解。<br><br>import pygame  # 加载必备<br><br>pygame.init()  # 初始化，相当于玩游戏时的重新开始<br><br>win = pygame.display.set_mode((500, 500))  # 设置窗口大小<br><br>pygame.display.set_caption(“First Game”)  # 设置标题<br><br>run = True  # 设置这个循环，让窗口不会一下子没掉。<br><br>while run:<br><br>    pygame.time.delay(100)  # 设置时钟，0.1秒刷新一次<br><br>    for event in pygame.event.get():  # 监听时间是否发生<br><br>        if event.type == pygame.QUIT:  # 是否点击退出按钮<br><br>            run = False  # 退出循环<br><br>pygame.quit()  # 关闭窗口<br></p><h2 id="pygame-draw-模块"><a href="#pygame-draw-模块" class="headerlink" title="pygame.draw 模块"></a>pygame.draw 模块</h2><h3 id="画矩形-pygame-draw-rect"><a href="#画矩形-pygame-draw-rect" class="headerlink" title="画矩形 pygame.draw.rect"></a>画矩形 pygame.draw.rect</h3><p>pygame.draw.rect(win,(255,0,0),(x,y,width,height))  # 真的画<br><br>pygame.display.update()  # 展示，无脑加即可，不可缺！<br><br>1.win代表在哪里画，win是我前面设置的窗口<br><br>2.(255,0,0)代表颜色为红色。<br><br>#  定义几个颜色<br><br>BLACK = ( 0, 0, 0)<br><br>WHITE = (255, 255, 255)<br><br>RED = (255, 0, 0)<br><br>GREEN = ( 0, 255, 0)<br><br>BLUE = ( 0, 0, 255)<br><br>3.(x,y,width,height)：xy是坐标，后面的width和height是宽和高。<br></p><h2 id="控制模块"><a href="#控制模块" class="headerlink" title="控制模块"></a>控制模块</h2><h3 id="键盘上下左右控制移动。"><a href="#键盘上下左右控制移动。" class="headerlink" title="键盘上下左右控制移动。"></a>键盘上下左右控制移动。</h3><h4 id="判断按键是否按下以及定义动作"><a href="#判断按键是否按下以及定义动作" class="headerlink" title="判断按键是否按下以及定义动作"></a>判断按键是否按下以及定义动作</h4><p>我们现在要做一个方块，能用键盘的上下左右键控制它的移动：<br><br>先输入以下代码<br><br>keys = pygame.key.get_pressed()  # 判断按键是否被按下<br><br>    if keys[pygame.K_LEFT]:  # 执行移动<br><br>        x -= vel<br><br>    if keys[pygame.K_RIGHT]:<br><br>        x += vel<br><br>    if keys[pygame.K_UP]:<br><br>        y -= vel<br><br>    if keys[pygame.K_DOWN]:<br><br>        y += vel<br><br>注意，如果只写上面的程序会有下面的效果<br><br><img src="/images/python/pygame/1-2.jpg" alt=""><br><br>这是因为忘了删除原来的了，加上下面这一句就正常了<br><br>win.fill((255, 255, 255))  # 移动一次屏幕变白达到删除原来格子的目的。<br><br>移动前：<br><br><img src="/images/python/pygame/1-3.jpg" alt=""><br><br>移动后：<br><br><img src="/images/python/pygame/1-4.jpg" alt=""><br></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;序&quot;&gt;&lt;a href=&quot;#序&quot; class=&quot;headerlink&quot; title=&quot;序&quot;&gt;&lt;/a&gt;序&lt;/h1&gt;&lt;p&gt;pygame是python制作小游戏的库，我觉得挺好玩的，下面介绍安装的方法以及制作一个简单的靠键盘的上下左右键移动的小游戏。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="-python学习" scheme="http://asitheclever.github.io/categories/python%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="python" scheme="http://asitheclever.github.io/tags/python/"/>
+    
+      <category term="pygame" scheme="http://asitheclever.github.io/tags/pygame/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>写毕设论文的word技巧</title>
+    <link href="http://asitheclever.github.io/2020/02/06/office-word%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/"/>
+    <id>http://asitheclever.github.io/2020/02/06/office-word%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/</id>
+    <published>2020-02-06T08:32:21.050Z</published>
+    <updated>2020-02-09T14:54:08.556Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言<br></h1><p>&emsp;&emsp;word是一款大家熟悉到不能在熟悉的软件，大多数人都会用又不会用。以前我觉得word会打字就ok了，现在做毕业设计，发现会一点小技巧能大大提高工作效率。于是我打算写一篇博文来记录自己学到的技巧，这个将持续更新！<br><a id="more"></a></p><h1 id="标题管理"><a href="#标题管理" class="headerlink" title="标题管理"></a>标题管理<br></h1><h2 id="效果展示"><a href="#效果展示" class="headerlink" title="效果展示"></a>效果展示</h2><p>&emsp;&emsp;不知道你们是不是跟我以前一样，标题随便手打比如一、1、1.3之类的？如果那样的话就大大浪费了word的功能，后期编辑也很乱，请先看下图。<img src="/images/office/word/1-1.png" alt="">这样的标题管理是不是很清楚？而且容易定位、方便修改，写论文必备！</p><h2 id="巧用样式栏"><a href="#巧用样式栏" class="headerlink" title="巧用样式栏"></a>巧用样式栏<br></h2><p>&emsp;&emsp;word开始大栏里有个样式小栏，如下所示：<br><img src="/images/office/word/1-2.png" alt="">&emsp;&emsp;从这里可以实现自动标题功能，这个比手动好的多，很规范。具体操作起来就是先把段落的名称打一下，把那句话全选，再点样式里面的几级标题就ok了。按我图片里面那样点，有个修改键，可以改标题的字体和段落，非常方便。<br></p><h2 id="几个要注意的地方"><a href="#几个要注意的地方" class="headerlink" title="几个要注意的地方"></a>几个要注意的地方<br></h2><h3 id="标题样式的修改"><a href="#标题样式的修改" class="headerlink" title="标题样式的修改"></a>标题样式的修改<br></h3><p>&emsp;&emsp;如果出现下图这样的bug。<br><img src="/images/office/word/1-4.png" alt=""><br>&emsp;&emsp;或者对标题的样式有不满意的地方，可以在定义新多级列表里面设置,如下图所示。<br><img src="/images/office/word/1-5.png" alt=""></p><h3 id="段落设置好"><a href="#段落设置好" class="headerlink" title="段落设置好"></a>段落设置好<br></h3><p>&emsp;&emsp;如果出现如下图所示的bug，那就是文章的段落没有调整好。<img src="/images/office/word/1-6.png" alt=""><br>&emsp;&emsp;解决方法如下图所示，把缩进值改成0即可正常。<br><img src="/images/office/word/1-7.png" alt=""></p><h3 id="清除制表位"><a href="#清除制表位" class="headerlink" title="清除制表位"></a>清除制表位<br></h3><p>&emsp;&emsp;如果出现了如下图的bug，<br><img src="/images/office/word/1-8.png" alt=""><br>清除一下制表位就好了，如下图所示。<br><img src="/images/office/word/1-9.png" alt=""></p><h2 id="生成目录"><a href="#生成目录" class="headerlink" title="生成目录"></a>生成目录<br></h2><p>&emsp;&emsp;完成了上面的步骤就可以自动生成目录了。方法和效果分别如下图所示。<br><img src="/images/office/word/1-10.png" alt=""><br><img src="/images/office/word/1-11.png" alt=""><br>&emsp;&emsp;顺便提一句，如果标题都是手打的话，很可能不能自动生成目录哦！<br> </p><h2 id="word转PPT"><a href="#word转PPT" class="headerlink" title="word转PPT"></a>word转PPT<br></h2><p>&emsp;&emsp;如果你的word文档后缀是docx，那么可以直接把这个后缀改成ppt（必须小写），就可以直接通过word生成简单的PPT了，很实用的一个功能。</p><h1 id="编辑页码"><a href="#编辑页码" class="headerlink" title="编辑页码"></a>编辑页码<br></h1><h2 id="文章分节"><a href="#文章分节" class="headerlink" title="文章分节"></a>文章分节</h2><p>&emsp;&emsp;文章分节就是把文章分成几个部分。这个功能主要是在给文章加各种页码时有用。一般来说封面不用页码、目录用罗马数字表示页码、正文用阿拉伯数字表示页码。文章分节以后就可以在各个节编辑页码了。<br><br>&emsp;&emsp;具体的操作是先点击一下要分的节的最后一页，然后按下图所示操作。<br><img src="/images/office/word/1-13.png" alt=""></p><h2 id="取消和上一节的链接"><a href="#取消和上一节的链接" class="headerlink" title="取消和上一节的链接"></a>取消和上一节的链接</h2><p>&emsp;&emsp;有了这一步操作文章页码就不受上一节的影响了。<br><img src="/images/office/word/1-14.png" alt=""></p><h1 id="常用快捷键"><a href="#常用快捷键" class="headerlink" title="常用快捷键"></a>常用快捷键<br></h1><p>这个快捷键太多了！！！我只把我认为比较实用的加进去。<br><br>1.ctrl+E：居中<br><br>2.ctrl+S：保存<br><br>3.ctrl+C/V：复制/粘贴<br><br>4.ctrl+Z：退一步<br><br>5.ctrl+shift+8：显示编辑<br><br>6.ctrl+H：查找和替换————神仙技能，把一段文字的某个字符包括空格，替换成另一个字符！<br><br>7.windows+左右键：分屏，这个功能在一边看参考文献一边时特别给力。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;br&gt;&lt;/h1&gt;&lt;p&gt;&amp;emsp;&amp;emsp;word是一款大家熟悉到不能在熟悉的软件，大多数人都会用又不会用。以前我觉得word会打字就ok了，现在做毕业设计，发现会一点小技巧能大大提高工作效率。于是我打算写一篇博文来记录自己学到的技巧，这个将持续更新！&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="-office" scheme="http://asitheclever.github.io/categories/office/"/>
+    
+    
+      <category term="office" scheme="http://asitheclever.github.io/tags/office/"/>
+    
+      <category term="word" scheme="http://asitheclever.github.io/tags/word/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>学完专栏贾行家说《聊斋》</title>
+    <link href="http://asitheclever.github.io/2020/01/25/de-%E8%B4%BE%E8%A1%8C%E5%AE%B6%E8%81%8A%E6%96%8B/"/>
+    <id>http://asitheclever.github.io/2020/01/25/de-%E8%B4%BE%E8%A1%8C%E5%AE%B6%E8%81%8A%E6%96%8B/</id>
+    <published>2020-01-25T08:42:35.638Z</published>
+    <updated>2020-01-25T10:01:42.404Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天是农历新年的第一天，我在得到上完成了一个专栏的学习————贾行家说《聊斋》,如果得到的专栏按水平划分1到10分的话，这个专栏可以评7分。很亲民的一面课，听起来没有有特别晦涩难懂的地方，<a id="more"></a>对于认识蒲松龄和聊斋很有帮助。尽管里面阐述的道理对当今社会的人而言有现实意义的不多，但是给力的故事转述能力还是使得这个专栏跻身佳作行列，值得学习。我原本想在博客上写一些笔记读后感啥的，但是上网查了一下这种行为可能会构成侵权，于是就此罢了，感兴趣的可以和我聊聊，用app直接分享文章这种操作还是合法的！<br><br><img src="/images/dedao/JHJlz.png" alt=""><br></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;今天是农历新年的第一天，我在得到上完成了一个专栏的学习————贾行家说《聊斋》,如果得到的专栏按水平划分1到10分的话，这个专栏可以评7分。很亲民的一面课，听起来没有有特别晦涩难懂的地方，
+    
+    </summary>
+    
+    
+      <category term="-心情记录" scheme="http://asitheclever.github.io/categories/%E5%BF%83%E6%83%85%E8%AE%B0%E5%BD%95/"/>
+    
+    
+      <category term="mood" scheme="http://asitheclever.github.io/tags/mood/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>部落与弯刀</title>
+    <link href="http://asitheclever.github.io/2020/01/25/game-%E9%83%A8%E8%90%BD%E4%B8%8E%E5%BC%AF%E5%88%80/"/>
+    <id>http://asitheclever.github.io/2020/01/25/game-%E9%83%A8%E8%90%BD%E4%B8%8E%E5%BC%AF%E5%88%80/</id>
+    <published>2020-01-25T06:00:39.072Z</published>
+    <updated>2020-01-25T08:02:20.118Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/images/games/blywd1.jpg" alt=""></p><p>今年steam新出了一款仿作游戏，这模仿能力堪称一流。怎么说呢？这款游戏几乎是糅合着仙剑奇侠传和骑马与砍杀，一中一外两款神作的模仿品。百分之九十的元素是骑砍，其余仙剑（主体是骑砍）。作为骑砍的老玩家，<a id="more"></a>我实在是忍不住把它和骑砍做个对比。<br><br><br></p><h3 id="部落与弯刀-vs-骑马与砍杀"><a href="#部落与弯刀-vs-骑马与砍杀" class="headerlink" title="部落与弯刀 vs 骑马与砍杀"></a>部落与弯刀 vs 骑马与砍杀</h3><ul><li>名字<br>名字模仿得惟妙惟肖，不用多说吧。<br></li><li>主路线<br>建立人物（都可以自定义形象）-&gt;打怪升级-&gt;招兵买马-&gt;加入势力/攻城自立-&gt;打爆全世界。内核真的一模一样，攻城略地的成就感是两者主要的爽点。<br></li><li>剧情对比<br>骑砍创立角色时可以选择不同的职业，学徒骑士等等，然后会有不同的属性点，力量敏捷等等，角色没啥故事~。部落不同的职业则是有不同的技能，每个角色都有故事，这点算是个小创新点。其它剧情两者都挺少的哎。<br></li><li>2D与3D<br>部落战斗界面<br><br><img src="/images/games/blywd.jpg" alt=""><br><br>骑砍战斗界面<br><br><img src="/images/games/blywd2.jpg" alt=""><br><br>额，我觉得就是2D和3D的区别，技术含量当然是3D更高。<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3>部落与弯刀是2D的中国风的骑砍，整体是个不错的游戏，但骑砍是神作，但模仿骑砍做得再好也只佳作。我很期待国产游戏多出神作，创新才能体现实力！</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;/images/games/blywd1.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;今年steam新出了一款仿作游戏，这模仿能力堪称一流。怎么说呢？这款游戏几乎是糅合着仙剑奇侠传和骑马与砍杀，一中一外两款神作的模仿品。百分之九十的元素是骑砍，其余仙剑（主体是骑砍）。作为骑砍的老玩家，
+    
+    </summary>
+    
+    
+      <category term="-游戏" scheme="http://asitheclever.github.io/categories/%E6%B8%B8%E6%88%8F/"/>
+    
+    
+      <category term="Games" scheme="http://asitheclever.github.io/tags/Games/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>blog第一天心得</title>
+    <link href="http://asitheclever.github.io/2020/01/23/mo-blog%E7%AC%AC%E4%B8%80%E5%A4%A9%E5%BF%83%E5%BE%97/"/>
+    <id>http://asitheclever.github.io/2020/01/23/mo-blog%E7%AC%AC%E4%B8%80%E5%A4%A9%E5%BF%83%E5%BE%97/</id>
+    <published>2020-01-23T15:19:30.745Z</published>
+    <updated>2020-02-09T13:18:22.020Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="先记笔流水账"><a href="#先记笔流水账" class="headerlink" title="先记笔流水账"></a>先记笔流水账</h2><ul><li>呃呃，看官莫因“流水账”三字对我嗤之以鼻，一来笔者初入红尘,经验不足，腹中无墨。二来流水账这玩意儿看似无聊实则逻辑性强,看起来条理分明，轻松宜人，切莫见笑。<br><a id="more"></a></li><li>今天起来，我原来想做做毕设，复习复习考研复试专业课。可一起床先看了半小时小说，学了点不入流的小魔术，越发感觉平时学习之外的世界真的是多姿多彩呀！<br></li><li>打开电脑，心想既然明天就是大年三十了，今天不如好好休息一番。可是要怎么休息呢？我在steam上最想玩的几款游戏已经通关了，出来的新游虽然好玩，但是那好几百的价格真伤身体啊，还是先等等吧。<br></li><li>那么！那么！那么！这个“机遇”让我这一天专心做blog网站。今天我消除了大部分关于以前正常学习时留下的关于实验和编程的心理阴影。晚上看着一天的成果那是由衷的开心啊!<br></li><li>先是在github网站上注册账号，用GitHub Page生成网站，同时安装Hexo环境即本地的网站编辑器，最后将两者搞在一起，整体框架就完成了。具体操作步骤教程网上一大堆，只要搜索GitHub Page和Hexo两个关键词，再适当顺藤摸瓜就可以找到想要的答案。不过有一些细节还是要注意一下，待会我会说明。<br></li><li>然后就是细节的补充了，请参考教程，在此不赘述了，好吧，其实是我困了哈哈哈，下面还要写细节呢。<br></li></ul><h2 id="安装容易翻车细节"><a href="#安装容易翻车细节" class="headerlink" title="安装容易翻车细节"></a>安装容易翻车细节</h2><h3 id="改域名"><a href="#改域名" class="headerlink" title="改域名"></a>改域名</h3><p> &emsp;&emsp;关于改域名好像需要接受审核，据说原来网站内容太少审核会不过。。。所以刚开始的话用github.io这个无条件投降于你的域名性价比比较高，我早上也尝试换了一下，没成功。。。<br></p><h3 id="创建新分类"><a href="#创建新分类" class="headerlink" title="创建新分类"></a>创建新分类</h3><p>&emsp;&emsp;点分类、标签出现404用$ hexo new page categories在命令行里创造新分类后，千万别去改那个文件的名字，不然就是404，我也不知道为什么，可它就这样，标签也一个道理。<br></p><h3 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h3><p>&emsp;&emsp;更换主题next主题相当给力，网上也有很多细节教程，强烈推荐这个主题。当然要是想要更炫的主题可以去hexo官方网站下，下完以后一定要按作者在ta的github网站里介绍的来，别看其它主题的经验贴，完全没有用。只是其它主题相对与next教程会少很多。制作成本高，我在用next之前试了三款主题全失败了。没有教程，又不清楚代码怎么写，这肯定是要翻车啊。<br></p><h3 id="搭建主题时菜单栏图标异常"><a href="#搭建主题时菜单栏图标异常" class="headerlink" title="搭建主题时菜单栏图标异常"></a>搭建主题时菜单栏图标异常</h3><p>&emsp;&emsp;记住一点，无论如何”||”这玩意儿前面没有空格，不然就算图标能显示也打不开！！！！！！！！<br><br><a href="https://joewsearch.com/2019/11/13/next-theme-set-tags/" target="_blank" rel="noopener">https://joewsearch.com/2019/11/13/next-theme-set-tags/</a><br><br>非常给力的文章，可以好好看看。</p><h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>今天就讲这些了，我是真有点困了哈哈。——————剧终<br></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;先记笔流水账&quot;&gt;&lt;a href=&quot;#先记笔流水账&quot; class=&quot;headerlink&quot; title=&quot;先记笔流水账&quot;&gt;&lt;/a&gt;先记笔流水账&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;呃呃，看官莫因“流水账”三字对我嗤之以鼻，一来笔者初入红尘,经验不足，腹中无墨。二来流水账这玩意儿看似无聊实则逻辑性强,看起来条理分明，轻松宜人，切莫见笑。&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="-心情记录" scheme="http://asitheclever.github.io/categories/%E5%BF%83%E6%83%85%E8%AE%B0%E5%BD%95/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>我来了</title>
+    <link href="http://asitheclever.github.io/2020/01/23/mo-%E5%BC%80%E5%9C%BA%E7%99%BD/"/>
+    <id>http://asitheclever.github.io/2020/01/23/mo-%E5%BC%80%E5%9C%BA%E7%99%BD/</id>
+    <published>2020-01-23T08:20:25.578Z</published>
+    <updated>2020-01-25T07:55:28.156Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="致大家"><a href="#致大家" class="headerlink" title="致大家"></a>致大家</h3><p>首先说说我为什么要写博客。<br><br>本科就要结束了，遗憾这四年没留下太多回忆。<br></p><a id="more"></a><p>亡羊补牢，为时不晚嘛，我决定写点博客记录生活。<br><br>为什么不在QQ或者微信上发呢？<br><br>就是不喜欢，至于为什么我不想解释（偷笑）。<br><br>第一篇文章我不想扯太多，就这样吧！</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;致大家&quot;&gt;&lt;a href=&quot;#致大家&quot; class=&quot;headerlink&quot; title=&quot;致大家&quot;&gt;&lt;/a&gt;致大家&lt;/h3&gt;&lt;p&gt;首先说说我为什么要写博客。&lt;br&gt;&lt;br&gt;本科就要结束了，遗憾这四年没留下太多回忆。&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="-心情记录" scheme="http://asitheclever.github.io/categories/%E5%BF%83%E6%83%85%E8%AE%B0%E5%BD%95/"/>
+    
+    
+      <category term="Mood" scheme="http://asitheclever.github.io/tags/Mood/"/>
+    
+  </entry>
+  
+</feed>
