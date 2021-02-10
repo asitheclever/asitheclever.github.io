@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://asitheclever.github.io/"/>
-  <updated>2021-02-10T08:04:49.387Z</updated>
+  <updated>2021-02-10T23:27:02.212Z</updated>
   <id>http://asitheclever.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>C++语法第5期：函数</title>
+    <link href="http://asitheclever.github.io/2021/02/11/C++/C++%E8%AF%AD%E6%B3%95%E7%AC%AC5%E6%9C%9F%EF%BC%9A%E5%87%BD%E6%95%B0/"/>
+    <id>http://asitheclever.github.io/2021/02/11/C++/C++%E8%AF%AD%E6%B3%95%E7%AC%AC5%E6%9C%9F%EF%BC%9A%E5%87%BD%E6%95%B0/</id>
+    <published>2021-02-10T23:22:10.882Z</published>
+    <updated>2021-02-10T23:27:02.212Z</updated>
+    
+    <content type="html"><![CDATA[<p>&emsp;&emsp;这一期介绍C++的函数。</p><a id="more"></a><h2 id="传值参数和传引用参数"><a href="#传值参数和传引用参数" class="headerlink" title="传值参数和传引用参数"></a>传值参数和传引用参数</h2><ol><li>传值参数对变量的改变不会引起初始值改变，下面这段代码运行结果是10。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int f(int x)&#123;</span><br><span class="line">    x &#x3D; 5;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">    int x &#x3D; 10;</span><br><span class="line">    f(x);</span><br><span class="line">    cout &lt;&lt; x &lt;&lt; endl;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li>传引用参数会改变初始值,下面这段代码运行结果是5。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int f(int &amp;x)&#123;</span><br><span class="line">    x &#x3D; 5;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">    int x &#x3D; 10;</span><br><span class="line">    f(x);</span><br><span class="line">    cout &lt;&lt; x &lt;&lt; endl;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;emsp;&amp;emsp;这一期介绍C++的函数。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="-C++学习" scheme="http://asitheclever.github.io/categories/C-%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="C++" scheme="http://asitheclever.github.io/tags/C/"/>
+    
+      <category term="语法" scheme="http://asitheclever.github.io/tags/%E8%AF%AD%E6%B3%95/"/>
+    
+  </entry>
   
   <entry>
     <title>C++语法第4期：字符串</title>
