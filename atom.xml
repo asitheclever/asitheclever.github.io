@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://asitheclever.github.io/"/>
-  <updated>2021-02-15T07:08:21.224Z</updated>
+  <updated>2021-02-15T07:55:57.675Z</updated>
   <id>http://asitheclever.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>C++语法第6期：链表的使用</title>
+    <link href="http://asitheclever.github.io/2021/02/15/C++/C++%E8%AF%AD%E6%B3%95%E7%AC%AC6%E6%9C%9F%EF%BC%9A%E9%93%BE%E8%A1%A8/"/>
+    <id>http://asitheclever.github.io/2021/02/15/C++/C++%E8%AF%AD%E6%B3%95%E7%AC%AC6%E6%9C%9F%EF%BC%9A%E9%93%BE%E8%A1%A8/</id>
+    <published>2021-02-15T07:17:28.887Z</published>
+    <updated>2021-02-15T07:55:57.675Z</updated>
+    
+    <content type="html"><![CDATA[<p>&emsp;&emsp;这一期介绍C++的结构体、类、指针、应用。这一部分的内容我在刷算法题的过程中经常遇见，经常会给我一种晕晕的感觉，不管学什么语言，一旦到了这里，相信很多人都会跟我一样，开始晕。。。这一部分的内容值得好好总结。</p><a id="more"></a><h2 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h2><p>&emsp;&emsp;要理解链表，得先理解指针。链表经常就是结构体＋指针的形式，原理好懂，代码很晦涩。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">    int a &#x3D; 10;</span><br><span class="line">    int *p &#x3D; &amp;a;</span><br><span class="line">    cout &lt;&lt; p &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; *p &lt;&lt; endl;</span><br><span class="line">    *p +&#x3D; 5;</span><br><span class="line">    cout &lt;&lt; p &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; *p &lt;&lt; endl;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>&emsp;&emsp;结果是：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">0x7fffb4962174</span><br><span class="line">10</span><br><span class="line">0x7fffb4962174</span><br><span class="line">15</span><br></pre></td></tr></table></figure><h2 id="链表节点的定义"><a href="#链表节点的定义" class="headerlink" title="链表节点的定义"></a>链表节点的定义</h2><p>&emsp;&emsp;下面这段代码定义了值为1，指向空的链表节点。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">struct Node&#123;</span><br><span class="line">    int val;</span><br><span class="line">    Node* next;</span><br><span class="line">    Node(int _val) : val(_val), next(NULL)&#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    Node* p &#x3D; new Node(1); &#x2F;&#x2F; new的意思是返回的不是具体的值，而是数组。</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="链表的定义"><a href="#链表的定义" class="headerlink" title="链表的定义"></a>链表的定义</h2><p>&emsp;&emsp;链表就是由一段的链表节点相接而成。下面这段代码定义了1-&gt;2-&gt;3这样的一个单链表。<br></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">struct Node&#123;</span><br><span class="line">    int val;</span><br><span class="line">    Node* next;</span><br><span class="line">    Node(int _val) : val(_val), next(NULL)&#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    Node* p &#x3D; new Node(1);</span><br><span class="line">    Node* q &#x3D; new Node(2);</span><br><span class="line">    Node* o &#x3D; new Node(3);</span><br><span class="line">    p-&gt;next &#x3D; q;</span><br><span class="line">    q-&gt;next &#x3D; o;</span><br><span class="line">Node* head &#x3D; p;</span><br><span class="line">    &#x2F;&#x2F; 遍历链表</span><br><span class="line">    for(Node* i &#x3D; head; i !&#x3D; NULL; i &#x3D; i-&gt;next) cout &lt;&lt; i-&gt;val &lt;&lt; &quot; &quot;;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>&emsp;&emsp;结果是：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 2 3</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;emsp;&amp;emsp;这一期介绍C++的结构体、类、指针、应用。这一部分的内容我在刷算法题的过程中经常遇见，经常会给我一种晕晕的感觉，不管学什么语言，一旦到了这里，相信很多人都会跟我一样，开始晕。。。这一部分的内容值得好好总结。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="-C++学习" scheme="http://asitheclever.github.io/categories/C-%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="C++" scheme="http://asitheclever.github.io/tags/C/"/>
+    
+      <category term="语法" scheme="http://asitheclever.github.io/tags/%E8%AF%AD%E6%B3%95/"/>
+    
+  </entry>
   
   <entry>
     <title>C++语法第5期：函数、类、结构体</title>
