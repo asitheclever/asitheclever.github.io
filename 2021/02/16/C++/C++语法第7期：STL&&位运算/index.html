@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="C++,语法," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Asitheclever的城堡" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="&amp;emsp;&amp;emsp;之间刷题的时候，遇到很多C++库函数，比如vector，queue什么的，这个还是比较繁琐一点，需要总结。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++语法第7期 STL、常用库函数">
+<meta property="og:url" content="http://asitheclever.github.io/2021/02/16/C++/C++%E8%AF%AD%E6%B3%95%E7%AC%AC7%E6%9C%9F%EF%BC%9ASTL&&%E4%BD%8D%E8%BF%90%E7%AE%97/index.html">
+<meta property="og:site_name" content="Asitheclever的城堡">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;之间刷题的时候，遇到很多C++库函数，比如vector，queue什么的，这个还是比较繁琐一点，需要总结。">
+<meta property="article:published_time" content="2021-02-15T23:48:54.476Z">
+<meta property="article:modified_time" content="2021-02-17T02:17:53.605Z">
+<meta property="article:author" content="Asitheclever">
+<meta property="article:tag" content="C++">
+<meta property="article:tag" content="语法">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://asitheclever.github.io/2021/02/16/C++/C++语法第7期：STL&&位运算/"/>
+
+
+
+
+
+  <title>C++语法第7期 STL、常用库函数 | Asitheclever的城堡</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Asitheclever的城堡</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://asitheclever.github.io/2021/02/16/C++/C++%E8%AF%AD%E6%B3%95%E7%AC%AC7%E6%9C%9F%EF%BC%9ASTL&&%E4%BD%8D%E8%BF%90%E7%AE%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Asitheclever">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Asitheclever的城堡">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">C++语法第7期 STL、常用库函数</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-02-16T07:48:54+08:00">
+                2021-02-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C-%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
+                    <span itemprop="name">-C++学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2.4k 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  12 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>&emsp;&emsp;之间刷题的时候，遇到很多C++库函数，比如vector，queue什么的，这个还是比较繁琐一点，需要总结。</p>
+<a id="more"></a>
+<h1 id="一-常用的STL容器"><a href="#一-常用的STL容器" class="headerlink" title="一.常用的STL容器"></a>一.常用的STL容器</h1><h2 id="1-vector"><a href="#1-vector" class="headerlink" title="1.vector"></a>1.vector</h2><p>&emsp;&emsp;C++里面的数组list和Python不一样，必须定义最大长度，这个比较恶心，可能设计者良心发现，创造了vector，这玩意一个大好处就是它不用实现定义数组长度。可以通过下面一段代码了解vector的用法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;vector&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">struct hhh&#123;</span><br><span class="line">    int x, y;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">    vector&lt;int&gt; a; &#x2F;&#x2F; 定义int类型的没有约束长度的数组</span><br><span class="line">    vector&lt;double&gt; b[100]; &#x2F;&#x2F; 定义double类型的长度为100的数组</span><br><span class="line">    vector&lt;hhh&gt; c; &#x2F;&#x2F; 结构体也能当数组</span><br><span class="line">    a &#x3D; &#123;1, 2, 3&#125;;</span><br><span class="line">    puts(&quot;1.定义&quot;);</span><br><span class="line">    cout &lt;&lt; a.size() &lt;&lt; endl; &#x2F;&#x2F; 返回a的长度</span><br><span class="line">    cout &lt;&lt; a.empty() &lt;&lt; endl; &#x2F;&#x2F; 判断a是不是空</span><br><span class="line">    a.begin(); &#x2F;&#x2F; a的第一个元素</span><br><span class="line">    a.end(); &#x2F;&#x2F; a的最后一个元素的下一位</span><br><span class="line">    cout &lt;&lt; *a.begin() &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; *(a.end()-1) &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; a.front() &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; a.back() &lt;&lt; endl;</span><br><span class="line">    puts(&quot;2.三种遍历方法&quot;);</span><br><span class="line">    for(int i &#x3D; 0; i &lt; a.size(); i ++) cout &lt;&lt; a[i] &lt;&lt; &quot; &quot;;</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">    for(vector&lt;int&gt;::iterator i &#x3D; a.begin(); i !&#x3D; a.end(); i ++) cout &lt;&lt; *i &lt;&lt; &#39; &#39;;</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">    for(int x : a) cout &lt;&lt; x &lt;&lt; &#39; &#39;;</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">    puts(&quot;3.添加元素和删除元素&quot;);</span><br><span class="line">    a.push_back(5); &#x2F;&#x2F; 在最后加上元素5</span><br><span class="line">    for(int i &#x3D; 0; i &lt; a.size(); i ++) cout &lt;&lt; a[i] &lt;&lt; &quot; &quot;;</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">    a.pop_back(); &#x2F;&#x2F; 删除最后一个元素</span><br><span class="line">    for(int i &#x3D; 0; i &lt; a.size(); i ++) cout &lt;&lt; a[i] &lt;&lt; &quot; &quot;;</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">    a.clear(); &#x2F;&#x2F; 清空数组</span><br><span class="line">    for(int i &#x3D; 0; i &lt; a.size(); i ++) cout &lt;&lt; a[i] &lt;&lt; &quot; &quot;;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结果如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">1.定义</span><br><span class="line">3</span><br><span class="line">0</span><br><span class="line">1</span><br><span class="line">3</span><br><span class="line">1</span><br><span class="line">3</span><br><span class="line">2.三种遍历方法</span><br><span class="line">1 2 3 </span><br><span class="line">1 2 3 </span><br><span class="line">1 2 3 </span><br><span class="line">3.添加元素和删除元素</span><br><span class="line">1 2 3 5 </span><br><span class="line">1 2 3</span><br></pre></td></tr></table></figure>
+<h2 id="2-queue"><a href="#2-queue" class="headerlink" title="2.queue"></a>2.queue</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;queue&gt;</span><br><span class="line">#include &lt;vector&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">    puts(&quot;1.队列的定义&quot;);</span><br><span class="line">    queue&lt;int&gt; q; &#x2F;&#x2F; 队列，先进先出</span><br><span class="line">    priority_queue&lt;int&gt; a; &#x2F;&#x2F; 大根堆，大的数先出</span><br><span class="line">    priority_queue&lt;int, vector&lt;int&gt;, greater&lt;int&gt;&gt; b; &#x2F;&#x2F; 小根堆，小的数先出</span><br><span class="line">    struct Rec&#123;</span><br><span class="line">        int a, b;</span><br><span class="line">        bool operator&lt; (const Rec&amp; t) const&#123; &#x2F;&#x2F; 大根堆需要重载&lt;，小根堆需要重载&gt;</span><br><span class="line">            return a &lt; t.a;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    priority_queue&lt;Rec&gt; d;</span><br><span class="line">    puts(&quot;2.队列的插入和弹出元素&quot;);</span><br><span class="line">    q.push(1); &#x2F;&#x2F; 在队头插入元素1</span><br><span class="line">    q.push(3);</span><br><span class="line">    cout &lt;&lt; q.front() &lt;&lt; endl; &#x2F;&#x2F; 返回队头</span><br><span class="line">    cout &lt;&lt; q.back() &lt;&lt; endl; &#x2F;&#x2F; 返回队尾</span><br><span class="line">    q.pop(); &#x2F;&#x2F; 弹出队尾元素</span><br><span class="line">    cout &lt;&lt; q.front() &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; q.back() &lt;&lt; endl;</span><br><span class="line">    puts(&quot;3.大根堆的插入和弹出元素&quot;);</span><br><span class="line">    a.push(3);</span><br><span class="line">    a.push(5);</span><br><span class="line">    a.push(1);</span><br><span class="line">    cout &lt;&lt; a.top() &lt;&lt; endl; &#x2F;&#x2F; 取最大值</span><br><span class="line">    a.pop(); &#x2F;&#x2F; 删除最大值</span><br><span class="line">    cout &lt;&lt; a.top() &lt;&lt; endl;</span><br><span class="line">    puts(&quot;4.清理队列:q &#x3D; queue&lt;int&gt;();&quot;);</span><br><span class="line">    q &#x3D; queue&lt;int&gt;();</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结果是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">1.队列的定义</span><br><span class="line">2.队列的插入和弹出元素</span><br><span class="line">1</span><br><span class="line">3</span><br><span class="line">3</span><br><span class="line">3</span><br><span class="line">3.大根堆的插入和弹出元素</span><br><span class="line">5</span><br><span class="line">3</span><br><span class="line">4.清理队列:q &#x3D; queue&lt;int&gt;();</span><br></pre></td></tr></table></figure>
+<h2 id="3-stack"><a href="#3-stack" class="headerlink" title="3.stack"></a>3.stack</h2><p>&emsp;&emsp;栈的用法和队列相似，但是它是先进后出。<br></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;stack&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">    stack&lt;int&gt; s;</span><br><span class="line">    s.push(1);</span><br><span class="line">    s.push(5);</span><br><span class="line">    s.push(3);</span><br><span class="line">    cout &lt;&lt; s.top() &lt;&lt; endl;</span><br><span class="line">    s.pop();</span><br><span class="line">    cout &lt;&lt; s.top() &lt;&lt; endl;</span><br><span class="line">    s.pop();</span><br><span class="line">    cout &lt;&lt; s.top() &lt;&lt; endl;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结果是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">5</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
+<h2 id="4-deque"><a href="#4-deque" class="headerlink" title="4.deque"></a>4.deque</h2><p>&emsp;&emsp;双端队列，既可以从队头插入弹出，也可以从队尾插入弹出。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;deque&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">    deque&lt;int&gt; a;</span><br><span class="line">    a.begin(), a.end();</span><br><span class="line">    a.push_back(1); &#x2F;&#x2F; 队尾插入元素</span><br><span class="line">    a.push_front(2); &#x2F;&#x2F; 队头插入元素</span><br><span class="line">    a.push_front(5); &#x2F;&#x2F; 队头插入元素</span><br><span class="line">    cout &lt;&lt; a.front() &lt;&lt; endl; &#x2F;&#x2F; 返回队头</span><br><span class="line">    cout &lt;&lt; a.back() &lt;&lt; endl; &#x2F;&#x2F; 返回队尾</span><br><span class="line">    for(int i &#x3D; 0; i &lt; a.size(); i ++) cout &lt;&lt; a[i] &lt;&lt; &quot; &quot;; &#x2F;&#x2F; 遍历</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">    a.pop_back(); &#x2F;&#x2F; 队尾弹出</span><br><span class="line">    for(int i &#x3D; 0; i &lt; a.size(); i ++) cout &lt;&lt; a[i] &lt;&lt; &quot; &quot;;</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">    a.pop_front(); &#x2F;&#x2F; 队头弹出</span><br><span class="line">    for(int i &#x3D; 0; i &lt; a.size(); i ++) cout &lt;&lt; a[i] &lt;&lt; &quot; &quot;;</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">    a.clear(); &#x2F;&#x2F; 清除队列</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="5-set"><a href="#5-set" class="headerlink" title="5.set"></a>5.set</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;set&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">    set&lt;int&gt; a; &#x2F;&#x2F; 元素不能重复</span><br><span class="line">    multiset&lt;int&gt; b; &#x2F;&#x2F; 元素可以重复</span><br><span class="line">    set&lt;int&gt;::iterator it &#x3D; a.begin(); &#x2F;&#x2F; 迭代器</span><br><span class="line">    a.insert(1); &#x2F;&#x2F; 插入元素</span><br><span class="line">    a.insert(3);</span><br><span class="line">    a.insert(5);</span><br><span class="line">    for(set&lt;int&gt;::iterator i &#x3D; a.begin(); i !&#x3D; a.end(); i ++) cout &lt;&lt; *i &lt;&lt; &#39; &#39;;</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; (a.find(1) &#x3D;&#x3D; a.end()) &lt;&lt; endl; &#x2F;&#x2F; 判断元素是否存在</span><br><span class="line">    cout &lt;&lt; (a.find(6) &#x3D;&#x3D; a.end()) &lt;&lt; endl;</span><br><span class="line">    a.lower_bound(3); &#x2F;&#x2F; 找到大于等于3的最小的元素的迭代器</span><br><span class="line">    a.upper_bound(3); &#x2F;&#x2F; 找到大于3的最小的元素的迭代器</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结果是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1 3 5 </span><br><span class="line">0</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
+<h2 id="6-map"><a href="#6-map" class="headerlink" title="6.map"></a>6.map</h2><p>&emsp;&emsp;map是加强型的数组，这个数组的下标可以不是int，它也能映射成任何类型。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;map&gt;</span><br><span class="line">#include &lt;vector&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">    map&lt;int, int&gt; a;</span><br><span class="line">    a[1] &#x3D; 2;</span><br><span class="line">    cout &lt;&lt; a[1] &lt;&lt; endl;</span><br><span class="line">    map&lt;string, int&gt; b;</span><br><span class="line">    b[&quot;hhh&quot;] &#x3D; 100;</span><br><span class="line">    cout &lt;&lt; b[&quot;hhh&quot;] &lt;&lt; endl;</span><br><span class="line">    map&lt;string, vector&lt;int&gt;&gt; c;</span><br><span class="line">    c[&quot;hhh&quot;] &#x3D; vector&lt;int&gt;(&#123;1, 2, 3, 4&#125;);</span><br><span class="line">    cout &lt;&lt; c[&quot;hhh&quot;].size() &lt;&lt; endl;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F; size&#x2F;empty&#x2F;clear&#x2F;begin&#x2F;end均与set类似</span><br><span class="line">&#x2F;&#x2F; Insert&#x2F;erase与set类似，但其参数均是pair&lt;key_type, value_type&gt;</span><br><span class="line">&#x2F;&#x2F; h.find(x) 在变量名为h的map中查找key为x的二元组</span><br></pre></td></tr></table></figure>
+<p>结果是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">2</span><br><span class="line">100</span><br><span class="line">4</span><br></pre></td></tr></table></figure>
+<h2 id="7-哈希表"><a href="#7-哈希表" class="headerlink" title="7.哈希表"></a>7.哈希表</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;unordered_set&gt;</span><br><span class="line">#include &lt;unordered_map&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">    &#x2F;&#x2F; unordered_set效率比set高，是O(1),而set是O(logn)，但是它是无序的，不支持二分</span><br><span class="line">    unordered_set&lt;int&gt; a; &#x2F;&#x2F; 哈希表，不能存储重复元素</span><br><span class="line">    unordered_multiset&lt;int&gt; b; &#x2F;&#x2F; 哈希表，能存储重复元素</span><br><span class="line">    unordered_map&lt;int, int&gt; c;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="二-常用库函数"><a href="#二-常用库函数" class="headerlink" title="二.常用库函数"></a>二.常用库函数</h1><h2 id="1-reverse"><a href="#1-reverse" class="headerlink" title="1.reverse"></a>1.reverse</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;vector&gt;</span><br><span class="line">#include &lt;algorithm&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">    puts(&quot;翻转vector&quot;);</span><br><span class="line">    vector&lt;int&gt; a(&#123;1, 2, 3, 4, 5&#125;);</span><br><span class="line">    reverse(a.begin(), a.end());</span><br><span class="line">    for(int x : a) cout &lt;&lt; x &lt;&lt; &#39; &#39;;</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">    puts(&quot;翻转list&quot;);</span><br><span class="line">    int b[] &#x3D; &#123;1, 2, 3, 4, 5&#125;;</span><br><span class="line">    reverse(b, b + 5);</span><br><span class="line">    for(int x : b) cout &lt;&lt; x &lt;&lt; &#39; &#39;;</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结果是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">翻转vector</span><br><span class="line">5 4 3 2 1 </span><br><span class="line">翻转list</span><br><span class="line">5 4 3 2 1</span><br></pre></td></tr></table></figure>
+<h2 id="2-unique"><a href="#2-unique" class="headerlink" title="2.unique"></a>2.unique</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;vector&gt;</span><br><span class="line">#include &lt;algorithm&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">    puts(&quot;list独特元素&quot;);</span><br><span class="line">    int a[] &#x3D; &#123;1, 1, 2, 2, 3, 3, 4&#125;;</span><br><span class="line">    int m &#x3D; unique(a, a + 7) - a; &#x2F;&#x2F; 返回a中不一样元素的个数</span><br><span class="line">    cout &lt;&lt; m &lt;&lt; endl;</span><br><span class="line">    for(int i &#x3D; 0; i &lt; m; i ++) cout &lt;&lt; a[i] &lt;&lt; &quot; &quot;;</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">    puts(&quot;vector独特元素&quot;);</span><br><span class="line">    vector&lt;int&gt; b(&#123;1, 1, 2, 2, 3, 3, 4&#125;);</span><br><span class="line">    b.erase(unique(b.begin(), b.end()), b.end());</span><br><span class="line">    for(auto x : b) cout &lt;&lt; x &lt;&lt; &#39; &#39;;</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结果是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">list独特元素</span><br><span class="line">4</span><br><span class="line">1 2 3 4 </span><br><span class="line">vector独特元素</span><br><span class="line">1 2 3 4</span><br></pre></td></tr></table></figure>
+<h2 id="3-random-shuffle"><a href="#3-random-shuffle" class="headerlink" title="3.random_shuffle"></a>3.random_shuffle</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;vector&gt;</span><br><span class="line">#include &lt;algorithm&gt;</span><br><span class="line">#include &lt;ctime&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">    vector&lt;int&gt; a(&#123;1, 2, 3, 4, 5&#125;);</span><br><span class="line">    srand(time(0)); &#x2F;&#x2F; 改变random_shuffle的随机种子，让每一次的随机数都不一样</span><br><span class="line">    random_shuffle(a.begin(), a.end());</span><br><span class="line">    for(int x : a) cout &lt;&lt; x &lt;&lt; &#39; &#39;;</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结果是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2 3 1 5 4</span><br></pre></td></tr></table></figure>
+<h2 id="4-sort"><a href="#4-sort" class="headerlink" title="4.sort"></a>4.sort</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;vector&gt;</span><br><span class="line">#include &lt;algorithm&gt;</span><br><span class="line">#include &lt;ctime&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">bool cmp(int a, int b)&#123; &#x2F;&#x2F; a是否应该排在b的前面</span><br><span class="line">    return a &lt; b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">    vector&lt;int&gt; a(&#123;1, 2, 3, 4, 5&#125;);</span><br><span class="line">    srand(time(0)); &#x2F;&#x2F; 改变random_shuffle的随机种子，让每一次的随机数都不一样</span><br><span class="line">    random_shuffle(a.begin(), a.end());</span><br><span class="line">    for(int x : a) cout &lt;&lt; x &lt;&lt; &#39; &#39;;</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">    </span><br><span class="line">    sort(a.begin(), a.end()); &#x2F;&#x2F; 从小到大排序</span><br><span class="line">    for(int x : a) cout &lt;&lt; x &lt;&lt; &#39; &#39;;</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">    </span><br><span class="line">    sort(a.begin(), a.end(), greater&lt;int&gt;()); &#x2F;&#x2F; 从大到小排序</span><br><span class="line">    for(int x : a) cout &lt;&lt; x &lt;&lt; &#39; &#39;;</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">    </span><br><span class="line">    sort(a.begin(), a.end(), cmp); &#x2F;&#x2F; 从大到小排序</span><br><span class="line">    for(int x : a) cout &lt;&lt; x &lt;&lt; &#39; &#39;;</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">    </span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结果是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1 2 5 3 4 </span><br><span class="line">1 2 3 4 5 </span><br><span class="line">5 4 3 2 1 </span><br><span class="line">1 2 3 4 5</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;vector&gt;</span><br><span class="line">#include &lt;algorithm&gt;</span><br><span class="line">#include &lt;ctime&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">struct Rec&#123;</span><br><span class="line">    int x, y;</span><br><span class="line">    bool operator&lt; (const Rec &amp;t) const&#123;</span><br><span class="line">        return x &lt; t.x;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;a[5];</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">    for(int i &#x3D; 0; i &lt; 5; i ++)&#123;</span><br><span class="line">        a[i].x &#x3D; -i;</span><br><span class="line">        a[i].y &#x3D; i;</span><br><span class="line">    &#125;</span><br><span class="line">    for(int i &#x3D; 0; i &lt; 5; i ++) printf(&quot;(%d,%d) &quot;, a[i].x, a[i].y);</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">    sort(a, a + 5);</span><br><span class="line">    for(int i &#x3D; 0; i &lt; 5; i ++) printf(&quot;(%d,%d) &quot;, a[i].x, a[i].y);</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结果是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(0,0) (-1,1) (-2,2) (-3,3) (-4,4) </span><br><span class="line">(-4,4) (-3,3) (-2,2) (-1,1) (0,0)</span><br></pre></td></tr></table></figure>
+<h1 id="补充（位运算）"><a href="#补充（位运算）" class="headerlink" title="补充（位运算）"></a>补充（位运算）</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&amp; 与</span><br><span class="line">| 或</span><br><span class="line">~ 非</span><br><span class="line">^ 异或</span><br><span class="line">&gt;&gt; 右移</span><br><span class="line">&lt;&lt; 左移</span><br><span class="line">求x的第k位数字  x &gt;&gt; k &amp; 1</span><br><span class="line">lowbit(x) &#x3D; x &amp; -x，返回x的最后一位1</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/C/" rel="tag"># C++</a>
+          
+            <a href="/tags/%E8%AF%AD%E6%B3%95/" rel="tag"># 语法</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/02/15/C++/C++%E8%AF%AD%E6%B3%95%E7%AC%AC6%E6%9C%9F%EF%BC%9A%E9%93%BE%E8%A1%A8/" rel="next" title="C++语法第6期：链表的使用">
+                <i class="fa fa-chevron-left"></i> C++语法第6期：链表的使用
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/touxiang.jpg"
+                alt="Asitheclever" />
+            
+              <p class="site-author-name" itemprop="name">Asitheclever</p>
+              <p class="site-description motion-element" itemprop="description">Try again,and win!</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/C++.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:tyuhgfjytujhgj55674211@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一-常用的STL容器"><span class="nav-number">1.</span> <span class="nav-text">一.常用的STL容器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-vector"><span class="nav-number">1.1.</span> <span class="nav-text">1.vector</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-queue"><span class="nav-number">1.2.</span> <span class="nav-text">2.queue</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-stack"><span class="nav-number">1.3.</span> <span class="nav-text">3.stack</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-deque"><span class="nav-number">1.4.</span> <span class="nav-text">4.deque</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-set"><span class="nav-number">1.5.</span> <span class="nav-text">5.set</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-map"><span class="nav-number">1.6.</span> <span class="nav-text">6.map</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-哈希表"><span class="nav-number">1.7.</span> <span class="nav-text">7.哈希表</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二-常用库函数"><span class="nav-number">2.</span> <span class="nav-text">二.常用库函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-reverse"><span class="nav-number">2.1.</span> <span class="nav-text">1.reverse</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-unique"><span class="nav-number">2.2.</span> <span class="nav-text">2.unique</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-random-shuffle"><span class="nav-number">2.3.</span> <span class="nav-text">3.random_shuffle</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-sort"><span class="nav-number">2.4.</span> <span class="nav-text">4.sort</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#补充（位运算）"><span class="nav-number">3.</span> <span class="nav-text">补充（位运算）</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Asitheclever</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">13.6k</span>
+  
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
