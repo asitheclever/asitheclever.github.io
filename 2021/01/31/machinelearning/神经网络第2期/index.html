@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Games," />
+  <meta name="keywords" content="python,neural network,machine learning,deep learning,tensorflow," />
 
 
 
@@ -81,21 +81,21 @@
 
 
 
-<meta name="description" content="今年steam新出了一款仿作游戏，这模仿能力堪称一流。怎么说呢？这款游戏几乎是糅合着仙剑奇侠传和骑马与砍杀，一中一外两款神作的模仿品。百分之九十的元素是骑砍，其余仙剑（主体是骑砍）。作为骑砍的老玩家，">
+<meta name="description" content="&amp;emsp;&amp;emsp;本期我将介绍神经网络的简单数学原理，以及用numpy搭建自己的神经网络的方法，参考书籍还是万能的《make your own neuralnetwork》，这一期博客相对于是这一本书的笔记。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="部落与弯刀">
-<meta property="og:url" content="http://asitheclever.github.io/2020/01/25/game-%E9%83%A8%E8%90%BD%E4%B8%8E%E5%BC%AF%E5%88%80/index.html">
+<meta property="og:title" content="神经网络第2期：数学原理简单解释">
+<meta property="og:url" content="http://asitheclever.github.io/2021/01/31/machinelearning/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%AC%AC2%E6%9C%9F/index.html">
 <meta property="og:site_name" content="Asitheclever的城堡">
-<meta property="og:description" content="今年steam新出了一款仿作游戏，这模仿能力堪称一流。怎么说呢？这款游戏几乎是糅合着仙剑奇侠传和骑马与砍杀，一中一外两款神作的模仿品。百分之九十的元素是骑砍，其余仙剑（主体是骑砍）。作为骑砍的老玩家，">
-<meta property="og:image" content="http://asitheclever.github.io/images/games/blywd1.jpg">
-<meta property="og:image" content="http://asitheclever.github.io/images/games/blywd.jpg">
-<meta property="og:image" content="http://asitheclever.github.io/images/games/blywd2.jpg">
-<meta property="article:published_time" content="2020-01-25T06:00:39.072Z">
-<meta property="article:modified_time" content="2020-01-25T08:02:20.118Z">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;本期我将介绍神经网络的简单数学原理，以及用numpy搭建自己的神经网络的方法，参考书籍还是万能的《make your own neuralnetwork》，这一期博客相对于是这一本书的笔记。">
+<meta property="article:published_time" content="2021-01-31T02:59:15.998Z">
+<meta property="article:modified_time" content="2021-03-02T07:25:21.848Z">
 <meta property="article:author" content="Asitheclever">
-<meta property="article:tag" content="Games">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="neural network">
+<meta property="article:tag" content="machine learning">
+<meta property="article:tag" content="deep learning">
+<meta property="article:tag" content="tensorflow">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://asitheclever.github.io/images/games/blywd1.jpg">
 
 
 
@@ -125,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="http://asitheclever.github.io/2020/01/25/game-部落与弯刀/"/>
+  <link rel="canonical" href="http://asitheclever.github.io/2021/01/31/machinelearning/神经网络第2期/"/>
 
 
 
 
 
-  <title>部落与弯刀 | Asitheclever的城堡</title>
+  <title>神经网络第2期：数学原理简单解释 | Asitheclever的城堡</title>
   
 
 
@@ -268,7 +268,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://asitheclever.github.io/2020/01/25/game-%E9%83%A8%E8%90%BD%E4%B8%8E%E5%BC%AF%E5%88%80/">
+    <link itemprop="mainEntityOfPage" href="http://asitheclever.github.io/2021/01/31/machinelearning/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%AC%AC2%E6%9C%9F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Asitheclever">
@@ -285,7 +285,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">部落与弯刀</h1>
+          <h1 class="post-title" itemprop="name headline">神经网络第2期：数学原理简单解释</h1>
         
 
         <div class="post-meta">
@@ -297,8 +297,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-25T14:00:39+08:00">
-                2020-01-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-01-31T10:59:15+08:00">
+                2021-01-31
               </time>
             
 
@@ -320,8 +320,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%B8%B8%E6%88%8F/" itemprop="url" rel="index">
-                    <span itemprop="name">-游戏</span>
+                  <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
+                    <span itemprop="name">-机器学习</span>
                   </a>
                 </span>
 
@@ -356,7 +356,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  383 字
+                  585 字
                 </span>
               
 
@@ -372,7 +372,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1 分钟
+                  2 分钟
                 </span>
               
             </div>
@@ -393,15 +393,16 @@
       
 
       
-        <p><img src="/images/games/blywd1.jpg" alt=""></p>
-<p>今年steam新出了一款仿作游戏，这模仿能力堪称一流。怎么说呢？这款游戏几乎是糅合着仙剑奇侠传和骑马与砍杀，一中一外两款神作的模仿品。百分之九十的元素是骑砍，其余仙剑（主体是骑砍）。作为骑砍的老玩家，<a id="more"></a>我实在是忍不住把它和骑砍做个对比。<br><br><br></p>
-<h3 id="部落与弯刀-vs-骑马与砍杀"><a href="#部落与弯刀-vs-骑马与砍杀" class="headerlink" title="部落与弯刀 vs 骑马与砍杀"></a>部落与弯刀 vs 骑马与砍杀</h3><ul>
-<li>名字<br>名字模仿得惟妙惟肖，不用多说吧。<br><br></li>
-<li>主路线<br>建立人物（都可以自定义形象）-&gt;打怪升级-&gt;招兵买马-&gt;加入势力/攻城自立-&gt;打爆全世界。内核真的一模一样，攻城略地的成就感是两者主要的爽点。<br><br></li>
-<li>剧情对比<br>骑砍创立角色时可以选择不同的职业，学徒骑士等等，然后会有不同的属性点，力量敏捷等等，角色没啥故事~。部落不同的职业则是有不同的技能，每个角色都有故事，这点算是个小创新点。其它剧情两者都挺少的哎。<br><br></li>
-<li>2D与3D<br>部落战斗界面<br><br><img src="/images/games/blywd.jpg" alt=""><br><br>骑砍战斗界面<br><br><img src="/images/games/blywd2.jpg" alt=""><br><br>额，我觉得就是2D和3D的区别，技术含量当然是3D更高。<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3>部落与弯刀是2D的中国风的骑砍，整体是个不错的游戏，但骑砍是神作，但模仿骑砍做得再好也只佳作。我很期待国产游戏多出神作，创新才能体现实力！</li>
-</ul>
-
+        <p>&emsp;&emsp;本期我将介绍神经网络的简单数学原理，以及用numpy搭建自己的神经网络的方法，参考书籍还是万能的《make your own neuralnetwork》，这一期博客相对于是这一本书的笔记。<br><a id="more"></a></p>
+<h1 id="一-从输入到输出的计算"><a href="#一-从输入到输出的计算" class="headerlink" title="一.从输入到输出的计算"></a>一.从输入到输出的计算</h1><p>&emsp;&emsp;这一小节介绍给定一个神经网络以及输入，如何求出它的输出。神经网络由许多有计算功能的节点组成，下图展示的就是神经网络的一个节点。</p>
+<p><div align=center><img width = '400' src ="/images/python/ml/nn/4.png"/></div></p>
+<p><center>图1</center><br>&emsp;&emsp;神经网络的节点包含两个部分。如上图所示，左半部分是求和函数，将所有输入到这个节点的信号加起来得到x。右半部分是激活函数，对左半部分求得的输入和x再次处理，一般是sigmoid函数或者是relu函数，在本文中，所有的激活函数都是指sigmoid函数。激活函数是模拟神经元设计的，动物的神经元不是说一接收到信号就马上处理，而是超过某个阈值后才激活，这样能减少很多噪声的干扰，避免不必要的消耗。</p>
+<script type="math/tex; mode=display">sigmoid:y=\frac{1}{e^{-x}+1}</script><p>&emsp;&emsp;下图是只有两个层的神经网络，可以比较清晰地看清计算过程。某一层的输入等于上一层节点的输出乘上相应的权重，加上上面讲的输出到输出方法的介绍，就可以在已知某个输入的情况下计算神经网络的输出。</p>
+<p><div align=center><img width = '400' src ="/images/python/ml/nn/5.png"/></div></p>
+<p><center>图2</center></p>
+<script type="math/tex; mode=display">0.7408=sigmoid(1.0×0.9+0.5×0.3)</script><script type="math/tex; mode=display">0.6457=sigmoid(1.0×0.2+0.5×0.8)</script><p>&emsp;&emsp;利用上面的方法，无论多么复杂的神经网络，都能计算，当然，计算这活就交给电脑吧！</p>
+<h1 id="二-训练神经网络"><a href="#二-训练神经网络" class="headerlink" title="二.训练神经网络"></a>二.训练神经网络</h1><p>&emsp;&emsp; 上面介绍了神经网络输入到输出的计算方法，训练神经网络的本质就是给定一个输出，调整神经网络里面的权重（就是图2里面的0.9、0.3这种东西），让输出和期望输出的差值变小。在监督学习里面，期望输出由数据的标签给定。</p>
+<h1 id="三-numpy写神经网络"><a href="#三-numpy写神经网络" class="headerlink" title="三.numpy写神经网络"></a>三.numpy写神经网络</h1><h1 id="四-由训练好的神经网络反向生成图片"><a href="#四-由训练好的神经网络反向生成图片" class="headerlink" title="四.由训练好的神经网络反向生成图片"></a>四.由训练好的神经网络反向生成图片</h1>
       
     </div>
     
@@ -418,7 +419,15 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Games/" rel="tag"># Games</a>
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+            <a href="/tags/neural-network/" rel="tag"># neural network</a>
+          
+            <a href="/tags/machine-learning/" rel="tag"># machine learning</a>
+          
+            <a href="/tags/deep-learning/" rel="tag"># deep learning</a>
+          
+            <a href="/tags/tensorflow/" rel="tag"># tensorflow</a>
           
         </div>
       
@@ -431,8 +440,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/01/23/mo-blog%E7%AC%AC%E4%B8%80%E5%A4%A9%E5%BF%83%E5%BE%97/" rel="next" title="blog第一天心得">
-                <i class="fa fa-chevron-left"></i> blog第一天心得
+              <a href="/2021/01/28/C++/C++%E8%AF%AD%E6%B3%95%E7%AC%AC1%E6%9C%9F%EF%BC%9A%E8%BE%93%E5%85%A5%E5%92%8C%E8%BE%93%E5%87%BA/" rel="next" title="C++语法第1期：C++输入输出">
+                <i class="fa fa-chevron-left"></i> C++语法第1期：C++输入输出
               </a>
             
           </div>
@@ -441,8 +450,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/01/25/de-%E8%B4%BE%E8%A1%8C%E5%AE%B6%E8%81%8A%E6%96%8B/" rel="prev" title="学完专栏贾行家说《聊斋》">
-                学完专栏贾行家说《聊斋》 <i class="fa fa-chevron-right"></i>
+              <a href="/2021/01/31/C++/C++%E8%AF%AD%E6%B3%95%E7%AC%AC2%E6%9C%9F%EF%BC%9A%E5%88%A4%E6%96%AD%E4%B8%8E%E5%BE%AA%E7%8E%AF/" rel="prev" title="C++语法第2期：判断与循环">
+                C++语法第2期：判断与循环 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -596,7 +605,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#部落与弯刀-vs-骑马与砍杀"><span class="nav-number">1.</span> <span class="nav-text">部落与弯刀 vs 骑马与砍杀</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#小结"><span class="nav-number">2.</span> <span class="nav-text">小结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一-从输入到输出的计算"><span class="nav-number">1.</span> <span class="nav-text">一.从输入到输出的计算</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二-训练神经网络"><span class="nav-number">2.</span> <span class="nav-text">二.训练神经网络</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三-numpy写神经网络"><span class="nav-number">3.</span> <span class="nav-text">三.numpy写神经网络</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四-由训练好的神经网络反向生成图片"><span class="nav-number">4.</span> <span class="nav-text">四.由训练好的神经网络反向生成图片</span></a></li></ol></div>
             
 
           </div>
@@ -823,6 +832,26 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 

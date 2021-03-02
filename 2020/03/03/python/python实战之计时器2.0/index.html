@@ -347,6 +347,11 @@
           
 
           
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
 
           
             <div class="post-wordcount">
@@ -396,8 +401,7 @@
       
 
       
-        <h1 id="1-引言"><a href="#1-引言" class="headerlink" title="1 引言"></a>1 引言</h1><p>&emsp;&emsp;最近我在学Python的tkinter模块，这个模块的功能是实现Python的GUI，我觉得比较有意思。前一阵子刚学Python，我想统计自己学Python的时间，于是写了个计时器，那时候我不会GUI，那个计时器的结果只能在PyCharm的下面那个框里面显示，比较不方便。最近我用tkinter编写了一个计时器的GUI程序，特来记录一下，也希望能帮到大家学习Python的GUI。我接下来也会不断升级这个程序，完善GUI设计、加入数据库、通过移植等手段开发成手机app和电脑的exe程序、最后想办法实现多端同步。emmm，暂时就这些想法。</p>
-<a id="more"></a>
+        <h1 id="1-引言"><a href="#1-引言" class="headerlink" title="1 引言"></a>1 引言</h1><p>&emsp;&emsp;最近我在学Python的tkinter模块，这个模块的功能是实现Python的GUI，我觉得比较有意思。前一阵子刚学Python，我想统计自己学Python的时间，于是写了个计时器，那时候我不会GUI，那个计时器的结果只能在PyCharm的下面那个框里面显示，比较不方便。最近我用tkinter编写了一个计时器的GUI程序，特来记录一下，也希望能帮到大家学习Python的GUI。我接下来也会不断升级这个程序，完善GUI设计、加入数据库、通过移植等手段开发成手机app和电脑的exe程序、最后想办法实现多端同步。emmm，暂时就这些想法。<br><a id="more"></a></p>
 <h1 id="2-计时器1-0版本"><a href="#2-计时器1-0版本" class="headerlink" title="2 计时器1.0版本"></a>2 计时器1.0版本</h1><p>&emsp;&emsp;下面是我的计时器1.0版本的代码，是刚学Python时做的粗略版本，也是后面的基础。这个计时器的第一步是根据开始学习的时间和结束学习的时间化成分钟，然后求它们的差再除以60便可以得出一次学几个小时。第二步是要用户输入今天学习几次，然后就让用户分别输入几次开始和结束学习的时间，加起来就是一天的总学习时间。第三步是输入历史学习时间，与一天学习时间相加，得出总学习时间。<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="/images/python/tkinter/1.jpg" alt="avatar"><br><br>&emsp;&emsp;具体效果如下:<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="/images/python/tkinter/2.jpg" alt="avatar"><br></p>
 <h1 id="3-走进tkinter模块"><a href="#3-走进tkinter模块" class="headerlink" title="3 走进tkinter模块"></a>3 走进tkinter模块</h1><p>&emsp;&emsp;tkinter模块是Python里面非常重要的一个GUI模块，我这次的改进全靠它。我下面介绍一些tkinter里面常用部分的功能说明（就是我把计时器GUI用到的模块），详细的参数用法可以去谷歌。<br></p>
 <h2 id="3-1-安装和载入"><a href="#3-1-安装和载入" class="headerlink" title="3.1 安装和载入"></a>3.1 安装和载入</h2><p>&emsp;&emsp;可以用pip来安装tkinter模块或者直接在Pycharm中下载，emmm，Pycharm很强大的一个功能就是缺少什么模块它会报错，然后直接在软件里下载缺失模块，非常方便。<br><br>&emsp;&emsp;下载完以后输入from tkinter import *就可以导入tkinter模块了。<br></p>
@@ -538,7 +542,7 @@
               
                 <a href="/archives%7C%7C%20archive">
               
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -581,7 +585,7 @@
             <div class="links-of-author motion-element">
                 
                   <span class="links-of-author-item">
-                    <a href="mailto:tyuhgfjytujhgj55674211@gmail.com" target="_blank" title="E-Mail">
+                    <a href="mailto:2858000522@qq.com" target="_blank" title="E-Mail">
                       
                         <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
                   </span>
@@ -644,13 +648,36 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">14k</span>
+    <span title="Site words total count">14.6k</span>
   
 </div>
 
 
 
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
         
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
 
 
 
@@ -814,6 +841,8 @@
   
 
   
+  
+
 
   
 

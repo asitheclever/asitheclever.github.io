@@ -349,6 +349,11 @@
           
 
           
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
 
           
             <div class="post-wordcount">
@@ -398,27 +403,17 @@
       
 
       
-        <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>&emsp;&emsp;今天是我学习Python的第57天了，目前的话应该对Python基本语法概念比较熟悉，开发了一个可以用数据库储存数据的计时器，可以不看别人的代码用Pygame写出连连看小游戏，这些项目写博客是一件比较耗体力的事情，以后有空再来整。今天的博客内容是我从油管上学到的一些Python的便捷语法技巧，以后还会整理更多的内容，会了很多奇奇怪怪的语法，可能是走出萌新时期的标志，23333。当然我还是个快乐的萌新hhh！</p>
-<a id="more"></a>
+        <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>&emsp;&emsp;今天是我学习Python的第57天了，目前的话应该对Python基本语法概念比较熟悉，开发了一个可以用数据库储存数据的计时器，可以不看别人的代码用Pygame写出连连看小游戏，这些项目写博客是一件比较耗体力的事情，以后有空再来整。今天的博客内容是我从油管上学到的一些Python的便捷语法技巧，以后还会整理更多的内容，会了很多奇奇怪怪的语法，可能是走出萌新时期的标志，23333。当然我还是个快乐的萌新hhh！<br><a id="more"></a></p>
 <h1 id="奇特语法"><a href="#奇特语法" class="headerlink" title="奇特语法"></a>奇特语法</h1><h2 id="1-Enum"><a href="#1-Enum" class="headerlink" title="1.Enum"></a>1.Enum</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">class Enum:</span><br><span class="line">    Tim, bill, kite &#x3D; range(3)</span><br><span class="line">print(Enum.Tim)</span><br><span class="line">print(Enum.kite)</span><br></pre></td></tr></table></figure>
 <p><br>结果为:<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="/images/python/yufa/1.jpg" alt="avatar"><br></p>
 <h2 id="2-快速赋值"><a href="#2-快速赋值" class="headerlink" title="2.快速赋值"></a>2.快速赋值</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x, y, z &#x3D; (0, 9, 8)</span><br><span class="line">print(x)</span><br><span class="line">print(y)</span><br><span class="line">print(z)</span><br></pre></td></tr></table></figure>
 <p><br>结果为:<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="/images/python/yufa/2.jpg" alt="avatar"><br></p>
 <h2 id="3-print函数打印用法"><a href="#3-print函数打印用法" class="headerlink" title="3.print函数打印用法"></a>3.print函数打印用法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">name &#x3D; &#39;Tim&#39;</span><br><span class="line">age &#x3D; 15</span><br><span class="line">print(&quot;Hello my name is&quot;, name, &quot;and I am&quot;, age, &quot;years old&quot;)</span><br><span class="line">print(&quot;Hello my name is &quot; + name + &quot; and I am &quot; + str(age) + &quot; years old&quot;)</span><br><span class="line">st &#x3D; f&quot;Hello my name is &#123;name&#125; and I am &#123;age&#125; years old&quot;</span><br><span class="line">print(st)</span><br></pre></td></tr></table></figure>
 <p><br>结果为:<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="/images/python/yufa/3.jpg" alt="avatar"><br></p>
-<h2 id="4-enumerate"><a href="#4-enumerate" class="headerlink" title="4.enumerate"></a>4.enumerate</h2><p>下面两端代码执行结果一样的。<br></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x &#x3D; [2, 3, 4, 5]</span><br><span class="line">for i in range(len(x)):</span><br><span class="line">    print(i, x[i])</span><br></pre></td></tr></table></figure>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> x &#x3D; [2, 3, 4, 5]</span><br><span class="line">for i, e in enumerate(x):</span><br><span class="line">    print(i, x[i])</span><br></pre></td></tr></table></figure>
-<p> <br>结果为:<br></p>
+<h2 id="4-enumerate"><a href="#4-enumerate" class="headerlink" title="4.enumerate"></a>4.enumerate</h2><p>下面两端代码执行结果一样的。<br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x &#x3D; [2, 3, 4, 5]</span><br><span class="line">for i in range(len(x)):</span><br><span class="line">    print(i, x[i])</span><br></pre></td></tr></table></figure><br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> x &#x3D; [2, 3, 4, 5]</span><br><span class="line">for i, e in enumerate(x):</span><br><span class="line">    print(i, x[i])</span><br></pre></td></tr></table></figure><br> <br>结果为:<br></p>
 <p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="/images/python/yufa/4.jpg" alt="avatar"><br></p>
 <h2 id="5-zip混合打印技巧"><a href="#5-zip混合打印技巧" class="headerlink" title="5.zip混合打印技巧"></a>5.zip混合打印技巧</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">names &#x3D; [&#39;Tim&#39;, &#39;Bill&#39;, &#39;Boe&#39;]</span><br><span class="line">ages &#x3D; [19, 64, 34, 76]</span><br><span class="line">fav_color &#x3D; [&#39;blue&#39;, &#39;red&#39;, &#39;green&#39;]</span><br><span class="line">for i in range(len(names)):</span><br><span class="line">    print(names[i], ages[i], fav_color[i])</span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="/images/python/yufa/5.jpg" alt="avatar"><br><br><br>可以把for替换如下：<br></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(list(zip(names, ages, fav_color)))</span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="/images/python/yufa/6.jpg" alt="avatar"><br><br><br>或者：<br></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">for tup in zip(names, ages, fav_color):</span><br><span class="line">    print(tup)</span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="/images/python/yufa/7.jpg" alt="avatar"><br><br><br>再或者：<br></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">for name, age, color in zip(names, ages, fav_color):</span><br><span class="line">    print(name, age, color)</span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="/images/python/yufa/8.jpg" alt="avatar"><br></p>
+<p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="/images/python/yufa/5.jpg" alt="avatar"><br><br><br>可以把for替换如下：<br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(list(zip(names, ages, fav_color)))</span><br></pre></td></tr></table></figure><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="/images/python/yufa/6.jpg" alt="avatar"><br><br><br>或者：<br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">for tup in zip(names, ages, fav_color):</span><br><span class="line">    print(tup)</span><br></pre></td></tr></table></figure><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="/images/python/yufa/7.jpg" alt="avatar"><br><br><br>再或者：<br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">for name, age, color in zip(names, ages, fav_color):</span><br><span class="line">    print(name, age, color)</span><br></pre></td></tr></table></figure><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="/images/python/yufa/8.jpg" alt="avatar"><br></p>
 <h2 id="6-help查看函数帮助"><a href="#6-help查看函数帮助" class="headerlink" title="6.help查看函数帮助"></a>6.help查看函数帮助</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">help(input)</span><br></pre></td></tr></table></figure>
 <p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="/images/python/yufa/9.jpg" alt="avatar"><br></p>
 <h2 id="7-把for放入数组内"><a href="#7-把for放入数组内" class="headerlink" title="7.把for放入数组内"></a>7.把for放入数组内</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">a &#x3D; [i for i in range(5)]</span><br><span class="line">b &#x3D; [i for i in range(5) if i%2 &#x3D;&#x3D; 0]</span><br><span class="line">c &#x3D; [[1] for i in range(5)]</span><br><span class="line">d &#x3D; [[j for j in range(i)] for i in range(5)]</span><br><span class="line">e &#x3D; [[x, y] for x, y in zip(range(5), range(5, 10))]</span><br><span class="line">print(f&#39;a &#x3D; &#123;a&#125;&#39;)</span><br><span class="line">print(f&#39;b &#x3D; &#123;b&#125;&#39;)</span><br><span class="line">print(f&#39;c &#x3D; &#123;c&#125;&#39;)</span><br><span class="line">print(f&#39;d &#x3D; &#123;d&#125;&#39;)</span><br><span class="line">print(f&#39;e &#x3D; &#123;e&#125;&#39;)</span><br></pre></td></tr></table></figure>
@@ -555,7 +550,7 @@
               
                 <a href="/archives%7C%7C%20archive">
               
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -598,7 +593,7 @@
             <div class="links-of-author motion-element">
                 
                   <span class="links-of-author-item">
-                    <a href="mailto:tyuhgfjytujhgj55674211@gmail.com" target="_blank" title="E-Mail">
+                    <a href="mailto:2858000522@qq.com" target="_blank" title="E-Mail">
                       
                         <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
                   </span>
@@ -661,13 +656,36 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">14k</span>
+    <span title="Site words total count">14.6k</span>
   
 </div>
 
 
 
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
         
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
 
 
 
@@ -831,6 +849,8 @@
   
 
   
+  
+
 
   
 

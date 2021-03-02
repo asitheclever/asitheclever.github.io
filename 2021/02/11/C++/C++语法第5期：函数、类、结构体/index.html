@@ -336,6 +336,11 @@
           
 
           
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
 
           
             <div class="post-wordcount">
@@ -385,27 +390,21 @@
       
 
       
-        <p>&emsp;&emsp;这一期介绍C++的函数、类、结构体，这三样都是提高编程效率的工具，故放在一起。</p>
-<a id="more"></a>
-
+        <p>&emsp;&emsp;这一期介绍C++的函数、类、结构体，这三样都是提高编程效率的工具，故放在一起。<br><a id="more"></a></p>
 <h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><h2 id="传值参数和传引用参数"><a href="#传值参数和传引用参数" class="headerlink" title="传值参数和传引用参数"></a>传值参数和传引用参数</h2><ol>
 <li>传值参数对变量的改变不会引起初始值改变，下面这段代码运行结果是10。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int f(int x)&#123;</span><br><span class="line">    x &#x3D; 5;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">    int x &#x3D; 10;</span><br><span class="line">    f(x);</span><br><span class="line">    cout &lt;&lt; x &lt;&lt; endl;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 <li>传引用参数会改变初始值,下面这段代码运行结果是5。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int f(int &amp;x)&#123;</span><br><span class="line">    x &#x3D; 5;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">    int x &#x3D; 10;</span><br><span class="line">    f(x);</span><br><span class="line">    cout &lt;&lt; x &lt;&lt; endl;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="函数返回数组"><a href="#函数返回数组" class="headerlink" title="函数返回数组"></a>函数返回数组</h2>&emsp;&emsp;C++的函数不能像Python那样直接返回数组，必须借助额外的手段。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">void add(float a[3], float b[3],float sum[3])</span><br><span class="line">&#123;</span><br><span class="line">    sum[0] &#x3D; a[0] + b[0];</span><br><span class="line">    sum[1] &#x3D; a[1] + b[1];</span><br><span class="line">    sum[2] &#x3D; a[2] + b[2];</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    float A[3] &#x3D; &#123; 1, 1, 1&#125;;</span><br><span class="line">    float B[3] &#x3D; &#123; 1, 2,3&#125;;</span><br><span class="line">    float M[3];</span><br><span class="line">    add(A, B, M);</span><br><span class="line">    cout &lt;&lt; M[0] &lt;&lt; &quot; &quot; &lt;&lt; M[1] &lt;&lt; &quot;  &quot;&lt;&lt;M[2]&lt;&lt;endl;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 结果是：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2 3  4</span><br></pre></td></tr></table></figure>
-
 </li>
 </ol>
 <h1 id="类"><a href="#类" class="headerlink" title="类"></a>类</h1><p>&emsp;&emsp;请看下面一段代码，private里面的东西是私有属性，外界无法访问，public是公有的，可以访问。在类里面，没有声明私有公有的是私有。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">class Cat</span><br><span class="line">&#123;</span><br><span class="line">    private:</span><br><span class="line">        int age;</span><br><span class="line">        double weight;</span><br><span class="line">    </span><br><span class="line">    public:</span><br><span class="line">        string name;</span><br><span class="line">        </span><br><span class="line">        void say()</span><br><span class="line">        &#123;</span><br><span class="line">            cout &lt;&lt; &quot;miao: &quot; &lt;&lt; name &lt;&lt; endl;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        int set_age(int a)</span><br><span class="line">        &#123;</span><br><span class="line">            age &#x3D; a;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        int get_age()</span><br><span class="line">        &#123;</span><br><span class="line">            return age;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    Cat c;</span><br><span class="line">    c.name &#x3D; &quot;Ketty&quot;;      &#x2F;&#x2F; 正确！访问公有变量</span><br><span class="line">&#x2F;&#x2F;    c.age &#x3D; 5;          &#x2F;&#x2F; 错误！无法访问私有变量</span><br><span class="line">    c.set_age(5);       &#x2F;&#x2F; 正确！set_age()是共有成员变量</span><br><span class="line">    c.say();</span><br><span class="line">    cout &lt;&lt; c.get_age() &lt;&lt; endl;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>结果是：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">miao: Ketty</span><br><span class="line">5</span><br></pre></td></tr></table></figure>
-
 <h1 id="结构体"><a href="#结构体" class="headerlink" title="结构体"></a>结构体</h1><p>&emsp;&emsp;上面那段代码完全可以写成结构体的形式，只需要把class改成struct即可，程序执行效果一模一样。struct和class唯一的区别就是struct没有声明变量是不是隐私的私有，默认是公有的。和Python一样，C++类和结构体里面的函数也是可以提前传值的。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">struct Cat</span><br><span class="line">&#123;</span><br><span class="line">    int age;</span><br><span class="line">    double weight;</span><br><span class="line">    Cat(int _age, double _weight)&#123;</span><br><span class="line">        age &#x3D; _age;</span><br><span class="line">        weight &#x3D; _weight;</span><br><span class="line">    &#125;</span><br><span class="line">    &#x2F;&#x2F; 上面这一段也可以像下面这样写运行效率更高！</span><br><span class="line">    &#x2F;&#x2F; Cat(int _age, double _weight) : age(_age), weight(_weight)&#123;&#125;</span><br><span class="line">    void miao()&#123;</span><br><span class="line">        cout &lt;&lt; age &lt;&lt; endl;</span><br><span class="line">        cout &lt;&lt; weight &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    Cat c(3, 3.0);</span><br><span class="line">    c.miao();</span><br><span class="line">    cout &lt;&lt; &quot;change!&quot; &lt;&lt; endl;</span><br><span class="line">    c.age &#x3D; 5;</span><br><span class="line">    c.weight &#x3D; 5.0;</span><br><span class="line">    c.miao();</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>结果是：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">3</span><br><span class="line">change!</span><br><span class="line">5</span><br><span class="line">5</span><br></pre></td></tr></table></figure>
+<p>结果是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">3</span><br><span class="line">change!</span><br><span class="line">5</span><br><span class="line">5</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -531,7 +530,7 @@
               
                 <a href="/archives%7C%7C%20archive">
               
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -574,7 +573,7 @@
             <div class="links-of-author motion-element">
                 
                   <span class="links-of-author-item">
-                    <a href="mailto:tyuhgfjytujhgj55674211@gmail.com" target="_blank" title="E-Mail">
+                    <a href="mailto:2858000522@qq.com" target="_blank" title="E-Mail">
                       
                         <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
                   </span>
@@ -637,13 +636,36 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">14k</span>
+    <span title="Site words total count">14.6k</span>
   
 </div>
 
 
 
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
         
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
 
 
 
@@ -807,6 +829,8 @@
   
 
   
+  
+
 
   
 

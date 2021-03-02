@@ -336,6 +336,11 @@
           
 
           
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
 
           
             <div class="post-wordcount">
@@ -385,16 +390,13 @@
       
 
       
-        <p>&emsp;&emsp;这一期介绍C++的字符串，学到这个玩意才感觉Python确实比C++方便了不知道多少倍。</p>
-<a id="more"></a>
-
+        <p>&emsp;&emsp;这一期介绍C++的字符串，学到这个玩意才感觉Python确实比C++方便了不知道多少倍。<br><a id="more"></a></p>
 <h2 id="整行读入char类型字符串"><a href="#整行读入char类型字符串" class="headerlink" title="整行读入char类型字符串"></a>整行读入char类型字符串</h2><h3 id="fgets"><a href="#fgets" class="headerlink" title="fgets"></a>fgets</h3><p>&emsp;&emsp;fgets用于整行读入，回车也会读进去。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">char str[101];</span><br><span class="line">fgets(str, 101, stdin);</span><br></pre></td></tr></table></figure>
 <h3 id="读入字符串char"><a href="#读入字符串char" class="headerlink" title="读入字符串char"></a>读入字符串char</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">char str[31];</span><br><span class="line">scanf(&quot;%s&quot;, str);</span><br></pre></td></tr></table></figure>
 <h2 id="整行读入string类型字符串"><a href="#整行读入string类型字符串" class="headerlink" title="整行读入string类型字符串"></a>整行读入string类型字符串</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">string s;</span><br><span class="line">getline(cin, s);</span><br></pre></td></tr></table></figure>
 <h2 id="字符串string的长度"><a href="#字符串string的长度" class="headerlink" title="字符串string的长度"></a>字符串string的长度</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">string a;</span><br><span class="line">cout &lt;&lt; a.size();</span><br></pre></td></tr></table></figure>
 <h2 id="stringstream"><a href="#stringstream" class="headerlink" title="stringstream"></a>stringstream</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;sstream&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    string s, a, b;</span><br><span class="line"></span><br><span class="line">    getline(cin, s);</span><br><span class="line">    cin &gt;&gt; a &gt;&gt; b;</span><br><span class="line"></span><br><span class="line">    stringstream ssin(s);</span><br><span class="line">    string str;</span><br><span class="line">    while (ssin &gt;&gt; str)</span><br><span class="line">        if (str &#x3D;&#x3D; a) cout &lt;&lt; b &lt;&lt; &#39; &#39;;</span><br><span class="line">        else cout &lt;&lt; str &lt;&lt; &#39; &#39;;</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <h2 id="获取字符串长度strlen"><a href="#获取字符串长度strlen" class="headerlink" title="获取字符串长度strlen"></a>获取字符串长度strlen</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;cstring&gt;</span><br><span class="line">char a[100];</span><br><span class="line">cin &gt;&gt; a;</span><br><span class="line">cout &lt;&lt; strlen(a);</span><br></pre></td></tr></table></figure>
 <h2 id="string-删除操作"><a href="#string-删除操作" class="headerlink" title="string 删除操作"></a>string 删除操作</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">if (str.back() &#x3D;&#x3D; &#39;.&#39;) str.pop_back();</span><br></pre></td></tr></table></figure>
 <h2 id="string的子串"><a href="#string的子串" class="headerlink" title="string的子串"></a>string的子串</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">string a;</span><br><span class="line">cin &gt;&gt; a;</span><br><span class="line">cout &lt;&lt; a.substr(1);</span><br></pre></td></tr></table></figure>
@@ -522,7 +524,7 @@
               
                 <a href="/archives%7C%7C%20archive">
               
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -565,7 +567,7 @@
             <div class="links-of-author motion-element">
                 
                   <span class="links-of-author-item">
-                    <a href="mailto:tyuhgfjytujhgj55674211@gmail.com" target="_blank" title="E-Mail">
+                    <a href="mailto:2858000522@qq.com" target="_blank" title="E-Mail">
                       
                         <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
                   </span>
@@ -628,13 +630,36 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">14k</span>
+    <span title="Site words total count">14.6k</span>
   
 </div>
 
 
 
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
         
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
 
 
 
@@ -798,6 +823,8 @@
   
 
   
+  
+
 
   
 
