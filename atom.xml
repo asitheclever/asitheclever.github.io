@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://asitheclever.github.io/"/>
-  <updated>2021-03-07T01:32:50.215Z</updated>
+  <updated>2021-04-20T11:25:37.980Z</updated>
   <id>http://asitheclever.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>神经网络第2期：神经网络的细节</title>
+    <link href="http://asitheclever.github.io/2021/04/20/machinelearning/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%AC%AC3%E6%9C%9F/"/>
+    <id>http://asitheclever.github.io/2021/04/20/machinelearning/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%AC%AC3%E6%9C%9F/</id>
+    <published>2021-04-20T10:25:55.989Z</published>
+    <updated>2021-04-20T11:25:37.980Z</updated>
+    
+    <content type="html"><![CDATA[<p>&emsp;&emsp;本期将对神经网络的各种细节做总结，持续更新。<br><a id="more"></a></p><h2 id="一-激活函数"><a href="#一-激活函数" class="headerlink" title="一.激活函数"></a>一.激活函数</h2><p>&emsp;&emsp;单个神经元的输入信号是各路输入信号与相应权重的乘积之和sum，输出信号是激活函数处理以后的sum。如果不用激活函数，神经网络每一层输出都是上层输入的线性函数，这样不管神经网络有多少层，输出都是输入的线性组合，这和没有隐藏层效果一样。加上激活函数，能使神经网络拟合与非线性函数。</p><h3 id="1-sigmoid"><a href="#1-sigmoid" class="headerlink" title="1.sigmoid"></a>1.sigmoid</h3><p>&emsp;&emsp;sigmoid函数的公式如下：</p><script type="math/tex; mode=display">sigmoid:y=\frac{1}{e^{-x}+1}</script><p>&emsp;&emsp;sigmoid函数的图为：</p><p><div align=center><img width = '400' src ="/images/python/ml/nn/8.png"/></div></p><p><center>图1</center><br>&emsp;&emsp;可以看出sigmoid对靠近中间的信号有比较大的增益，对大信号有抑制。</p><h3 id="2-tanh"><a href="#2-tanh" class="headerlink" title="2.tanh"></a>2.tanh</h3><p>&emsp;&emsp;tanh函数的公式如下：</p><script type="math/tex; mode=display">tanh:y=\frac{e^{x}-e^{-x}}{e^{x}+e^{-x}}</script><p>&emsp;&emsp;tanh函数的图为：</p><p><div align=center><img width = '400' src ="/images/python/ml/nn/9.png"/></div></p><p><center>图2</center><br>&emsp;&emsp;tanh函数跟sigmoid很像，但是效果比它好一点。</p><h3 id="3-relu"><a href="#3-relu" class="headerlink" title="3.relu"></a>3.relu</h3><p>&emsp;&emsp;relu函数的公式如下：</p><script type="math/tex; mode=display">elu:y=max(x, 0)</script><p>&emsp;&emsp;relu函数的图为：</p><p><div align=center><img width = '400' src ="/images/python/ml/nn/10.png"/></div></p><p><center>图3</center></p><h3 id="4-softplus"><a href="#4-softplus" class="headerlink" title="4.softplus"></a>4.softplus</h3><p>&emsp;&emsp;softplus函数的公式如下：</p><script type="math/tex; mode=display">softplus:y=log_e^{1 + e ** x}</script><p>&emsp;&emsp;softplus函数的图为：</p><p><div align=center><img width = '400' src ="/images/python/ml/nn/11.png"/></div></p><p><center>图4</center></p><h3 id="5-softmax"><a href="#5-softmax" class="headerlink" title="5.softmax"></a>5.softmax</h3><p>&emsp;&emsp;softmax函数比较杀马特，公式如下：</p><script type="math/tex; mode=display">softmax:y_i=\frac{e^{x_i}}{\sum_{k=1}^ne^{x_k}}</script><p>&emsp;&emsp;n代表输入的个数，y代表输出。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;emsp;&amp;emsp;本期将对神经网络的各种细节做总结，持续更新。&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="-机器学习" scheme="http://asitheclever.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="python" scheme="http://asitheclever.github.io/tags/python/"/>
+    
+      <category term="neural network" scheme="http://asitheclever.github.io/tags/neural-network/"/>
+    
+      <category term="machine learning" scheme="http://asitheclever.github.io/tags/machine-learning/"/>
+    
+      <category term="deep learning" scheme="http://asitheclever.github.io/tags/deep-learning/"/>
+    
+  </entry>
   
   <entry>
     <title>C++语法第7期 STL、常用库函数</title>
@@ -171,9 +200,9 @@
     <link href="http://asitheclever.github.io/2021/01/31/machinelearning/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%AC%AC2%E6%9C%9F/"/>
     <id>http://asitheclever.github.io/2021/01/31/machinelearning/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%AC%AC2%E6%9C%9F/</id>
     <published>2021-01-31T02:59:15.998Z</published>
-    <updated>2021-03-02T08:40:16.142Z</updated>
+    <updated>2021-04-20T10:27:18.423Z</updated>
     
-    <content type="html"><![CDATA[<p>&emsp;&emsp;本期我将介绍神经网络的简单数学原理，解决两个问题，给定一个神经网络和输入如何计算输出？神经网络数学上是如何训练的？<br><a id="more"></a></p><h1 id="一-从输入到输出的计算"><a href="#一-从输入到输出的计算" class="headerlink" title="一.从输入到输出的计算"></a>一.从输入到输出的计算</h1><p>&emsp;&emsp;这一小节介绍给定一个神经网络以及输入，如何求出它的输出。神经网络由许多有计算功能的节点组成，下图展示的就是神经网络的一个节点。</p><p><div align=center><img width = '400' src ="/images/python/ml/nn/4.png"/></div></p><p><center>图1</center><br>&emsp;&emsp;神经网络的节点包含两个部分。如上图所示，左半部分是求和函数，将所有输入到这个节点的信号加起来得到x。右半部分是激活函数，对左半部分求得的输入和x再次处理，一般是sigmoid函数或者是relu函数，在本文中，所有的激活函数都是指sigmoid函数。激活函数是模拟神经元设计的，动物的神经元不是说一接收到信号就马上处理，而是超过某个阈值后才激活，这样能减少很多噪声的干扰，避免不必要的消耗。</p><script type="math/tex; mode=display">sigmoid:y=\frac{1}{e^{-x}+1}</script><p>&emsp;&emsp;下图是只有两个层的神经网络，可以比较清晰地看清计算过程。某一层的输入等于上一层节点的输出乘上相应的权重，加上上面讲的输出到输出方法的介绍，就可以在已知某个输入的情况下计算神经网络的输出。</p><p><div align=center><img width = '400' src ="/images/python/ml/nn/5.png"/></div></p><p><center>图2</center></p><script type="math/tex; mode=display">0.7408=sigmoid(1.0×0.9+0.5×0.3)</script><script type="math/tex; mode=display">0.6457=sigmoid(1.0×0.2+0.5×0.8)</script><p>&emsp;&emsp;利用上面的方法，无论多么复杂的神经网络，都能计算。</p><h1 id="二-训练神经网络"><a href="#二-训练神经网络" class="headerlink" title="二.训练神经网络"></a>二.训练神经网络</h1><p>&emsp;&emsp;上面介绍了神经网络输入到输出的计算方法，训练神经网络的本质就是给定一个输出，调整神经网络里面的权重（就是图2里面的0.9、0.3这种东西），让输出和期望输出的差值变小。在监督学习里面，期望输出由数据的标签给定。</p><script type="math/tex; mode=display">e_k=(t_k-o_k)^2</script><p>&emsp;&emsp;图3和图4是已知差错以后反向传递的计算结果。差错前向传递都是靠权重的大小来分配的。图3是将输出的差错从输出层分配隐藏层。</p><script type="math/tex; mode=display">0.7=1.5×\frac{2.0}{2.0+3.0}+0.5×\frac{1.0}{1.0+4.0}</script><script type="math/tex; mode=display">1.3=1.5×\frac{3.0}{2.0+3.0}+0.5×\frac{4.0}{1.0+4.0}</script><p><div align=center><img width = '400' src ="/images/python/ml/nn/6.png"/></div></p><p><center>图3</center><br>&emsp;&emsp;图4是将输出的差错从隐藏层分配到输入层。</p><script type="math/tex; mode=display">0.5825=0.7×\frac{3.0}{2.0+3.0}+1.3×\frac{1.0}{1.0+7.0}</script><script type="math/tex; mode=display">1.4175=0.7×\frac{2.0}{2.0+3.0}+1.3×\frac{7.0}{1.0+7.0}</script><p><div align=center><img width = '400' src ="/images/python/ml/nn/7.png"/></div></p><p><center>图4</center><br>&emsp;&emsp;分配完差错，求差错对于权重的导数，就可以迭代更新权重了。</p><script type="math/tex; mode=display">new \, w_ {jk}=old \, w_ {jk}-\eta \frac{\partial E}{\partial w_ {jk}}</script><p>&emsp;&emsp;多次更新迭代权重以后，差错就会越来越小，这样神经网络的模型就能开始在给定特定的输入的情况下，产生特定的输出的概率就会越来越大。从下一期开始我会介绍编程实现简单的神经网络。</p>]]></content>
+    <content type="html"><![CDATA[<p>&emsp;&emsp;本期我将介绍神经网络的简单数学原理，解决两个问题，给定一个神经网络和输入如何计算输出？神经网络数学上是如何训练的？<br><a id="more"></a></p><h1 id="一-从输入到输出的计算"><a href="#一-从输入到输出的计算" class="headerlink" title="一.从输入到输出的计算"></a>一.从输入到输出的计算</h1><p>&emsp;&emsp;这一小节介绍给定一个神经网络以及输入，如何求出它的输出。神经网络由许多有计算功能的节点组成，下图展示的就是神经网络的一个节点。</p><p><div align=center><img width = '400' src ="/images/python/ml/nn/4.png"/></div></p><p><center>图1</center><br>&emsp;&emsp;神经网络的节点包含两个部分。如上图所示，左半部分是求和函数，将所有输入到这个节点的信号加起来得到x。右半部分是激活函数，对左半部分求得的输入和x再次处理，一般是sigmoid函数或者是relu函数，在本文中，所有的激活函数都是指sigmoid函数。激活函数是模拟神经元设计的，动物的神经元不是说一接收到信号就马上处理，而是超过某个阈值后才激活，这样能减少很多噪声的干扰，避免不必要的消耗。</p><script type="math/tex; mode=display">sigmoid:y=\frac{1}{e^{-x}+1}</script><p>&emsp;&emsp;下图是只有两个层的神经网络，可以比较清晰地看清计算过程。某一层的输入等于上一层节点的输出乘上相应的权重，加上上面讲的输出到输出方法的介绍，就可以在已知某个输入的情况下计算神经网络的输出。</p><p><div align=center><img width = '400' src ="/images/python/ml/nn/5.png"/></div></p><p><center>图2</center></p><script type="math/tex; mode=display">0.7408=sigmoid(1.0×0.9+0.5×0.3)</script><script type="math/tex; mode=display">0.6457=sigmoid(1.0×0.2+0.5×0.8)</script><p>&emsp;&emsp;利用上面的方法，无论多么复杂的神经网络，都能计算。</p><h1 id="二-训练神经网络"><a href="#二-训练神经网络" class="headerlink" title="二.训练神经网络"></a>二.训练神经网络</h1><p>&emsp;&emsp;上面介绍了神经网络输入到输出的计算方法，训练神经网络的本质就是给定一个输出，调整神经网络里面的权重（就是图2里面的0.9、0.3这种东西），让输出和期望输出的差值变小。在监督学习里面，期望输出由数据的标签给定。</p><script type="math/tex; mode=display">e_k=(t_k-o_k)^2</script><p>&emsp;&emsp;图3和图4是已知差错以后反向传递的计算结果。差错前向传递都是靠权重的大小来分配的。图3是将输出的差错从输出层分配隐藏层。</p><script type="math/tex; mode=display">0.7=1.5×\frac{2.0}{2.0+3.0}+0.5×\frac{1.0}{1.0+4.0}</script><script type="math/tex; mode=display">1.3=1.5×\frac{3.0}{2.0+3.0}+0.5×\frac{4.0}{1.0+4.0}</script><p><div align=center><img width = '400' src ="/images/python/ml/nn/6.png"/></div></p><p><center>图3</center><br>&emsp;&emsp;图4是将输出的差错从隐藏层分配到输入层。</p><script type="math/tex; mode=display">0.5825=0.7×\frac{3.0}{2.0+3.0}+1.3×\frac{1.0}{1.0+7.0}</script><script type="math/tex; mode=display">1.4175=0.7×\frac{2.0}{2.0+3.0}+1.3×\frac{7.0}{1.0+7.0}</script><p><div align=center><img width = '400' src ="/images/python/ml/nn/7.png"/></div></p><p><center>图4</center><br>&emsp;&emsp;分配完差错，求差错对于权重的导数，就可以迭代更新权重了。</p><script type="math/tex; mode=display">new \, w_ {jk}=old \, w_ {jk}-\eta \frac{\partial E}{\partial w_ {jk}}</script><p>&emsp;&emsp;多次更新迭代权重以后，差错就会越来越小，这样神经网络的模型就能开始在给定特定的输入的情况下，产生特定的输出的概率就会越来越大。</p>]]></content>
     
     <summary type="html">
     
@@ -192,8 +221,6 @@
       <category term="machine learning" scheme="http://asitheclever.github.io/tags/machine-learning/"/>
     
       <category term="deep learning" scheme="http://asitheclever.github.io/tags/deep-learning/"/>
-    
-      <category term="tensorflow" scheme="http://asitheclever.github.io/tags/tensorflow/"/>
     
   </entry>
   
