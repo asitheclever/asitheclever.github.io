@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://asitheclever.github.io/"/>
-  <updated>2021-04-20T11:25:37.980Z</updated>
+  <updated>2021-04-20T11:28:09.763Z</updated>
   <id>http://asitheclever.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>神经网络第2期：神经网络的细节</title>
+    <title>神经网络第3期：神经网络的细节</title>
     <link href="http://asitheclever.github.io/2021/04/20/machinelearning/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%AC%AC3%E6%9C%9F/"/>
     <id>http://asitheclever.github.io/2021/04/20/machinelearning/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%AC%AC3%E6%9C%9F/</id>
     <published>2021-04-20T10:25:55.989Z</published>
-    <updated>2021-04-20T11:25:37.980Z</updated>
+    <updated>2021-04-20T11:28:09.763Z</updated>
     
     <content type="html"><![CDATA[<p>&emsp;&emsp;本期将对神经网络的各种细节做总结，持续更新。<br><a id="more"></a></p><h2 id="一-激活函数"><a href="#一-激活函数" class="headerlink" title="一.激活函数"></a>一.激活函数</h2><p>&emsp;&emsp;单个神经元的输入信号是各路输入信号与相应权重的乘积之和sum，输出信号是激活函数处理以后的sum。如果不用激活函数，神经网络每一层输出都是上层输入的线性函数，这样不管神经网络有多少层，输出都是输入的线性组合，这和没有隐藏层效果一样。加上激活函数，能使神经网络拟合与非线性函数。</p><h3 id="1-sigmoid"><a href="#1-sigmoid" class="headerlink" title="1.sigmoid"></a>1.sigmoid</h3><p>&emsp;&emsp;sigmoid函数的公式如下：</p><script type="math/tex; mode=display">sigmoid:y=\frac{1}{e^{-x}+1}</script><p>&emsp;&emsp;sigmoid函数的图为：</p><p><div align=center><img width = '400' src ="/images/python/ml/nn/8.png"/></div></p><p><center>图1</center><br>&emsp;&emsp;可以看出sigmoid对靠近中间的信号有比较大的增益，对大信号有抑制。</p><h3 id="2-tanh"><a href="#2-tanh" class="headerlink" title="2.tanh"></a>2.tanh</h3><p>&emsp;&emsp;tanh函数的公式如下：</p><script type="math/tex; mode=display">tanh:y=\frac{e^{x}-e^{-x}}{e^{x}+e^{-x}}</script><p>&emsp;&emsp;tanh函数的图为：</p><p><div align=center><img width = '400' src ="/images/python/ml/nn/9.png"/></div></p><p><center>图2</center><br>&emsp;&emsp;tanh函数跟sigmoid很像，但是效果比它好一点。</p><h3 id="3-relu"><a href="#3-relu" class="headerlink" title="3.relu"></a>3.relu</h3><p>&emsp;&emsp;relu函数的公式如下：</p><script type="math/tex; mode=display">elu:y=max(x, 0)</script><p>&emsp;&emsp;relu函数的图为：</p><p><div align=center><img width = '400' src ="/images/python/ml/nn/10.png"/></div></p><p><center>图3</center></p><h3 id="4-softplus"><a href="#4-softplus" class="headerlink" title="4.softplus"></a>4.softplus</h3><p>&emsp;&emsp;softplus函数的公式如下：</p><script type="math/tex; mode=display">softplus:y=log_e^{1 + e ** x}</script><p>&emsp;&emsp;softplus函数的图为：</p><p><div align=center><img width = '400' src ="/images/python/ml/nn/11.png"/></div></p><p><center>图4</center></p><h3 id="5-softmax"><a href="#5-softmax" class="headerlink" title="5.softmax"></a>5.softmax</h3><p>&emsp;&emsp;softmax函数比较杀马特，公式如下：</p><script type="math/tex; mode=display">softmax:y_i=\frac{e^{x_i}}{\sum_{k=1}^ne^{x_k}}</script><p>&emsp;&emsp;n代表输入的个数，y代表输出。</p>]]></content>
     
