@@ -88,7 +88,7 @@
 <meta property="og:site_name" content="贪睡之熊的暖窝">
 <meta property="og:description" content="&amp;emsp;&amp;emsp;这一期介绍C++的函数、类、结构体，这三样都是提高编程效率的工具，故放在一起。">
 <meta property="article:published_time" content="2021-02-10T23:22:10.882Z">
-<meta property="article:modified_time" content="2021-02-27T01:52:18.800Z">
+<meta property="article:modified_time" content="2021-05-16T01:50:42.082Z">
 <meta property="article:author" content="Asitheclever">
 <meta property="article:tag" content="C++">
 <meta property="article:tag" content="语法">
@@ -353,7 +353,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  692 字
+                  892 字
                 </span>
               
 
@@ -369,7 +369,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3 分钟
+                  4 分钟
                 </span>
               
             </div>
@@ -405,6 +405,8 @@
 <h1 id="结构体"><a href="#结构体" class="headerlink" title="结构体"></a>结构体</h1><p>&emsp;&emsp;上面那段代码完全可以写成结构体的形式，只需要把class改成struct即可，程序执行效果一模一样。struct和class唯一的区别就是struct没有声明变量是不是隐私的私有，默认是公有的。和Python一样，C++类和结构体里面的函数也是可以提前传值的。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">struct Cat</span><br><span class="line">&#123;</span><br><span class="line">    int age;</span><br><span class="line">    double weight;</span><br><span class="line">    Cat(int _age, double _weight)&#123;</span><br><span class="line">        age &#x3D; _age;</span><br><span class="line">        weight &#x3D; _weight;</span><br><span class="line">    &#125;</span><br><span class="line">    &#x2F;&#x2F; 上面这一段也可以像下面这样写运行效率更高！</span><br><span class="line">    &#x2F;&#x2F; Cat(int _age, double _weight) : age(_age), weight(_weight)&#123;&#125;</span><br><span class="line">    void miao()&#123;</span><br><span class="line">        cout &lt;&lt; age &lt;&lt; endl;</span><br><span class="line">        cout &lt;&lt; weight &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    Cat c(3, 3.0);</span><br><span class="line">    c.miao();</span><br><span class="line">    cout &lt;&lt; &quot;change!&quot; &lt;&lt; endl;</span><br><span class="line">    c.age &#x3D; 5;</span><br><span class="line">    c.weight &#x3D; 5.0;</span><br><span class="line">    c.miao();</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>结果是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">3</span><br><span class="line">change!</span><br><span class="line">5</span><br><span class="line">5</span><br></pre></td></tr></table></figure></p>
+<h2 id="重载小于号"><a href="#重载小于号" class="headerlink" title="重载小于号"></a>重载小于号</h2><p>&emsp;&emsp;重载小于号还是比较难背而且常用的知识点，之前的那道美团笔试就考了。</p>
+<h3 id="链表的重载小于号"><a href="#链表的重载小于号" class="headerlink" title="链表的重载小于号"></a>链表的重载小于号</h3><p>&emsp;&emsp;题目见leetcode23题，合并k个链表。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;**</span><br><span class="line"> * Definition for singly-linked list.</span><br><span class="line"> * struct ListNode &#123;</span><br><span class="line"> *     int val;</span><br><span class="line"> *     ListNode *next;</span><br><span class="line"> *     ListNode() : val(0), next(nullptr) &#123;&#125;</span><br><span class="line"> *     ListNode(int x) : val(x), next(nullptr) &#123;&#125;</span><br><span class="line"> *     ListNode(int x, ListNode *next) : val(x), next(next) &#123;&#125;</span><br><span class="line"> * &#125;;</span><br><span class="line"> *&#x2F;</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    struct Cmp&#123;</span><br><span class="line">        bool operator() (ListNode* a, ListNode* b)</span><br><span class="line">        &#123;</span><br><span class="line">            return a-&gt;val &gt; b-&gt;val;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    ListNode* mergeKLists(vector&lt;ListNode*&gt;&amp; lists) &#123;</span><br><span class="line">        priority_queue&lt;ListNode*, vector&lt;ListNode*&gt;, Cmp&gt; heap;</span><br><span class="line">        auto dummy &#x3D; new ListNode(-1), tail &#x3D; dummy;</span><br><span class="line">        for(auto l : lists) if(l) heap.push(l);</span><br><span class="line">        while(heap.size())</span><br><span class="line">        &#123;</span><br><span class="line">            auto t &#x3D; heap.top();</span><br><span class="line">            heap.pop();</span><br><span class="line">            tail-&gt;next &#x3D; t;</span><br><span class="line">            tail &#x3D; tail-&gt;next;</span><br><span class="line">            if(t-&gt;next) heap.push(t-&gt;next);</span><br><span class="line">        &#125;</span><br><span class="line">        return dummy-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -602,7 +604,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#函数"><span class="nav-number">1.</span> <span class="nav-text">函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#传值参数和传引用参数"><span class="nav-number">1.1.</span> <span class="nav-text">传值参数和传引用参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数返回数组"><span class="nav-number">1.2.</span> <span class="nav-text">函数返回数组</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#类"><span class="nav-number">2.</span> <span class="nav-text">类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#结构体"><span class="nav-number">3.</span> <span class="nav-text">结构体</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#函数"><span class="nav-number">1.</span> <span class="nav-text">函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#传值参数和传引用参数"><span class="nav-number">1.1.</span> <span class="nav-text">传值参数和传引用参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数返回数组"><span class="nav-number">1.2.</span> <span class="nav-text">函数返回数组</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#类"><span class="nav-number">2.</span> <span class="nav-text">类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#结构体"><span class="nav-number">3.</span> <span class="nav-text">结构体</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#重载小于号"><span class="nav-number">3.1.</span> <span class="nav-text">重载小于号</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#链表的重载小于号"><span class="nav-number">3.1.1.</span> <span class="nav-text">链表的重载小于号</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -636,7 +638,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">15.7k</span>
+    <span title="Site words total count">15.9k</span>
   
 </div>
 
